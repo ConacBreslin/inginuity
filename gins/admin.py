@@ -18,7 +18,7 @@ class GinAdmin(admin.ModelAdmin):
         'name',
         'price',
         'rating',
-        'image',
+        'distillery',
     )
 
     ordering = ('price',)
