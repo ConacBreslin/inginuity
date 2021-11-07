@@ -38,7 +38,7 @@
                         {% if search_term or current_sorting != 'None_None' %}
                             <span class="small"><a href="{% url 'gins' %}">Gins Home</a> | </span>
                         {% endif %}
-                        {{ gins|length }} Gins found {% if search_term %} for <strong>"{{ search_term }}"</strong>{% endif %}
+                        {{ gins|length }} Results found {% if search_term %} for <strong>"{{ search_term }}"</strong>{% endif %}
                     </p>
                 </div>
             </div>
