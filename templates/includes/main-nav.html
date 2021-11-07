@@ -24,10 +24,11 @@
             <!--Mine need to filter a bit more-->
             <!--Not just whole category like this <a href="?category=jeans" class="dropdown-item">Jeans</a>-->
             <div class="dropdown-menu border-0" aria-labelledby="gins-link">
-                <a href="" class="dropdown-item">All Gins</a>
-                <a href="" class="dropdown-item">Sort by Price</a>
-                <a href="" class="dropdown-item">Sort by Rating</a>
-                <a href="" class="dropdown-item">Sort by Distillery</a>
+                <a href="{% url 'gins' %}" class="dropdown-item">All Gins</a>
+                <a href="{% url 'gins' %}?sort=name&direction=asc" class="dropdown-item">Sort by Name</a>
+                <a href="{% url 'gins' %}?sort=price&direction=asc" class="dropdown-item">Sort by Price</a>
+                <a href="{% url 'gins' %}?sort=rating&direction=desc" class="dropdown-item">Sort by Rating</a>
+                <a href="{% url 'gins' %}?sort=distillery&direction=asc" class="dropdown-item">Sort by Distillery</a>
             </div>
         </li>
     </ul>
