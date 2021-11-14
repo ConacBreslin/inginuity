@@ -1,6 +1,7 @@
 from decimal import Decimal
 from django.conf import settings
 
+
 def shoppingbag_contents(request):
 
     shoppingbag_items = []
@@ -13,9 +14,9 @@ def shoppingbag_contents(request):
     else:
         delivery = 0
         free_delivery_delta = 0
-    
+        
     grand_total = delivery + total
-    
+ 
     context = {
         'shoppingbag_items': shoppingbag_items,
         'total': total,
