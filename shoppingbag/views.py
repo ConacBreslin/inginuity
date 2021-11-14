@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse
+from django.contrib import messages
+from gins.models import Gin
 
 # Create your views here.
 
@@ -12,6 +14,7 @@ def view_shoppingbag(request):
 def add_to_shoppingbag(request, item_id):
     """The view to add quatity of items to shopping bag"""
 
+    gin = get_object_or_404(Gin, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     shoppingbag = request.session.get('shoppingbag', {})
