@@ -12,16 +12,15 @@ def shoppingbag_contents(request):
     shoppingbag = request.session.get('shoppingbag', {})
 
     for item_id, quantity in shoppingbag.items():
-            gin = get_object_or_404(Gin, pk=item_id)
-            total += quantity * gin.price
-            product_count += quantity
-            shoppingbag_items.append({
-                'item_id': item_id,
-                'quantity': quantity,
-                'gin': gin,
+        gin = get_object_or_404(Gin, pk=item_id)
+        total += quantity * gin.price
+        product_count += quantity
+        shoppingbag_items.append({
+            'item_id': item_id,
+            'quantity': quantity,
+            'gin': gin,
             })
         
-
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
