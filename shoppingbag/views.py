@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse
+from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 from django.contrib import messages
 from gins.models import Gin
 
@@ -14,7 +14,7 @@ def view_shoppingbag(request):
 def add_to_shoppingbag(request, item_id):
     """The view to add quatity of items to shopping bag"""
 
-    gin = get_object_or_404(Gin, pk=item_id)
+    gin = Gin.objects.get(pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     shoppingbag = request.session.get('shoppingbag', {})
@@ -23,6 +23,7 @@ def add_to_shoppingbag(request, item_id):
         shoppingbag[item_id] += quantity
     else:
         shoppingbag[item_id] = quantity
+        messages.success(request, f'Added {gin.name} to your shopping bag')
 
     request.session['shoppingbag'] = shoppingbag
     return redirect(redirect_url)
