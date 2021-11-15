@@ -6,7 +6,7 @@ from gins.models import Gin
 
 
 def view_shoppingbag(request):
-    """ The view to renders the bag contents page """
+    """The view to renders the bag contents page """
 
     return render(request, 'shoppingbag/shoppingbag.html')
 
@@ -31,7 +31,7 @@ def add_to_shoppingbag(request, item_id):
 
 
 def adjust_shoppingbag(request, item_id):
-    """Adjust the quantity of the specified product to the specified amount"""
+    """The view to adjust the quantity of the specified product to the specified amount"""
 
     gin = get_object_or_404(Gin, pk=item_id)
     quantity = int(request.POST.get('quantity'))
@@ -50,7 +50,7 @@ def adjust_shoppingbag(request, item_id):
 
 
 def remove_from_shoppingbag(request, item_id):
-    """Remove the item from the shopping bag"""
+    """The view to move the item from the shopping bag"""
 
     try:
         gin = get_object_or_404(Gin, pk=item_id)
