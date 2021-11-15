@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'gins',
     'shoppingbag',
     'checkout',
+    'crispy-forms',
 ]
 
 MIDDLEWARE = [
@@ -61,6 +62,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'inginuity.urls'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 TEMPLATES = [
     {
@@ -79,6 +82,10 @@ TEMPLATES = [
                 'django.template.context_processors.media',
                 'shoppingbag.contexts.shoppingbag_contents',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]
