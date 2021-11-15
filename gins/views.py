@@ -6,7 +6,7 @@ from .models import Gin, Distillery
 
 
 def all_gins(request):
-    """ A view to show all gins, including sorting and search queries """
+    """The view to show all the gins, including sorting and search queries """
 
     gins = Gin.objects.all()
     query = None
@@ -50,7 +50,7 @@ def all_gins(request):
 
 
 def individual_gin(request, gin_id):
-    """ A view to show individual gins """
+    """The view to show individual gins """
 
     gin = get_object_or_404(Gin, pk=gin_id)
 
