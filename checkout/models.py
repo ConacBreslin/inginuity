@@ -20,6 +20,8 @@ class Order(models.Model):
     delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
     order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    original_shoppingbag = models.TextField(null=False, blank=False, default='')
+    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
 
     def _generate_order_number(self):
         """Private method to generate a unique order number"""
@@ -55,6 +57,7 @@ class OrderLineItem(models.Model):
         """To override the save method and set the lineitem total and update the order total."""
         self.lineitem_total = self.gin.price * self.quantity
         super().save(*args, **kwargs)
+
 
     def __str__(self):
         return f'Order Number {self.order.order_number}'

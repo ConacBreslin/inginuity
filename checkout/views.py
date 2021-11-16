@@ -39,17 +39,21 @@ def checkout(request):
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
-            'phone_number': request.POST['phone_number'],        
-            'street_address1': request.POST['street_address1'],
-            'street_address2': request.POST['street_address2'],
-            'town_or_city': request.POST['town_or_city'],
-            'county': request.POST['county'],
+            'phone_number': request.POST['phone_number'],
             'country': request.POST['country'],
             'postcode': request.POST['postcode'],
+            'town_or_city': request.POST['town_or_city'],
+            'street_address1': request.POST['street_address1'],
+            'street_address2': request.POST['street_address2'],
+            'county': request.POST['county'],
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            order = order_form.save()
+            order = order_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.original_shoppingbag = json.dumps(shoppingbag)
+            order.save()
             for item_id, item_data in shoppingbag.items():
                 try:
                     gin = Gin.objects.get(id=item_id)
@@ -57,9 +61,9 @@ def checkout(request):
                     order=order,
                     gin=gin,
                     quantity=item_data,
-                        )
+                    )
                     order_line_item.save()
-                except Product.DoesNotExist:
+                except Gin.DoesNotExist:
                     messages.error(request, (
                         "One of the gins in your bag wasn't found in our database. "
                         "Please call us for assistance!")
