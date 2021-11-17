@@ -65,13 +65,13 @@ def individual_gin(request, gin_id):
 def add_gin(request):
     """ Add a gin to the store """
     if request.method == 'POST':
-        form = GINForm(request.POST, request.FILES)
+        form = GinForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Successfully added a new gin!')
-            return redirect(reverse('add_product'))
+            messages.success(request, 'You added a new gin!')
+            return redirect(reverse('add_gin'))
         else:
-            messages.error(request, 'Failed to add this gin. Please ensure the form is valid.')
+            messages.error(request, 'This gin failed to add. Please check the form is valid.')
     else:
         form = GinForm()
         

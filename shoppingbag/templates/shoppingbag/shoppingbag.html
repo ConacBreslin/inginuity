@@ -39,7 +39,11 @@
                         {% for item in shoppingbag_items %}
                             <tr>
                                 <td class="p-3 w-25">
-                                    <p>Need to sort image</p>>
+                                    {% if item.gin.image %}
+                            <img class="img-fluid rounded" src="{{ item.gin.image.url }}" alt="{{ item.gin.name }}">
+                            {% else %}
+                            <img class="img-fluid rounded" src="{{ MEDIA_URL }}emptybottle.jpg" alt="{{ item.gin.name }}">
+                            {% endif %}
                                 </td>
                                 <td class="py-3">
                                     <p class="my-0"><strong>{{ item.gin.name }}</strong></p>
