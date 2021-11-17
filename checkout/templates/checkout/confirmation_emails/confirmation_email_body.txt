@@ -1,0 +1,22 @@
+Dear {{ order.full_name }}!
+
+Thank you very much for placing an order with Inginuity. Your order information is below:
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.date }}
+
+Order Total: ${{ order.order_total }}
+Delivery: €{{ order.delivery_cost }}
+Grand Total: €{{ order.grand_total }}
+
+Your order will be delivered to {{ order.street_address1 }}, {{ order.town_or_city }}, {{ order.country }}.
+
+THe contact number we have for you is {{ order.phone_number }}.
+
+If you have any questions please contact us at {{ contact_email }}.
+
+We appreciate you custom and look forward to seeing you back soon.
+
+Cheers!
+
+The Inginuity team.
