@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Gin, Distillery
+from .forms import GinForm
 
 
 def all_gins(request):
@@ -59,3 +60,24 @@ def individual_gin(request, gin_id):
     }
 
     return render(request, 'gins/individual_gin.html', context)
+
+
+def add_gin(request):
+    """ Add a gin to the store """
+    if request.method == 'POST':
+        form = GINForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added a new gin!')
+            return redirect(reverse('add_product'))
+        else:
+            messages.error(request, 'Failed to add this gin. Please ensure the form is valid.')
+    else:
+        form = GinForm()
+        
+    template = 'gins/add_gin.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
