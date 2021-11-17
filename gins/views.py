@@ -63,8 +63,13 @@ def individual_gin(request, gin_id):
     return render(request, 'gins/individual_gin.html', context)
 
 
+@login_required
 def add_gin(request):
-    """The view to add a gin to the store """
+    """The view to add a gin to the store"""
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, approved users can do this.')
+        return redirect(reverse('home'))
+
     if request.method == 'POST':
         form = GinForm(request.POST, request.FILES)
         if form.is_valid():
@@ -88,7 +93,7 @@ def add_gin(request):
 def edit_gin(request, gin_id):
     """The view to edit a gin on the site"""
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only approved users can do that.')
+        messages.error(request, 'Sorry, only approved users can do this.')
         return redirect(reverse('home'))
 
     gin = get_object_or_404(Gin, pk=gin_id)
@@ -96,7 +101,7 @@ def edit_gin(request, gin_id):
         form = GinForm(request.POST, request.FILES, instance=gin)
         if form.is_valid():
             form.save()
-            messages.success(request, 'You updated thi gin!')
+            messages.success(request, 'You updated this gin!')
             return redirect(reverse('individual_gin', args=[gin.id]))
         else:
             messages.error(request, 'This gin failed to update. Please ensure the form is valid.')
