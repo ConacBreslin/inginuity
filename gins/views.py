@@ -122,7 +122,7 @@ def edit_gin(request, gin_id):
 def delete_gin(request, gin_id):
     """The view to delete a gin from the site"""
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only authorised users can do that.')
+        messages.error(request, 'Sorry, only approved users can do this.')
         return redirect(reverse('home'))
 
     gin = get_object_or_404(Gin, pk=gin_id)
