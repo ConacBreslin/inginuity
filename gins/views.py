@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
+from django.contrib.auth.decorators import login_required
 from .models import Gin, Distillery
 from .forms import GinForm
 
@@ -78,6 +79,35 @@ def add_gin(request):
     template = 'gins/add_gin.html'
     context = {
         'form': form,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def edit_gin(request, gin_id):
+    """ Edit a gin in the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only approved users can do that.')
+        return redirect(reverse('home'))
+
+    gin = get_object_or_404(Gin, pk=gin_id)
+    if request.method == 'POST':
+        form = GinForm(request.POST, request.FILES, instance=gin)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'You updated thi gin!')
+            return redirect(reverse('individual_gin', args=[gin.id]))
+        else:
+            messages.error(request, 'This gin failed to update. Please ensure the form is valid.')
+    else:
+        form = GinForm(instance=product)
+        messages.info(request, f'You are editing {gin.name}')
+
+    template = 'gins/edit_gin.html'
+    context = {
+        'form': form,
+        'gin': gin,
     }
 
     return render(request, template, context)
