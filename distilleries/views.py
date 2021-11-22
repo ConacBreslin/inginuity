@@ -1,5 +1,4 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, get_object_or_404
 from django.shortcuts import render
 from gins.models import Distillery
 
@@ -15,3 +14,18 @@ def all_distilleries(request):
     }
 
     return render(request, 'distilleries/distilleries.html', context)
+
+
+def individual_distillery(request, distillery_id):
+    """The view to show individual distilleries"""
+
+    distillery = get_object_or_404(Distillery, pk=distillery_id)
+
+    context = {
+        'distillery': distillery,
+    }
+
+    return render(request, 'distilleries/individual_distillery.html', context)
+
+
+   

@@ -97,7 +97,7 @@
                                 </td>
                                 <td class="py-3">
                                     <p class="my-0">€{{ item.gin.price }}</p>
-                                </td>
+                                </td>s
                                 <td class="py-3 w-25">
                                     {% include "shoppingbag/quantity-form.html" %}
 
@@ -113,6 +113,12 @@
                                 
                             </td>
                         </tr>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="text-right">
+                            {% include "shoppingbag/checkout-button.html" %}
+                        </td>
+                    </tr>
                         
                     </table>
                 </div>
