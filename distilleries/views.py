@@ -41,7 +41,7 @@ def add_distillery(request):
         if form.is_valid():
             distillery = form.save()
             messages.success(request, 'You added a new distillery!')
-            return redirect(reverse('add_distillery'))
+            return redirect(reverse('individual_distillery', args=[distillery.id]))
         else:
             messages.error(request, 'This distillery failed to add. Please check the form is valid.')
     else:
@@ -53,3 +53,46 @@ def add_distillery(request):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def edit_distillery(request, distillery_id):
+    """The view to edit a distillery"""
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only approved users can do this.')
+        return redirect(reverse('home'))
+
+    distillery = get_object_or_404(Distillery, pk=distillery_id)
+    if request.method == 'POST':
+        form = DistilleryForm(request.POST, request.FILES, instance=distillery)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'You updated this distillery!')
+            return redirect(reverse('individual_distillery', args=[distillery.id]))
+        else:
+            messages.error(request, 'This distillery failed to update. Please ensure the form is valid.')
+    else:
+        form = DistilleryForm(instance=distillery_id)
+        messages.info(request, f'You are editing {distillery.name}')
+
+    template = 'distilleries/edit_distillery.html'
+    context = {
+        'form': form,
+        'distillery': distillery,
+    }
+
+    return render(request, template, context)
+
+
+
+@login_required
+def delete_distillery(request, distillery_id):
+    """The view to delete a gin from the site"""
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only approved users can do this.')
+        return redirect(reverse('home'))
+
+    distillery = get_object_or_404(Distillery, pk=distillery_id)
+    distillery.delete()
+    messages.success(request, 'That distillery has been deleted!')
+    return redirect(reverse('distilleries'))

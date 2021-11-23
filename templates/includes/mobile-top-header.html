@@ -32,6 +32,7 @@
           {% if request.user.is_authenticated %}
               {% if request.user.is_superuser %}
                   <a href="{% url 'add_gin' %}" class="dropdown-item">Gin Management</a>
+                  <a href="{% url 'add_distillery' %}" class="dropdown-item">Manage Distilleries</a>          
               {% endif %}
               <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
               <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>

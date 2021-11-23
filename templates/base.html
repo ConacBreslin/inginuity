@@ -69,8 +69,9 @@
                         <div class="dropdown-menu border-0" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
-                                    <a href="{% url 'add_gin' %}" class="dropdown-item">Manage Gins</a>
-                                {% endif %}
+                                    <a href="{% url 'add_gin' %}" class="dropdown-item">Manage Gins</a>                             
+                                    <a href="{% url 'add_distillery' %}" class="dropdown-item">Manage Distilleries</a>
+                                    {% endif %}
                                 <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                                 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                             {% else %}
