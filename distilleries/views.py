@@ -87,7 +87,7 @@ def edit_distillery(request, distillery_id):
 
 @login_required
 def delete_distillery(request, distillery_id):
-    """The view to delete a gin from the site"""
+    """The view to delete a distillery from the site"""
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only approved users can do this.')
         return redirect(reverse('home'))

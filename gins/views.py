@@ -73,7 +73,7 @@ def add_gin(request):
     if request.method == 'POST':
         form = GinForm(request.POST, request.FILES)
         if form.is_valid():
-            gin= form.save()
+            gin = form.save()
             messages.success(request, 'You added a new gin!')
             return redirect(reverse('add_gin'))
         else:
