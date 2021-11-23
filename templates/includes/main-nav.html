@@ -5,6 +5,7 @@
                 Home
             </a>
         </li>
+        
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="distilleries-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Distilleries
@@ -14,20 +15,35 @@
             <!--Not just whole category like this they did ie?category=jeans" class="dropdown-item">Jeans</a>-->
             <div class="dropdown-menu border-0" aria-labelledby="distilleries-link">
                 <a href="{% url 'distilleries' %}" class="dropdown-item">All Distilleries</a>
-                <!--NOT REALLY SORT HERE BUT ONLY THOSE WHERE HAS_TOUR + TRUE-->
+
+
+                <!--I WOULD REALLY LIKE NESTED DROPDOWNS THAT FILTER BYY FOR EX COUNTY-->
                 <a href="" class="dropdown-item ">Distilleries with tours</a>
                 <a href="" class="dropdown-item">Distilleries by Province</a>
                 <a href="" class="dropdown-item">Distilleries by County</a>
                 <a href="" class="dropdown-item ">Distilleries by Rating</a>                
             </div>
         </li>
+
+
+        <!-- trial code start -->
+
+        
+         
+
+
+        <!-- trial code  end -->
+
+
+
+
+
+
+
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="gins-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Gins
             </a>
-            <!--Bout-ADO queries and searches a bit different to mine and do I even need these?-->
-            <!--Mine need to filter a bit more-->
-            <!--Not just whole category like this <a href="?category=jeans" class="dropdown-item">Jeans</a>-->
             <div class="dropdown-menu border-0" aria-labelledby="gins-link">
                 <a href="{% url 'gins' %}" class="dropdown-item">All Gins</a>
                 <a href="{% url 'gins' %}?sort=name&direction=asc" class="dropdown-item">Sort by Name</a>
