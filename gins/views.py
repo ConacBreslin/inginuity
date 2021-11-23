@@ -75,7 +75,7 @@ def add_gin(request):
         if form.is_valid():
             gin= form.save()
             messages.success(request, 'You added a new gin!')
-            return redirect(reverse('individual_gin', args=[gin.id]))
+            return redirect(reverse('add_gin'))
         else:
             messages.error(request, 'This gin failed to add. Please check the form is valid.')
     else:

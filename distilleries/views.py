@@ -39,9 +39,9 @@ def add_distillery(request):
     if request.method == 'POST':
         form = DistilleryForm(request.POST, request.FILES)
         if form.is_valid():
-            distillery= form.save()
+            distillery = form.save()
             messages.success(request, 'You added a new distillery!')
-            return redirect(reverse('individual_distillery', args=[gin.id]))
+            return redirect(reverse('add_distillery'))
         else:
             messages.error(request, 'This distillery failed to add. Please check the form is valid.')
     else:
