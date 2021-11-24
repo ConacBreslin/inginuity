@@ -6,8 +6,9 @@ from gins.models import Distillery
 
 class ReviewAdmin(admin.ModelAdmin):
     list_display = (
-        'distillery',
         'author',
+        'distillery',
+        'body',
         'first_created_on',
         'last_editted_on'
     )

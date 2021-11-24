@@ -7,7 +7,7 @@ from.models import Review
 
 
 def all_reviews(request):
-    """The view to show all reviews"""
+    """The view to show all reviews for any one distillery"""
 
     reviews = Review.objects.all()
 

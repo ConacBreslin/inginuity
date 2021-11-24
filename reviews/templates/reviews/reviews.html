@@ -13,71 +13,35 @@
     <div class="overlay"></div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col text-center mt-3">
-                <h2>Distilleries</h2>
-                <hr class="w-50 mb-1">
-            </div>
-        </div>
-        <div class="row">
-            <div class="ginordist-container col-10 offset-1">
-                <div class="row mt-1 mb-2">
-                    <!-- SORTING OR FILTERING NEEDS TO GO HERE-->
+            <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+                <div class="image-container my-5">
+                    {% if distillery.image %}
+                        <a href="{{ distillery.image.url }}" target="_blank">
+                            <img class="card-img-top img-fluid" src="{{ distillery.image.url }}" alt="{{ distillery.name }}">
+                        </a>
+                        {% else %}
+                        <a href="">
+                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}nodistillery.jpg" alt="{{ distillery.name }}">
+                        </a>
+                    {% endif %}
                 </div>
-                <div class="row">
-                    {% for review in reviews %}
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="card h-100 border-0">
-                                {% if distillery.image %}
-                                <a href="{% url 'individual_distillery' distillery.id %}">
-                                    <img class="card-img-top img-fluid" src="{{ distillery.image.url }}" alt="{{ distillery.name }}">
-                                </a>
-                                {% else %}
-                                <a href="{% url 'individual_distillery' distillery.id %}">
-                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}nodistillery.jpg" alt="{{ distillery.name }}">
-                                </a>
-                                {% endif %}
-                                <div class="card-body pb-0">
-                                    <p class="mb-0">{{ review.name }} - {{ review.author }}</p>
-                                    <p>{{ review.body }}</p>
-                                </div>
-                                <div class="card-footer bg-white pt-0 border-0 text-left">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p class="lead mb-0 text-left font-weight-bold">{{ review.first_created_on }}</p>
-                                            <p class="lead mb-0 text-left font-weight-bold">{{ review.last_editted_on }}</p>
-                                            {% if request.user.is_superuser %}
-                                            <!-- OR IF REQUEST>USER == REVIEW.AUTHOR-->
-                                                <small class="ml-3">
-                                                    <a href="{% url 'edit_distillery' distillery.id %}">Edit</a> | 
-                                                    <a class="text-danger" href="{% url 'delete_distillery' distillery.id %}">Delete</a>
-                                                </small>
-                                            {% endif %}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {% if forloop.counter|divisibleby:1 %}
-                            <div class="col-12 d-sm-none mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}                        
-                        {% if forloop.counter|divisibleby:2 %}
-                            <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}
-                        {% if forloop.counter|divisibleby:3 %}
-                            <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}
-                        {% if forloop.counter|divisibleby:4 %}
-                            <div class="col-12 d-none d-xl-block mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}
-                    {% endfor %}
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="distillery-container mb-5 mt-md-5">
+                    <p class="mb-0">{{ distillery.name }}</p>
+                    {% if request.user.is_superuser %}
+                    <!--OR IF REQUEST>USER + REVIEW.AUTHOR-->
+                        <small class="ml-1">
+                        <a href="{% url 'edit_distillery' distillery.id %}">Edit</a> | 
+                        <a class="text-danger" href="{% url 'delete_distillery' distillery.id %}">Delete</a>
+                        </small>
+                    {% endif %}
+                    <p class="lead mb-0 text-left font-weight-bold">{{ distillery.town }}, {{ distillery.county }}</p>
+                    
+                    <p class="mt-3"> {{ Review by: {{ review.author }}</p>
+                    <p class="mt-3"> {{ First posted on: {{ review.first_created_on }}</p>
+                    <p class="mt-3"> {{ Last editted on: {{ review.last_editted_on }}</p>
+                    <p class="mt-3"> {{ Last editted on: {{ review.body }}</p>
                 </div>
             </div>
         </div>
