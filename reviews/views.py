@@ -2,12 +2,17 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from gins.models import Gin, Distillery
+from .models import Review
 
 
 
-def reviews(request):
-    """The view to show all distilleries"""
+def all_reviews(request):
+    """The view to show all reviews"""
 
-    
+    reviews = Review.objects.all()
 
-    return render(request, 'reviews/reviews.html', )
+    context = {
+        'reviews': reviews,
+    }
+
+    return render(request, 'reviews/reviews.html', context)
