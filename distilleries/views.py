@@ -72,7 +72,7 @@ def edit_distillery(request, distillery_id):
         else:
             messages.error(request, 'This distillery failed to update. Please ensure the form is valid.')
     else:
-        form = DistilleryForm(instance=distillery_id)
+        form = DistilleryForm(instance=distillery)
         messages.info(request, f'You are editing {distillery.name}')
 
     template = 'distilleries/edit_distillery.html'
