@@ -37,31 +37,27 @@ body {
 }
 
 .btn-black {
-    background: black;
+    background: #000;
     color: white;
 }
 
-.register-button {
-    background: black;
-    color: white;
-    min-width: 260px;
-}
 
-.btn-black{
+
+.btn-outline-black{
     background: black;
     color: white;
     border: 1px solid black;
 }
 
 
-.register-button:hover,
-.register-button:active,
-.register-button:focus,
+.btn-outline-black:hover,
+.btn-outline-black:active,
+.btn-outline-black:focus,
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
-    background: #222;
-    color: white;
+    background: #FFF;
+    color: #000;
 }
 
 .text-black {

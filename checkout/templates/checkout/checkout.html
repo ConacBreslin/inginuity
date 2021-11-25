@@ -27,13 +27,13 @@
 
         <div class="row">
             <div class="col-12 col-lg-6 order-lg-last mb-5">
-                <p class="text-muted">Order Summary ({{ product_count }} items)</p>
+                <p class= "font-italic">Order Summary ({{ product_count }} items)</p>
                 <div class="row">
                     <div class="col-7 offset-2">
-                        <p class="mb-1 mt-0 small text-muted">Item</p>
+                        <p class="mb-1 mt-0 small font-italic">Item</p>
                     </div>
                     <div class="col-3 text-right">
-                        <p class="mb-1 mt-0 small text-muted">Subtotal</p>
+                        <p class="mb-1 mt-0 small font-italic">Subtotal</p>
                     </div>
                 </div>
                 {% for item in shoppingbag_items %}
@@ -49,10 +49,10 @@
                         </div>
                         <div class="col-7">
                             <p class="my-0"><strong>{{ item.gin.name }}</strong></p>
-                            <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                            <p class="my-0 small font-italic">Qty: {{ item.quantity }}</p>
                         </div>
                         <div class="col-3 text-right">
-                            <p class="my-0 small text-muted">€{{ item.gin.price | calc_subtotal:item.quantity }}</p>
+                            <p class="my-0 small font-italic">€{{ item.gin.price | calc_subtotal:item.quantity }}</p>
                         </div>
                     </div>
                 {% endfor %}
@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div class="col-12 col-lg-6">
-                <p class="text-muted">Please fill out the form below to complete your order</p>
+                <p class="font-italic">Please fill out the form below to complete your order</p>
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <fieldset class="rounded px-3 mb-5">
@@ -116,7 +116,7 @@
 							<span class="icon">
 								<i class="fas fa-chevron-left"></i>
 							</span>
-							<span class="font-weight-bold">Adjust Bag</span>
+							<span class="font-weight-bold">Back to your Bag</span>
 						</a>
 						<button id="submit-button" class="btn btn-black rounded-0">
 							<span class="font-weight-bold">Complete Order</span>
