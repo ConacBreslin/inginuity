@@ -8,7 +8,7 @@ from django.db.models import Q
 
 
 def all_reviews(request):
-    """The view to show all reviews for any one distillery"""
+    """The view to show all reviews on the site"""
 
     reviews = Review.objects.all()
     thisquery = None
@@ -20,8 +20,8 @@ def all_reviews(request):
                 messages.error(request, "You didn't enter any search criteria!")
                 return redirect(reverse('reviews'))
             
-            thesequeries = Q(distillery__icontains=thisquery) | Q(body__icontains=thisquery)
-            reviews = reviews.filter(thesequeries)
+            thequeries = Q(distillery__icontains=thisquery) | Q(body__icontains=thisquery)
+            reviews = reviews.filter(thequeries)
 
 
     context = {

@@ -17,10 +17,13 @@
                 <a href="{% url 'distilleries' %}" class="dropdown-item">All Distilleries</a>
 
 
-                <!--I WOULD REALLY LIKE NESTED DROPDOWNS THAT FILTER BYY FOR EX COUNTY-->
+                <!--I WOULD REALLY LIKE NESTED DROPDOWNS THAT FILTER BYY FOR EX COUNTY
+                    
+                distilleries = distillery.filter(distillery__county__in=distillerss)-->
                 <a href="" class="dropdown-item ">Distilleries with tours</a>
                 <a href="" class="dropdown-item">Distilleries by Province</a>
-                <a href="" class="dropdown-item">Distilleries by County</a>
+                <!--NEED TO NEST A DROPDOWN HERE AND THEN FILTER HERE-->
+                <a href="{% url 'distilleries' %}" class="dropdown-item">Distilleries by County</a>
                 <a href="" class="dropdown-item ">Distilleries by Rating</a>                
             </div>
         </li>
