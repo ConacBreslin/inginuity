@@ -3,7 +3,6 @@ from .models import Review
 from gins.models import Distillery
 
 
-
 class ReviewAdmin(admin.ModelAdmin):
     list_display = (
         'author',
@@ -12,5 +11,6 @@ class ReviewAdmin(admin.ModelAdmin):
         'first_created_on',
         'last_editted_on'
     )
+
 
 admin.site.register(Review, ReviewAdmin)

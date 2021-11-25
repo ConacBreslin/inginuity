@@ -30,12 +30,13 @@ def all_gins(request):
                     sortkey = f'-{sortkey}'
             gins = gins.order_by(sortkey)
 
-            """I haven't used the category filtering used in Boutique ADO""" 
-
+            """I haven't used the category filtering used in Boutique ADO"""
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(
+                    request, "You didn't enter any search criteria!"
+                    )
                 return redirect(reverse('gins'))
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             gins = gins.filter(queries)
@@ -77,10 +78,12 @@ def add_gin(request):
             messages.success(request, 'You added a new gin!')
             return redirect(reverse('add_gin'))
         else:
-            messages.error(request, 'This gin failed to add. Please check the form is valid.')
+            messages.error(
+                request, 'This gin failed to add. ' +
+                'Please check the form is valid.'
+                )
     else:
         form = GinForm()
-        
     template = 'gins/add_gin.html'
     context = {
         'form': form,
@@ -104,7 +107,10 @@ def edit_gin(request, gin_id):
             messages.success(request, 'You updated this gin!')
             return redirect(reverse('individual_gin', args=[gin.id]))
         else:
-            messages.error(request, 'This gin failed to update. Please ensure the form is valid.')
+            messages.error(
+                request, 'This gin failed to update.' +
+                'Please ensure the form is valid.'
+                )
     else:
         form = GinForm(instance=gin)
         messages.info(request, f'You are editing {gin.name}')

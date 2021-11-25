@@ -41,12 +41,17 @@ def add_distillery(request):
         if form.is_valid():
             distillery = form.save()
             messages.success(request, 'You added a new distillery!')
-            return redirect(reverse('individual_distillery', args=[distillery.id]))
+            return redirect(
+                reverse('individual_distillery', args=[distillery.id])
+                )
         else:
-            messages.error(request, 'This distillery failed to add. Please check the form is valid.')
+            messages.error(
+                request, 'This distillery failed to add. ' +
+                'Please check the form is valid.'
+                )
     else:
         form = DistilleryForm()
-        
+
     template = 'distilleries/add_distillery.html'
     context = {
         'form': form,
@@ -68,9 +73,14 @@ def edit_distillery(request, distillery_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'You updated this distillery!')
-            return redirect(reverse('individual_distillery', args=[distillery.id]))
+            return redirect(
+                reverse('individual_distillery', args=[distillery.id])
+                )
         else:
-            messages.error(request, 'This distillery failed to update. Please ensure the form is valid.')
+            messages.error(
+                request, 'This distillery failed to update. ' +
+                'Please ensure the form is valid.'
+                )
     else:
         form = DistilleryForm(instance=distillery)
         messages.info(request, f'You are editing {distillery.name}')
@@ -82,7 +92,6 @@ def edit_distillery(request, distillery_id):
     }
 
     return render(request, template, context)
-
 
 
 @login_required

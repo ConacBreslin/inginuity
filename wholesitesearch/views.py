@@ -5,7 +5,6 @@ from django.db.models.functions import Lower
 from gins.models import Gin, Distillery
 
 
-
 def wholesite_search(request):
     distilleries = Distillery.objects.all()
     gins = Gin.objects.all()
@@ -16,5 +15,3 @@ def wholesite_search(request):
         }
 
     return render(request, 'wholesitesearch/wholesitesearch.html', context)
-
-
