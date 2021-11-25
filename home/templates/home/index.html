@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block page_header %}
-<div class="container header-contianer">
+<div class="container header-container">
     <div class="row">
         <div class="col"></div>
     </div>
@@ -12,30 +12,23 @@
 {% block content %}
 <div class="container h-100">
     <div class="row h-75">
-        <div class="col-sm-6 my-auto py-5">
+        <div class="col-lg-6 mb-5 mt-2 py-5 text-center">
             <a href="{% url 'distilleries' %}" class="display-4  btn btn-lg rounded-0 py-3">
-                <h1 class="">
+                <h1 class="home-link">
                     Distilleries
                 </h1>
             </a>
         </div>
         
-        <div class="col-sm-6 my-auto py-5">
+        <div class="col-lg-6  py-5 text-center ">
             <a href="{% url 'gins' %}" class="display-4 btn btn-lg rounded-0 py-3">
-                <h1 class="">
+                <h1 class="home-link">
                     Gins
                 </h1>
             </a>
         </div>
     </div>
-    <div class="row h-25">
-        <div class="col-12 my-auto py-5">
-            <h4>
-                <a href="" class="register-button btn btn-lg rounded-0 text-uppercase py-3">Register</a>
-            </h4>
-
-        </div>
-    </div>
+   
 </div>
 
 </div>
