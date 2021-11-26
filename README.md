@@ -1,108 +1,91 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# **Inginuity - a website where you can find out about Ireland's Craft Gin distilleries, the  gins they produce and buuy these gins.**
+Ireland has a surprising numebr of small craft gin producers and the number is increasing all the time. This website aims to give the visitor up-to-date information about these distilleries and their gins.
 
-Welcome ConacBreslin,
+For assessment purposes you can log in as an admin user with the username "InginuitySuperUser" and the password "Inginuity1234".
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## Visit the deployed website
+[![Inginuity](static/images/banner.png "Visit the deployed site here")](https://inginuity.herokuapp.com//)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## User Experience (UX)
 
-## Gitpod Reminders
+### Project Goals
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+The site was created to enagage visitors so that they will want to register and visit regularly. It was built to fulfill the requirements of Code Institutes's Diploma in Full Stack Development Milestone 3 project.
 
-`python3 -m http.server`
+#### Visitor Goals
 
-A blue button should appear to click: _Make Public_,
+To enjoy visiting the site, to find out up to date information about Irish Craft Gin distilleries and their gins with the ability to buy gins from the site.
 
-Another blue button should appear to click: _Open Browser_.
+#### User Stories
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+##### All visitors to the site should be able to; 
+###### Visiting, Navigation and viewing
+1. Only enter the site if they are over the legal age to buy alcohol in their country.
+2. Understand what the website is about and navigate it intuitively.
+3. View all the distilleries on the site.
+4. View individual distilleries.
+5. View all the gins on the site.
+6. View individual gins.
+7. View all the reviews about the distileries.
+8. Easily register for an account.
 
-A blue button should appear to click: _Make Public_,
+###### Sorting and Searching
+1. Search across gins and distilleries from the navbar.
+2. See what was searched for ad the number of results.
+3. Sort distilleries by county, province or by those with tours.
+4. Sort gins by price, name or rating.
+5. Sort reviews by distillery, author or date posted.
+ 
+###### Purchasing and checkout
+1. Be able to select gins to purchase and add them to their bag
+2. View items in a their bag.
+3. Change quantity of items in their bag.
+4. Easily enter payment details.
+5. Feel personal inforamtion is secure.
+6. View an order confirmation after checkout.
+7. Receive a confirmation email after checkout.
 
-Another blue button should appear to click: _Open Browser_.
+##### In addition logged in users should be able to;
+1. Easily log in and out of their account.
+2. Receive a confimation email after registering.
+3. Recover their password if it is lost.
+4. Have a personalised user profile.
+5. Have an option to store their details for future ease of use.
+6. Add a review 
+7. Edit or delete their reviews.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+##### Superusers should be able to
+1. Add, edit or delete gins.
+2. Add, edit or delete distilleries.
+3. Edit or delete reviews.
 
-To log into the Heroku toolbelt CLI:
+## Strategy
+The site should provide a platform for people interested in irish Craft gins and distilleries to find out more about them and to share their visitor experiences.
+- Objective Requirements;         To encourage visitors to visit the site, register with it, buy gin from it and to return frequently.
+- Functional requirements; 	    To provide information on gins and distilleries that users can view. To provide a facility for users to register, log in and log out of the site. To provide users with the ability to select and purchase gins. To provide registered users with the facility to add, edit and delete reviews.
+- Non-functional requirements; 	The site should be attractive and intuitive.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## Structure
+The site starts with a modal/overlay to confirm the vsisitor is old enough to visit the site. If so, they come to the landing page and from there they can follow the main navigation to Distilleries or gins. This page also has a link to the users account which also provides the ability to register if they have not already done so.There is also alink to teh visitors shopping bag.
+1. The distilleries gin, reviews, shopping bag and checkout pages are available to all users. The logout page is available to logged in users.
+2. The pages to ad or edit reviews is only avilable to logged in users.
+3. The pages to add, edit or delete distilleries, gins or reviews can only be accessed by superusers.
+4. All registered, logged in users can access their profile page. This lists their personal deatils and infomration on past orders made.
+5. Superusers also ahve access to the django admin page where allthe data can be accessed and modified.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+## Skeleton
 
-------
+The wireframes for the site can be seen [here]() and [here](static/images/wireframes2.jpg)
 
-## Release History
+There are XXX pages on the site.
+The **home** page  introduces the site. It has a navbar at  the top that includes the search box, links to the users account and their shopping basket. It has two buttons to provide filtering and sorting of distilleries and gins and there are two main navigation links to distilleries and gins in the body of the page.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+The **login** page has a form for returning registered users to log back in to the site. It contains a link to the registration page for non-registered visitors.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+The **technologies** page is where each technology and its information is displayed. The page can be searched by keyword or by category. Each technology is in a card from where the visitor can go to the **comments** page related to that technology. Here they can read all the comments that have been made about that technology and (if registered and logged in) they can add comments through a form.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+The **add technology** page is accessed from the navbar (for registered, logged in users only) and has a form where the user can add all the necessary details of a new technology.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+A  **profile** page is accessible to registered, logg
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
