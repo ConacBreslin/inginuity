@@ -113,6 +113,32 @@ The fonts were found on google font. The Open+Sans wasc chosen as it was clear a
 If time had allowed it would have been nice to provide the facility to book a tour.
 The ability for users to leave reviews about individual gins could be added.
 
+# Languages used
+[HTML5](https://en.wikipedia.org/wiki/HTML5)
+
+[CSS](https://en.wikipedia.org/wiki/CSS)
+
+[Python](https://www.python.org/)
+
+[JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 
 
-
+## Frameworks, Libraries and online resources used
+- [jQuery](https://jquery.com/) javaScript 
+- The [Django](https://www.djangoproject.com/) framework was used to build the project.
+- The [Jinja](https://jinja.palletsprojects.com/en/3.0.x/) templating engine was used.
+- [Balsamiq](https://balsamiq.com/wireframes/) was used to create the wireframes.
+- Gits's [gitpod](https://www.gitpod.io/) was used for writing and editing code, and for submitting and pushing to GitHub.
+- [Heroku](https://id.heroku.com/login) was used to deploy the app.
+- [sqlite](https://sqlite.org/index.html) was used to store data in development and [postgresql](https://www.postgresql.org/) was in the deployed project.
+- [GitHub](https://github.com/) was used for storing the code after being pushed from Git.
+- [RandomKeygen](https://randomkeygen.com/) was used to generate a secret keys.
+- [Bootstrap](https://getbootstrap.com/) was sued for styling
+- [Google Fonts](https://fonts.google.com/) was used to choose and import the font.
+- Foreground/Backgound contrast was checked using [contrast-ratio.com](https://contrast-ratio.com/). 
+- The space invader image for the favicon was found in [iconfinder.com](https://www.iconfinder.com/).
+- The favicon image was converted to an .ico file using [favicon.io](https://favicon.io/).
+- Instructions for adding the favicon were found on [flask.palletsprojects.co](https://flask.palletsprojects.com/).
+- The following websites were used for problem solving [stackoverflow.com](https://stackoverflow.com/), [w3schools.com](https://www.w3schools.com/), [geeksforgeeks.org](https://www.geeksforgeeks.org/), [pythonmorsels.com](https://www.pythonmorsels.com/), [teamtreehouse.com](https://teamtreehouse.com/) and [css-tricks.com](https://css-tricks.com/).
+- The html code was formatted using [webformatter.com](https://webformatter.com/html).
+- Information about automatically formatting  python with [black](https://pypi.org/project/black/) was found on [freecodecamp.org](https://www.freecodecamp.org/news/auto-format-your-python-code-with-black/)
