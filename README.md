@@ -77,15 +77,42 @@ The site starts with a modal/overlay to confirm the vsisitor is old enough to vi
 
 The wireframes for the site can be seen [here]() and [here](static/images/wireframes2.jpg)
 
-There are XXX pages on the site.
-The **home** page  introduces the site. It has a navbar at  the top that includes the search box, links to the users account and their shopping basket. It has two buttons to provide filtering and sorting of distilleries and gins and there are two main navigation links to distilleries and gins in the body of the page.
+There are 8 apps in the project.
+**home** This introduces the site. It has a navbar at  the top that includes the search box, links to the users account and their shopping basket. It has two buttons to provide filtering and sorting of distilleries and gins and there are two main navigation links to distilleries and gins in the body of the page.
+**distilleries** This is where all the distilleries are displayed. The page can be sorted by county, province or if the distillery has a visitor centre. Each distillery listed there links to a page that shows the indiviual distillery and the reveiws relating to it. If a superuser is logged in there are links to pages to edit or delete the distillery.
+**gins** This is where each gin and its information is displayed. The page can be sorted by price, name or rating. Each gin has a page that shows more detail about the gin and the ablity to add it to the user's shopping bag. If a superuser is logged in there are links to pages to edit or delete the gin.
+**shopping bag** This can be accessed by the icon on the nav bar or from the toast that appears when a user adds an item. It has a form for the user to add their details (which is already prepopulated with the user's informations they have selected the option to save the infomation to their profile). It also shows all the items in the user's shopping bag, the subtotal, delivery charge and grand total. From here the user has the option to keep shopping or to checkout.
+**checkout** This page  has a form for the user to add their details and their credit card number, a summary of the order, and the option to complete the order or return to their shopping bag.
+**profile** This  displays the user's details, gives them the option to update them and displays a summary of any previous orders the user has made.
+**reviews** This displays all the reviews that have been added to the site. It can be sorted by distillery name, rating, or date of the review. Here they can read all the reviews that have been made about all the distilleries and (if registered and logged in) they can add their own review.
+**wholesitesearch** This app was added to provide  facility to display search results that are made across both gins and distilleries.
 
-The **login** page has a form for returning registered users to log back in to the site. It contains a link to the registration page for non-registered visitors.
+## Surface/Design (Design Choices fonts, icons, colours, styling, backgroundss)
 
-The **technologies** page is where each technology and its information is displayed. The page can be searched by keyword or by category. Each technology is in a card from where the visitor can go to the **comments** page related to that technology. Here they can read all the comments that have been made about that technology and (if registered and logged in) they can add comments through a form.
+### Imagery
+The overall the site was to create a sense of Irish identity while maintaining simplicity and clarity. 
+### Colour scheme
+According to Shane Barker in ["The Psychology of Color in Web Design"](https://www.vandelaydesign.com/the-psychology-of-color-in-web-design/), blue "signifies trustworthiness and provides an air of coolness". The backgound picture was picked from ["unsplash.com](https://unsplash.com/) beacuse it was felt that it was an un mistakelably Irish lanndmark and the blue used in the overlay and logo were picked up from it using [imagecolorpicker.com](https://imagecolorpicker.com/) and used throughout the site.
+ A [minimum contrast ratio](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast) of 4.5:1 for small text and 3:1 for large text is recommended. There were a range of combinations of backgrounds and text across the site and their contrast ratios ranged from the best 21(#f3e5f5 white/black backgound and black/white text) to 7.92 (#7fa1d1 blue background and black text to 3.11 (#7fa1d1 blue backgound and white text) as assessed by [contrast-ratio.com]("https://contrast-ratio.com/"). While the contrast ratio of the blue/white was not great it was felt that the very large size of the text would compenstae for this.
 
-The **add technology** page is accessed from the navbar (for registered, logged in users only) and has a form where the user can add all the necessary details of a new technology.
+### Typography
+The fonts were found on google font. The Open+Sans wasc chosen as it was clear and easily readable.
+## Features
+- Responsiveness on all device sizes.
+- A nav bar that displays links dependent on the user type.
+- A registration and login procedure which is secure and easy to use. 
+- A method of searching the distilleries and gins by keywords.
+- A method of sorting gins by name or price or ratng.
+- The ability to allow users to select andpay for purchases.
+- The ability to allow superusers to create, edit and delete distilleries or gins.
+- The ability for registered, logged in users to create, edit and delete reviews.
+- The functionality so that when a distillery is deleted all the reviewss associated with it are also deleted.
+- A check that user wants to perform irreversible actions before they do so.
 
-A  **profile** page is accessible to registered, logg
+## Future features
+If time had allowed it would have been nice to provide the facility to book a tour.
+The ability for users to leave reviews about individual gins could be added.
+
+
 
 
