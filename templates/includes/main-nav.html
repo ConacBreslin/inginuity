@@ -21,9 +21,21 @@
                     
                 distilleries = distillery.filter(distillery__county__in=distillerss)-->
                 <a href="" class="dropdown-item ">Distilleries with tours</a>
-                <a href="" class="dropdown-item">Distilleries by Province</a>
+                <a id ="province" href="" class="dropdown-item dropdown-submenu">Distilleries by Province</a>
+                <ul class="dropdown-menu">
+                    <li><a tabindex="-1" href="#">Ulster</a></li>
+                    <li><a tabindex="-1" href="#">Munster</a></li>
+                    <li><a tabindex="-1" href="#">Leinster</a></li>
+                    <li><a tabindex="-1" href="#">Connaught</a></li>
+                </ul>
                 <!--NEED TO NEST A DROPDOWN HERE AND THEN FILTER HERE-->
-                <a href="{% url 'distilleries' %}" class="dropdown-item">Distilleries by County</a>
+                <a id="county" href="{% url 'distilleries' %}" class="dropdown-item dropdown-submenu">Distilleries by County</a>
+                <ul class="dropdown-menu">
+                    <li><a tabindex="-1" href="#">Dynamically filled county 1</a></li>
+                    <li><a tabindex="-1" href="#">Dynamically filled county 1</a></li>
+                </ul>
+          
+                
                 <a href="" class="dropdown-item ">Distilleries by Rating</a>                
             </div>
         </li>
@@ -56,3 +68,23 @@
         </li>
     </ul>
 </div>
+
+{% block postloadjs %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+  $('#county').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
+
+$(document).ready(function(){
+  $('#province').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
+    </script>
+    {% endblock %}
