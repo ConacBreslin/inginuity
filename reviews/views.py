@@ -11,6 +11,7 @@ def all_reviews(request):
 
     reviews = Review.objects.all()
     thisquery = None
+    distilleries = Distillery.objects.all()
 
     if request.GET:
         if 'qq' in request.GET:
@@ -21,9 +22,7 @@ def all_reviews(request):
                     )
                 return redirect(reverse('reviews'))
             
-            thequeries = Q(
-                distillery__icontains=thisquery) | Q(
-                body__icontains=thisquery)
+            thequeries = Q(distillery__icontains=thisquery) | Q(body__icontains=thisquery)
             reviews = reviews.filter(thequeries)
 
     context = {

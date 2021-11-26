@@ -49,6 +49,8 @@ def all_gins(request):
         'current_sorting': current_sorting,
     }
 
+    #Message if no matches found
+
     return render(request, 'gins/gins.html', context)
 
 

@@ -4,8 +4,8 @@
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
-        <div class="col">
-            <h1>All our Reviews</h1>
+        <div class="col-6 offset-3">
+            <h1 class= "mt-3">All our Reviews</h1>
         </div>
     </div>
 </div>
@@ -14,10 +14,10 @@
 {% block content %}
 <div class="overlay"></div>
 <div class="container-fluid">
-    <!--CONACS INSERTION START-->
+    
     <div class="row">
 
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+        <div class="col-6 offset-3 my-auto py-1 py-lg-0">
             <form method="GET" action="{% url 'reviews' %}">
                 <div class="input-group w-100">
                     <input class="form-control border border-black rounded-0" type="text" name="qq"
@@ -41,9 +41,10 @@
 
     <div class="row">
         {% for review in reviews %}
-        <div class="col-12 ">
+        <div class="col-6 offset-3">
 
-            <!-- <div class="image-container my-5">
+            <!-- I NEEDS TO GET THE ID OF THE DISTILLERY SO THE RGHT IMAGE SHOWS
+                <div class="image-container my-5">
                     {% if distillery.image %}
                         <a href="{{ distillery.image.url }}" target="_blank">
                             <img class="card-img-top img-fluid" src="{{ distillery.image.url }}" alt="{{ distillery.name }}">
@@ -60,7 +61,7 @@
             <p class="mt-3"> Review by: {{ review.author }}</p>
             <p class="mt-3"> First posted on: {{ review.first_created_on }}</p>
             <p class="mt-3"> Last editted on: {{ review.last_editted_on }}</p>
-            <p class="mt-3">Last editted on: {{ review.body }}</p>
+            
 
 
 
