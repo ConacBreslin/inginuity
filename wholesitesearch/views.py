@@ -6,9 +6,11 @@ from gins.models import Gin, Distillery
 
 
 def wholesite_search(request):
-    distilleries = Distillery.objects.all()
-    gins = Gin.objects.all()
-
+    q = request.GET.get('q')
+    distilleries = Distillery.objects.filter( Q(name__icontains=q) | Q(description__icontains=q) | Q(county__icontains=q))
+    gins = Gin.objects.filter( Q(name__icontains=q) | Q(description__icontains=q) )
+    print(distilleries)
+    print(gins)
     context = {
             'distilleries': distilleries,
             'gins': gins,

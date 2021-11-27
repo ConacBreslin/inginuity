@@ -12,6 +12,7 @@ def all_reviews(request):
     reviews = Review.objects.all()
     thisquery = None
     distilleries = Distillery.objects.all()
+    
 
     if request.GET:
         if 'qq' in request.GET:

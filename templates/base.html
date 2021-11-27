@@ -45,7 +45,7 @@
                 </a>
             </div>
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                <form method="GET" action="{% url 'gins' %}">
+                <form method="GET" action="{% url 'wholesitesearch' %}">
                     <div class="input-group w-100">
                         <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
                         <div class="input-group-append">
@@ -140,12 +140,12 @@
     {% block content %}
     {% endblock %}
 
-    {% block postloadjs %}
+    
+{% block postloadjs %}
     <script type="text/javascript">
         $('.toast').toast('show');
     </script>
     {% endblock %}
-
     
   </body>
 </html>
