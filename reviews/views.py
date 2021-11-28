@@ -51,6 +51,8 @@ def add_review(request):
             form.save()
             messages.success(request, 'Thank you for adding a review!')
             return redirect(reverse('add_review'))
+            #I WOULD PREFER IT TO GO TO
+            # return redirect(reverse('individual_distillery', args =[distillery.id]))
         else:
             messages.error(request, 'Your review was not added at this time, please check the form is valid.')
     else:
@@ -95,3 +97,16 @@ def edit_review(request, review_id):
 
     return render(request, template, context)
 
+@login_required
+def delete_review(request, review_id):
+    """The view to delete a review from the site"""
+    if not request.user.is_superuser: # OR IF IS NOT ORIGINAL AUTHOR
+        messages.error(request, 'Sorry, only approved users can do this.')
+        return redirect(reverse('home'))
+    # OR IF IS NOT ORIGINAL AUTHOR
+    review = get_object_or_404(Review, pk=review_id)
+    review.delete()
+    messages.success(request, 'That review has been deleted!')
+    return redirect(reverse('reviews'))
+
+    
