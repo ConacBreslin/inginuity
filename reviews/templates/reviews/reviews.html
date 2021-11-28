@@ -7,6 +7,20 @@
         <div class="col-6 offset-3">
             <h1 class= "mt-3">All our Reviews</h1>
         </div>
+        <div class="col-6 offset-3">
+            <div class="btn-group dropright">
+                <button type="button" class="btn btn-black dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Sort reviews by...
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="{% url 'reviews' %}?sort=author&direction=asc">Author</a>
+                  <a class="dropdown-item" href="{% url 'reviews' %}?sort=distillery&direction=asc">Distillery</a>
+                  <a class="dropdown-item" href="{% url 'reviews' %}?sort=first_created_on&direction=asc">Date posted</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Back to all the reviews</a>
+                </div>
+              </div>
+        </div>
     </div>
 </div>
 {% endblock %}
@@ -17,7 +31,31 @@
     
 
     <div class="row">
-        
+        <div class="review-container col-10 offset-1">
+            <div class="row mt-1 mb-2">
+
+
+
+                <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+                    <div class="sort-select-wrapper w-50">
+                        <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                            <!-- <option value="author_asc" {% if current_sorting == 'author_asc' %}selected{% endif %}>Author (A-Z)</option>
+                            <option value="author_desc" {% if current_sorting == '_desc_author' %}selected{% endif %}>Author (Z-A)</option> -->
+                            <option value="distillery_asc" {% if current_sorting == 'distillery_asc' %}selected{% endif %}>Distillery (A-Z)</option>
+                            <option value="distillery_desc" {% if current_sorting == 'distillery_desc' %}selected{% endif %}>Distilery (Z-A)</option>
+                            <!-- <option value="first_created_on_asc" {% if current_sorting == 'first_created_on_asc' %}selected{% endif %}>Date First posted (first - last)</option>
+                            <option value="first_created_on_desc" {% if current_sorting == 'first_created_on_desc' %}selected{% endif %}>Date First Posted (last - first</option> -->
+                            </select>
+                    </div>
+                </div>
+
+
+
+                </div>
+            </div>
+            <div class="row">
+      
     {% for review in reviews %}
         <div class="d-none d-md-block d-md-4 offset-sm-2">
             {% if distillery.image %}
@@ -31,8 +69,10 @@
             <p class="mt-3"> Review by: {{ review.author }}</p>
             <p class="mt-3"> Review by: {{ review.body }}</p>
             <p class="mt-3"> First posted on: {{ review.first_created_on }}</p>
+            {% if review.last_editted_on != review.first_created_on %}
             <p class="mt-3"> Last editted on: {{ review.last_editted_on }}</p>
-            
+            {% endif %}
+
             {% if request.user.is_superuser  %}
             <!--OR IF REQUEST>USER + REVIEW.AUTHOR eg like this ||  % request.user == review.author %-->
             <small class="ml-1">
