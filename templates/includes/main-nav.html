@@ -10,16 +10,8 @@
             <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="distilleries-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Distilleries
             </a>
-            <!--Bout-ADO queries and searches a bit different to mine and do I even need these?-->
-            <!--Mine need to filter a bit more-->
-            <!--Not just whole category like this they did ie?category=jeans" class="dropdown-item">Jeans</a>-->
             <div class="dropdown-menu border-0" aria-labelledby="distilleries-link">
                 <a href="{% url 'distilleries' %}" class="dropdown-item">All Distilleries</a>
-
-
-                <!--I WOULD REALLY LIKE NESTED DROPDOWNS THAT FILTER BYY FOR EX COUNTY
-                    
-                distilleries = distillery.filter(distillery__county__in=distillerss)-->
                 <a href="" class="dropdown-item ">Distilleries with tours</a>
                 <a id ="province" href="" class="dropdown-item dropdown-submenu">Distilleries by Province</a>
                 <ul class="dropdown-menu">
@@ -39,22 +31,6 @@
                 <a href="" class="dropdown-item ">Distilleries by Rating</a>                
             </div>
         </li>
-
-
-        <!-- trial code start -->
-
-        
-         
-
-
-        <!-- trial code  end -->
-
-
-
-
-
-
-
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-black mr-5 ml-5" href="#" id="gins-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Gins
@@ -64,6 +40,17 @@
                 <a href="{% url 'gins' %}?sort=name&direction=asc" class="dropdown-item">Sort by Name</a>
                 <a href="{% url 'gins' %}?sort=price&direction=asc" class="dropdown-item">Sort by Price</a>
                 <a href="{% url 'gins' %}?sort=rating&direction=desc" class="dropdown-item">Sort by Rating</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5 ml-5" href="#" id="gins-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Reviews
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="gins-link">
+                <a href="{% url 'reviews' %}" class="dropdown-item">All Reviews</a>
+                <a href="{% url 'gins' %}?sort=name&direction=asc" class="dropdown-item">Sort by Author</a>
+                <a href="{% url 'gins' %}?sort=price&direction=asc" class="dropdown-item">Sort by DIstillery</a>
+                <a href="{% url 'gins' %}?sort=rating&direction=desc" class="dropdown-item">Sort by Date posted</a>
             </div>
         </li>
     </ul>

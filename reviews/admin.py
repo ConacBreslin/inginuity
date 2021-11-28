@@ -7,7 +7,6 @@ class ReviewAdmin(admin.ModelAdmin):
     list_display = (
         'author',
         'distillery',
-        'body',
         'first_created_on',
         'last_editted_on'
     )

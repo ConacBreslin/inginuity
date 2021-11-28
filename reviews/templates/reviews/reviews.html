@@ -15,59 +15,24 @@
 <div class="overlay"></div>
 <div class="container-fluid">
     
-    <div class="row">
 
-        <div class="col-6 offset-3 my-auto py-1 py-lg-0">
-            <form method="GET" action="{% url 'reviews' %}">
-                <div class="input-group w-100">
-                    <input class="form-control border border-black rounded-0" type="text" name="qq"
-                        placeholder="Search our reviews">
-                    <div class="input-group-append">
-                        <button class="form-control btn btn-black border border-black rounded-0" type="submit">
-                            <span class="icon">
-                                <i class="fas fa-search"></i>
-                            </span>
-                        </button>
-                    </div>
-                </div>
-            </form>
+    <div class="row">
+        
+    {% for review in reviews %}
+        <div class="d-none d-md-block d-md-4 offset-sm-2">
+            {% if distillery.image %}
+            <img class="card-img-top img-fluid" src="{{ distillery.image.url }}" alt="{{ distillery.name }}">
+            {% else %}
+            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}nodistillery.jpg" alt="{{ distillery.name }}">
+            {% endif %}
         </div>
-
-    </div>
-
-
-
-
-
-    <div class="row">
-        {% for review in reviews %}
-        <div class="col-6 offset-3">
-
-            <!-- I NEEDS TO GET THE ID OF THE DISTILLERY SO THE RGHT IMAGE SHOWS
-                <div class="image-container my-5">
-                    {% if distillery.image %}
-                        <a href="{{ distillery.image.url }}" target="_blank">
-                            <img class="card-img-top img-fluid" src="{{ distillery.image.url }}" alt="{{ distillery.name }}">
-                        </a>
-                        {% else %}
-                        <a href="">
-                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}nodistillery.jpg" alt="{{ distillery.name }}">
-                        </a>
-                    {% endif %}
-                </div> -->
-            
-
+        <div class="col-12 col-md-5">
             <p>Review of {{ review.distillery }}</p>
             <p class="mt-3"> Review by: {{ review.author }}</p>
+            <p class="mt-3"> Review by: {{ review.body }}</p>
             <p class="mt-3"> First posted on: {{ review.first_created_on }}</p>
             <p class="mt-3"> Last editted on: {{ review.last_editted_on }}</p>
             
-
-
-
-
-
-
             {% if request.user.is_superuser  %}
             <!--OR IF REQUEST>USER + REVIEW.AUTHOR eg like this ||  % request.user == review.author %-->
             <small class="ml-1">
@@ -76,12 +41,8 @@
             </small>
             {% endif %}
             <hr>
-
-
         </div>
-        <!--CONACS INSERTION END-->
-        
-        {% endfor %}
+    {% endfor %}
     </div>
 
     <div class="btt-button shadow-sm rounded-0 border border-black">

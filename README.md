@@ -111,7 +111,9 @@ The fonts were found on google font. The Open+Sans wasc chosen as it was clear a
 
 ## Future features
 If time had allowed it would have been nice to provide the facility to book a tour.
+I would also have liked to nclude an interactive map whereby visitors to tthe site could se all the distilleries pinned on a map and access the each indiviual distillery from there
 The ability for users to leave reviews about individual gins could be added.
+In hindsite some of the apps a very small and their content and functionality could be moved to within other apps.
 
 # Languages used
 [HTML5](https://en.wikipedia.org/wiki/HTML5)

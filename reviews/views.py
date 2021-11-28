@@ -7,28 +7,13 @@ from.models import Review
 
 
 def all_reviews(request):
-    """The view to show all reviews on the site"""
+    """The view to show all reviews including sorting"""
 
     reviews = Review.objects.all()
-    thisquery = None
-    distilleries = Distillery.objects.all()
-    
-
-    if request.GET:
-        if 'qq' in request.GET:
-            thisquery = request.GET['qq']
-            if not thisquery:
-                messages.error(
-                    request, "You didn't enter any search criteria!"
-                    )
-                return redirect(reverse('reviews'))
-            
-            thequeries = Q(distillery__icontains=thisquery) | Q(body__icontains=thisquery)
-            reviews = reviews.filter(thequeries)
-
+       
     context = {
         'reviews': reviews,
-        'search_term': thisquery,
-    }
+            }
+
 
     return render(request, 'reviews/reviews.html', context)
