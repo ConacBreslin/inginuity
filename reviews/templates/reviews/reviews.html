@@ -11,7 +11,8 @@
             <div class="btn-group dropright">
                 <button type="button" class="btn btn-black dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Sort reviews by...
-                </button>
+                </button><span><a href="{% url 'add_review' %}" class="btn-black ml-5">Add a distillery review now</a>
+                </div></span>
                 <div class="dropdown-menu">
                   <a class="dropdown-item" href="{% url 'reviews' %}?sort=author&direction=asc">Author</a>
                   <a class="dropdown-item" href="{% url 'reviews' %}?sort=distillery&direction=asc">Distillery</a>
