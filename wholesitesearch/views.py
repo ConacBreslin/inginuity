@@ -7,13 +7,15 @@ from gins.models import Gin, Distillery
 
 def wholesite_search(request):
     q = request.GET.get('q')
+    if not q:
+        messages.error(request, "You didn't enter any search criteria!")
+        return redirect(reverse('home'))
     distilleries = Distillery.objects.filter( Q(name__icontains=q) | Q(description__icontains=q) | Q(county__icontains=q))
     gins = Gin.objects.filter( Q(name__icontains=q) | Q(description__icontains=q) )
-    print(distilleries)
-    print(gins)
     context = {
             'distilleries': distilleries,
             'gins': gins,
         }
 
     return render(request, 'wholesitesearch/wholesitesearch.html', context)
+
