@@ -48,9 +48,9 @@
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="gins-link">
                 <a href="{% url 'reviews' %}" class="dropdown-item">All Reviews</a>
-                <a href="{% url 'gins' %}?sort=name&direction=asc" class="dropdown-item">Sort by Author</a>
-                <a href="{% url 'gins' %}?sort=price&direction=asc" class="dropdown-item">Sort by DIstillery</a>
-                <a href="{% url 'gins' %}?sort=rating&direction=desc" class="dropdown-item">Sort by Date posted</a>
+                <a href="{% url 'reviews' %}?sort=name&direction=asc" class="dropdown-item">Sort by Author</a>
+                <a href="{% url 'reviews' %}?sort=distillery&direction=asc" class="dropdown-item">Sort by Distillery's name</a>
+                <a href="{% url 'reviews' %}?sort=first_created_on&direction=desc" class="dropdown-item">Sort by Date posted</a>
             </div>
         </li>
     </ul>

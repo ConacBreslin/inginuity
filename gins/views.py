@@ -11,7 +11,6 @@ def all_gins(request):
     """The view to show all the gins, including sorting and search queries """
 
     gins = Gin.objects.all()
-    query = None
     sort = None
     direction = None
 
@@ -28,28 +27,14 @@ def all_gins(request):
                 direction = request.GET['direction']
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
-            gins = gins.order_by(sortkey)
-
-            """I haven't used the category filtering used in Boutique ADO"""
-        if 'q' in request.GET:
-            query = request.GET['q']
-            if not query:
-                messages.error(
-                    request, "You didn't enter any search criteria!"
-                    )
-                return redirect(reverse('gins'))
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
-            gins = gins.filter(queries)
+            gins = gins.order_by(sortkey)   
 
     current_sorting = f'{sort}_{direction}'
 
     context = {
         'gins': gins,
-        'search_term': query,
         'current_sorting': current_sorting,
     }
-
-    #Message if no matches found
 
     return render(request, 'gins/gins.html', context)
 
