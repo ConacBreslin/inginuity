@@ -67,8 +67,8 @@
         </div>
         <div class="col-12 col-md-5">
             <p>Review of {{ review.distillery }}</p>
-            <p class="mt-3"> Review by: {{ review.author }}</p>
-            <p class="mt-3"> Review by: {{ review.body }}</p>
+            <p class="mt-3"> Review by: {{ review.author.username }}</p>
+            <p class="mt-3"> Review content: {{ review.body }}</p>
             <p class="mt-3"> First posted on: {{ review.first_created_on }}</p>
             {% if review.last_editted_on != review.first_created_on %}
             <p class="mt-3"> Last editted on: {{ review.last_editted_on }}</p>

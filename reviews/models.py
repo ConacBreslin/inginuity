@@ -5,7 +5,7 @@ from profiles.models import UserProfile
 
 
 class Review(models.Model):
-    author = models.OneToOneField(User, on_delete=models.CASCADE),
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     distillery = models.ForeignKey(Distillery, on_delete=models.CASCADE)
     body = models.CharField(max_length=1000)
     first_created_on = models.DateTimeField(auto_now_add=True)
