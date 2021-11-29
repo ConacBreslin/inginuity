@@ -5,6 +5,7 @@ from gins.models import Gin, Distillery
 from .forms import DistilleryForm
 
 
+
 def all_distilleries(request):
     """The view to show all distilleries"""
 

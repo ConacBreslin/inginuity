@@ -28,24 +28,23 @@
             </div>
             <div class="col-12 col-sm-6 col-lg-4">
                 <div class="distillery-container mb-5 mt-md-5">
-                    <p class="mb-0">{{ distillery.name }}</p>
+                    <p class="mb-0 lead font-weight-bold">{{ distillery.name }}</p>
                     {% if request.user.is_superuser %}
                         <small class="ml-1">
                         <a href="{% url 'edit_distillery' distillery.id %}">Edit</a> | 
                         <a class="text-danger" href="{% url 'delete_distillery' distillery.id %}">Delete</a>
                         </small>
                     {% endif %}
-                    <p class="lead mb-0 text-left font-weight-bold">{{ distillery.town }}</p>
-                    
-                    <p class="mt-3">{{ distillery.county }}</p>
+                    <p class="mb-0 ">{{ distillery.town }}, County {{ distillery.county }}</p>
+                    <p> {{ distillery.description }}</p>
                     <a href="{% url 'add_review' %}" >Add a review now</a>
                 </div>
             </div>
-            <!-- <div class="col-12 col-sm-6 offset-sm-3">
+            <div class="col-12 col-sm-6 offset-sm-3">
                 {% for review in distillery.review_set.all %} 
-                    <p>Review of: {{ distillery.name }}</p>
-                    <p>Posted by: {{ review.username}}</p>
-                    <p>First posted on: {{ review.first_created_on }}</p>
+                    <p class="mb-0 lead font-weight-bold">Review of: {{ distillery.name }}</p>
+                    <p class="mb-0">Posted by: {{ review.username}}</p>
+                    <p class="mb-0">First posted on: {{ review.first_created_on }}</p>
                     <p>Last editted on : {{ review.last_editted_on }}</p> 
                     <p>{{ review.body }}</p>
                     
