@@ -42,17 +42,7 @@
                 <a href="{% url 'gins' %}?sort=rating&direction=desc" class="dropdown-item">Sort by Rating</a>
             </div>
         </li>
-        <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5 ml-5" href="#" id="gins-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Reviews
-            </a>
-            <div class="dropdown-menu border-0" aria-labelledby="reviews-link">
-                <a href="{% url 'reviews' %}" class="dropdown-item">All Reviews</a>
-                <a href="{% url 'reviews' %}?sort=author&direction=asc" class="dropdown-item">Sort by Author</a>
-                <a href="{% url 'reviews' %}?sort=distillery&direction=asc" class="dropdown-item">Sort by Distillery's name</a>
-                <a href="{% url 'reviews' %}?sort=first_created_on&direction=desc" class="dropdown-item">Sort by Date posted</a>
-            </div>
-        </li>
+       
     </ul>
 </div>
 

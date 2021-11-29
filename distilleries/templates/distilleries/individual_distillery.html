@@ -41,11 +41,12 @@
                     <a href="{% url 'add_review' %}" >Add a distillery review now</a>
                 </div>
             </div>
-            <div class="col-12 col-sm-6 offset-sm-3">
+            <!-- <div class="col-12 col-sm-6 offset-sm-3">
                 {% for review in distillery.review_set.all %} 
                     <p>Review of: {{ distillery.name }}</p>
-                    <p>Posted by: {{ review.author}}</p>
+                    <p>Posted by: {{ review.username}}</p>
                     <p>First posted on: {{ review.first_created_on }}</p>
+                    <p>Last editted on : {{ review.last_editted_on }}</p> 
                     <p>{{ review.body }}</p>
                     
                     <!-- OR IF PERSON WROTE THE REVIEW -->
@@ -56,16 +57,9 @@
                     <a href="{% url 'edit_review'  review.id %}">Edit</a> | 
                     <a class="text-danger" href="{% url 'delete_review'  review.id %}">Delete</a>
                     </small>
-                {% endif %}
-                    
-                    {% endfor %}
-                
-
-                    
-                    
-                    
-            
-            </div>
+                    {% endif %}
+                {% endfor %}
+            </div> -->
         </div>
     </div>
 
