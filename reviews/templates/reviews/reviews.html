@@ -1,15 +1,52 @@
-from django.db import models
-from django.conf import settings
-from django.contrib.auth.models import User
-from gins.models import Distillery
+{% extends "base.html" %}
+{% load static %}
 
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
 
-class Review(models.Model):
-    username = models.ForeignKey(User, on_delete=models.CASCADE)
-    distillery = models.ForeignKey(Distillery, on_delete=models.CASCADE)
-    body = models.CharField(max_length=1000)
-    first_created_on = models.DateTimeField(auto_now_add=True)
-    last_editted_on = models.DateTimeField(auto_now=True)
+{% block content %}
+<div class="overlay"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col text-center mt-3">
+            <h2>Reviews</h2>
+            <hr class="w-50 mb-1">
+        </div>
+    </div>
+    <div class="review-container col-10 offset-1">
+        {% for review in reviews %}
+        <div class="d-none d-sm-block col-sm-4 offset-sm-2">
+            {% if distillery.image %}
+                <img src="{{ distillery.image.url }}" alt="{{ distillery.name }}">
+            {% else %}
+                <img src="{{ MEDIA_URL }}nodistillery.jpg" alt="{{ distillery.name }}">
+            {% endif %}
+        </div>
+        <div class="col-sm-4">
+            <p class="mb-0">Review of :{{ distillery.name }}</p>
+            <p class="lead mb-0 text-left font-weight-bold">{{ distillery.town }}, {{ distillery.county }}</p> 
+            <p> {{ review.body }}</p>
+            <p>Posted by : {{ review.username }}</p>
+            <p>Posted on : {{ review.first_created_on }}</p>
+            <p>Last editted on : {{ review.last_editted_on }}</p>
+                {% if request.user.is_superuser %}
+                    <small class="ml-3">
+                    <a href="{% url 'edit_review' review.id %}">Edit</a>
+                    <a href="{% url 'delete_review' review.id %}">Delete</a>
+                    </small>
+                {% endif %}
 
-    def __str__(self):
-        return str(self.distillery)
+        </div>
+    
+    
+
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}
