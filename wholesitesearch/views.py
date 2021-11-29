@@ -4,7 +4,7 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 from gins.models import Gin, Distillery
 from reviews.models import Review
-from django.contrib.auth.models import User
+
 
 
 def wholesite_search(request):

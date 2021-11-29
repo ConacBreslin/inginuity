@@ -74,7 +74,7 @@ def edit_review(request, review_id):
                 )
     else:
         form = ReviewForm(instance=review)
-        messages.info(request, f'You are editing a review of {distillery.name}')
+        messages.info(request, f'You are editing a review of { review.distillery.name }')
 
     template = 'reviews/edit_review.html'
     context = {
