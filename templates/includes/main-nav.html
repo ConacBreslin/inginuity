@@ -1,5 +1,5 @@
 <div class="collapse navbar-collapse" id="main-nav">
-    <ul class="navbar-nav w-auto mx-auto">
+    <ul class="navbar-nav w-auto mx-auto ">
         <li class="nav-item d-block d-md-none">
             <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'home' %}" id="home-link">
                 Home
@@ -7,7 +7,7 @@
         </li>
         
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="distilleries-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-black mx-5" href="#" id="distilleries-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Distilleries
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="distilleries-link">
@@ -40,6 +40,17 @@
                 <a href="{% url 'gins' %}?sort=name&direction=asc" class="dropdown-item">Sort by Name</a>
                 <a href="{% url 'gins' %}?sort=price&direction=asc" class="dropdown-item">Sort by Price</a>
                 <a href="{% url 'gins' %}?sort=rating&direction=desc" class="dropdown-item">Sort by Rating</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5 ml-5" href="#" id="reviews-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Reviews
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="reviews-link">
+                <a href="{% url 'reviews' %}" class="dropdown-item">All Reviews</a>
+                <a href="{% url 'gins' %}?sort=name&direction=asc" class="dropdown-item">Sort by distillery</a>
+                <a href="{% url 'gins' %}?sort=county&direction=asc" class="dropdown-item">Sort by County</a>
+                <a href="{% url 'gins' %}?sort=province&direction=desc" class="dropdown-item">Sort by Province</a>
             </div>
         </li>
        
