@@ -5,7 +5,7 @@ from gins.models import Distillery
 
 
 class Review(models.Model):
-    username = models.ForeignKey(User, on_delete=models.CASCADE)
+    username = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     distillery = models.ForeignKey(Distillery, on_delete=models.CASCADE)
     body = models.CharField(max_length=1000)
     first_created_on = models.DateTimeField(auto_now_add=True)
