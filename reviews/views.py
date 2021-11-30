@@ -20,16 +20,15 @@ def all_reviews(request):
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             sort = sortkey
-            if sortkey == 'name':
-                sortkey = 'lower_name'
-                gins = gins.annotate(lower_name=Lower('name'))
+            if sortkey == 'username':
+                reviews = reviews.annotate(lower_username=Lower('username'))
             if sortkey == 'distillery':
                 sortkey = 'distillery__name'
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
-            gins = gins.order_by(sortkey)   
+            reviews = reviews.order_by(sortkey)   
 
     current_sorting = f'{sort}_{direction}'
 

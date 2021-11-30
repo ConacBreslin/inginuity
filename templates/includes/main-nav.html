@@ -48,9 +48,9 @@
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="reviews-link">
                 <a href="{% url 'reviews' %}" class="dropdown-item">All Reviews</a>
-                <a href="{% url 'reviews' %}?sort=name&direction=asc" class="dropdown-item">Sort by distillery</a>
-                <a href="{% url 'reviews' %}?sort=county&direction=asc" class="dropdown-item">Sort by County</a>
-                <a href="{% url 'reviews' %}?sort=province&direction=desc" class="dropdown-item">Sort by Province</a>
+                <a href="{% url 'reviews' %}?sort=username&direction=asc" class="dropdown-item">Sort by Author</a>
+                <a href="{% url 'reviews' %}?sort=distillery&direction=asc" class="dropdown-item">Sort by Distillery</a>
+                <a href="{% url 'reviews' %}?sort=first_created_on&direction=desc" class="dropdown-item">Sort by Date Posted</a>
             </div>
         </li>
        
