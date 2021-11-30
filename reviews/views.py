@@ -35,6 +35,7 @@ def all_reviews(request):
 
     context = {
         'reviews': reviews,
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'reviews/reviews.html', context)
