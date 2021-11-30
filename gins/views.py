@@ -66,7 +66,7 @@ def add_gin(request):
             return redirect(reverse('add_gin'))
         else:
             messages.error(
-                request, 'This gin failed to add. ' +
+                request, 'This gin was not added. ' +
                 'Please check the form is valid.'
                 )
     else:

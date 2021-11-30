@@ -47,7 +47,7 @@ def add_distillery(request):
                 )
         else:
             messages.error(
-                request, 'This distillery failed to add. ' +
+                request, 'This distillery was not added. ' +
                 'Please check the form is valid.'
                 )
     else:

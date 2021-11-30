@@ -18,7 +18,7 @@ def profile(request):
             messages.success(request, 'You updated your profile')
         else:
             messages.error(
-                request, 'Your update failed. Please check' +
+                request, 'Your profile did not update. Please check' +
                 ' the form is valid.')
     else:
         form = UserProfileForm(instance=profile)

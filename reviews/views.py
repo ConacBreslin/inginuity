@@ -57,7 +57,7 @@ def add_review(request):
                 )
         else:
             messages.error(
-                request, 'This review failed to add. ' +
+                request, 'This review was not added. ' +
                 'Please check the form is valid.'
                 )
     else:
