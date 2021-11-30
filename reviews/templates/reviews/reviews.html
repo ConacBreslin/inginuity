@@ -27,7 +27,7 @@
                         <option value="username_desc" {% if current_sorting == 'username_desc' %}selected{% endif %}>Author (Z-A)</option><option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
                         <option value="distillery_asc" {% if current_sorting == 'distillery_asc' %}selected{% endif %}>Distillery (A-Z)</option>
                         <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>istillery (Z-A)</option>
-                        <option value="first_created_on_asc" {% if current_sorting == 'first_creted_on_asc' %}selected{% endif %}>Date Posted (newest - oldest)</option>
+                        <option value="first_created_on_asc" {% if current_sorting == 'first_created_on_asc' %}selected{% endif %}>Date Posted (newest - oldest)</option>
                         <option value="first_created_on_desc" {% if current_sorting == 'first_created_on_desc' %}selected{% endif %}>Date Posted (oldest -newest)</option>
                     </select>
                 </div>
@@ -81,4 +81,27 @@
 			window.scrollTo(0,0)
 		})
 	</script>
+    
+    <script type="text/javascript">
+        $('#sort-selector').change(function() {
+            var selector = $(this);
+            var currentUrl = new URL(window.location);
+
+            var selectedVal = selector.val();
+            if(selectedVal != "reset"){
+                var sort = selectedVal.split("_")[0];
+                var direction = selectedVal.split("_")[1];
+
+                currentUrl.searchParams.set("sort", sort);
+                currentUrl.searchParams.set("direction", direction);
+
+                window.location.replace(currentUrl);
+            } else {
+                currentUrl.searchParams.delete("sort");
+                currentUrl.searchParams.delete("direction");
+
+                window.location.replace(currentUrl);
+            }
+        })
+    </script>
 {% endblock %}
