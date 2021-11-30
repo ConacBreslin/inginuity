@@ -37,13 +37,12 @@
                                 </a>
                                 {% endif %}
                                 <div class="card-body pb-0">
-                                    <p class="mb-0">{{ distillery.name }}</p>
+                                    <p class="lead font-weight-bold mb-0">{{ distillery.name }}</p>
                                 </div>
                                 <div class="card-footer bg-white pt-0 border-0 text-left">
                                     <div class="row">
                                         <div class="col">
-                                            <p class="lead mb-0 text-left font-weight-bold">{{ distillery.town }}</p>
-                                            <p class="lead mb-0 text-left font-weight-bold">{{ distillery.county }}</p>
+                                            <p class="mb-0 text-left">{{ distillery.town }}, {{ distillery.county }}</p>
                                             {% if request.user.is_superuser %}
                                                 <small class="ml-3">
                                                     <a href="{% url 'edit_distillery' distillery.id %}">Edit</a> | 

@@ -31,13 +31,23 @@
                     <p class="mb-0 lead font-weight-bold">{{ distillery.name }}</p>
                     {% if request.user.is_superuser %}
                         <small class="ml-1">
-                        <a href="{% url 'edit_distillery' distillery.id %}">Edit</a> | 
-                        <a class="text-danger" href="{% url 'delete_distillery' distillery.id %}">Delete</a>
+                        <a href="{% url 'edit_distillery' distillery.id %}">Edit distillery</a> | 
+                        <a class="text-danger" href="{% url 'delete_distillery' distillery.id %}">Delete distilllery</a>
                         </small>
                     {% endif %}
                     <p class="mb-0 ">{{ distillery.town }}, County {{ distillery.county }}</p>
                     <p> {{ distillery.description }}</p>
-                    <a href="{% url 'add_review' %}" >Add a review now</a>
+                    
+                    {% if distillery.hasvisitorcentre %}
+                       <p>{{ distillery.name }} has a visitor centre</p>
+                       <a href="{{ distillery.website }}">Visit their website</a>
+                    {% else %}                  
+                   <p>{{ distillery.name }} does not have a visitor centre</p>
+                    {% endif %}
+
+
+
+                    <p><a href="{% url 'add_review' %}" >Add a review now</a></p>
                 </div>
             </div>
             <div class="col-12 col-sm-6 offset-sm-3">
@@ -53,8 +63,8 @@
                     {% if request.user.is_superuser %}
                     <!-- OR IF PERSON WROTE THE REVIEW -->
                     <small class="ml-1">
-                    <a href="{% url 'edit_review'  review.id %}">Edit</a> | 
-                    <a class="text-danger" href="{% url 'delete_review'  review.id %}">Delete</a>
+                    <a href="{% url 'edit_review'  review.id %}">Edit review</a> | 
+                    <a class="text-danger" href="{% url 'delete_review'  review.id %}">Delete review</a>
                     </small>
                     {% endif %}
                 {% endfor %}

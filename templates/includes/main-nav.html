@@ -7,28 +7,15 @@
         </li>
         
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mx-5" href="#" id="distilleries-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5 ml-5" href="#" id="distilleries-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Distilleries
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="distilleries-link">
                 <a href="{% url 'distilleries' %}" class="dropdown-item">All Distilleries</a>
-                <a href="" class="dropdown-item ">Distilleries with tours</a>
-                <a id ="province" href="" class="dropdown-item dropdown-submenu">Distilleries by Province</a>
-                <ul class="dropdown-menu">
-                    <li><a tabindex="-1" href="#">Ulster</a></li>
-                    <li><a tabindex="-1" href="#">Munster</a></li>
-                    <li><a tabindex="-1" href="#">Leinster</a></li>
-                    <li><a tabindex="-1" href="#">Connaught</a></li>
-                </ul>
-                <!--NEED TO NEST A DROPDOWN HERE AND THEN FILTER HERE-->
-                <a id="county" href="{% url 'distilleries' %}" class="dropdown-item dropdown-submenu">Distilleries by County</a>
-                <ul class="dropdown-menu">
-                    <li><a tabindex="-1" href="#">Dynamically filled county 1</a></li>
-                    <li><a tabindex="-1" href="#">Dynamically filled county 1</a></li>
-                </ul>
-          
-                
-                <a href="" class="dropdown-item ">Distilleries by Rating</a>                
+                <a href="{% url 'distilleries' %}?sort=name&direction=asc" class="dropdown-item">Sort by Name</a>
+                <a href="{% url 'distilleries' %}?sort=county&direction=asc" class="dropdown-item">Sort by County</a>
+                <a href="{% url 'distilleries' %}?sort=province&direction=desc" class="dropdown-item">Sort by province</a>
+
             </div>
         </li>
         <li class="nav-item dropdown">

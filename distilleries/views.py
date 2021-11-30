@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+
+from django.db.models.functions import Lower
 from django.contrib.auth.decorators import login_required
 from gins.models import Gin, Distillery
 from .forms import DistilleryForm
@@ -9,9 +11,25 @@ def all_distilleries(request):
     """The view to show all distilleries"""
 
     distilleries = Distillery.objects.all()
+    sort = None
+    direction = None
 
+    if request.GET:
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'name':
+                distilleries = distilleries.annotate(lower_name=Lower('name'))
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            distilleries = distilleries.order_by(sortkey)   
+
+    current_sorting = f'{sort}_{direction}'
     context = {
         'distilleries': distilleries,
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'distilleries/distilleries.html', context)
