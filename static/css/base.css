@@ -7,7 +7,7 @@ html {
 body {
 	background: url('/media/skellig.jpg') no-repeat center center fixed;
 	background-size: cover;
-    background-color:rgb(13, 80, 35);
+    background-color:rgb(127, 161, 209);
     height: calc(100vh - 164px);
     color: #000;
     font-family: 'Open Sans', sans-serif;
@@ -15,6 +15,7 @@ body {
 
 .home-link {
     color: #FFF;
+    text-shadow: -5px 3px 2px #293e5c;
     font-size: 80px;
     font-weight:900;
     letter-spacing: 2px;
