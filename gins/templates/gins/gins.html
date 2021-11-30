@@ -65,7 +65,7 @@
                                         {% if gin.distillery %}
                                         <p class="small mt-1 mb-0">
     <!--CB TO CHECK THIS I THINK THE DISTILLERY WILL NEED TO LINK TO THE DISTILLERY PAGE WHEN IT HAS BEEN MADE-->
-                                            <a class="text-muted" href="{% url 'distilleries' %}?distillery={{ gin.distillery.name }}">
+                                            <a class="text-muted" href="{% url 'individual_distillery' gin.distillery.id %}">
                                                 <i class="fas fa-warehouse"></i> {{ gin.distillery.name }}
                                             </a>
                                         </p>
