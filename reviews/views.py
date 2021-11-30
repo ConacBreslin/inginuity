@@ -83,7 +83,7 @@ def edit_review(request, review_id):
         form = ReviewForm(request.POST, instance=review)
         if form.is_valid():
             form.save()
-            messages.success(request, 'You updated this rev!')
+            messages.success(request, 'You updated this review!')
             return redirect(
                 reverse('reviews')
                 )
