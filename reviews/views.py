@@ -4,6 +4,7 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 from django.contrib.auth.decorators import login_required
 from gins.models import Distillery
+from django.contrib.auth.models import User
 from .models import Review
 from .forms import ReviewForm
 
