@@ -22,6 +22,8 @@ def all_reviews(request):
             sort = sortkey
             if sortkey == 'username':
                 reviews = reviews.annotate(lower_username=Lower('username'))
+            #if sortkey == 'first_created_on':
+                # sortkey = 'first'
             if sortkey == 'distillery':
                 sortkey = 'distillery__name'
             if 'direction' in request.GET:
@@ -44,12 +46,9 @@ def all_reviews(request):
 @login_required
 def add_review(request):
     """The view to add a review to the site"""
-    if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only approved users can do this.')
-        return redirect(reverse('home'))
-
+   
     if request.method == 'POST':
-        form = ReviewForm(request.POST, request.FILES)
+        form = ReviewForm(request.POST)
         if form.is_valid():
             review = form.save()
             messages.success(request, 'You added a new review!')
@@ -64,7 +63,7 @@ def add_review(request):
     else:
         form = ReviewForm()
 
-    template = 'reviews/reviews.html'
+    template = 'reviews/add_review.html'
     context = {
         'form': form,
     }

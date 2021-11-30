@@ -23,12 +23,15 @@
             <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
                 <div class="sort-select-wrapper w-50">
                     <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                        <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
                         <option value="username_asc" {% if current_sorting == 'username_asc' %}selected{% endif %}>Author (A-Z)</option>
-                        <option value="username_desc" {% if current_sorting == 'username_desc' %}selected{% endif %}>Author (Z-A)</option><option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                        <option value="username_desc" {% if current_sorting == 'username_desc' %}selected{% endif %}>Author (Z-A)</option>
                         <option value="distillery_asc" {% if current_sorting == 'distillery_asc' %}selected{% endif %}>Distillery (A-Z)</option>
-                        <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>istillery (Z-A)</option>
-                        <option value="first_created_on_asc" {% if current_sorting == 'first_created_on_asc' %}selected{% endif %}>Date Posted (newest - oldest)</option>
-                        <option value="first_created_on_desc" {% if current_sorting == 'first_created_on_desc' %}selected{% endif %}>Date Posted (oldest -newest)</option>
+                        <option value="distillery_desc" {% if current_sorting == 'distillery_desc' %}selected{% endif %}>Distillery (Z-A)</option>
+<!--                        
+                        <option value="first_asc" {% if current_sorting == 'first_asc' %}selected{% endif %}>Date Posted (newest - oldest)</option>
+                        <option value="first_desc" {% if current_sorting == 'first_desc' %}selected{% endif %}>Date Posted (oldest -newest)</option>
+                     -->
                     </select>
                 </div>
             </div>
