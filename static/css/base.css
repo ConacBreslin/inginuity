@@ -12,8 +12,15 @@ body {
     color: #000;
     font-family: 'Open Sans', sans-serif;
 }
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
 footer {
     background-color: #7fa1d1;
+    color: #000;
 }
 
 .modal {
@@ -29,9 +36,8 @@ footer {
 
 }
 
-.very-small-image {
-    width: 80px;
-    height: 100px;
+#topnav, .navbar  {
+    background-color: #7fa1d1;
 }
 
 
@@ -110,6 +116,13 @@ footer {
 
 input[name='q']::placeholder {
     color: #aab7c4;
+}
+
+
+/* gin pictures in individual_ditilleries*/
+.very-small-image {
+    width: 80px;
+    height: 100px;
 }
 
 
