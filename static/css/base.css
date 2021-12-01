@@ -13,6 +13,11 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+.modal {
+    background-color: #7fa1d1;
+
+}
+
 .home-link {
     color: #FFF;
     text-shadow: -5px 3px 2px #293e5c;

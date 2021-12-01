@@ -30,34 +30,34 @@ To enjoy visiting the site, to find out up to date information about Irish Craft
 8. Easily register for an account.
 
 ###### Sorting and Searching
-1. Search across gins and distilleries from the navbar.
-2. See what was searched for ad the number of results.
-3. Sort distilleries by county, province or by those with tours.
-4. Sort gins by price, name or rating.
-5. Sort reviews by distillery, author or date posted.
+9. Search across gins and distilleries from the navbar.
+10. See what was searched for ad the number of results.
+11. Sort distilleries by county, province or by those with tours.
+12. Sort gins by price, name or rating.
+13. Sort reviews by distillery, author or date posted.
  
 ###### Purchasing and checkout
-1. Be able to select gins to purchase and add them to their bag
-2. View items in a their bag.
-3. Change quantity of items in their bag.
-4. Easily enter payment details.
-5. Feel personal inforamtion is secure.
-6. View an order confirmation after checkout.
-7. Receive a confirmation email after checkout.
+14. Be able to select gins to purchase and add them to their bag
+15. View items in a their bag.
+16. Change quantity of items in their bag.
+17. Easily enter payment details.
+18. Feel personal inforamtion is secure.
+19. View an order confirmation after checkout.
+20. Receive a confirmation email after checkout.
 
 ##### In addition logged in users should be able to;
-1. Easily log in and out of their account.
-2. Receive a confimation email after registering.
-3. Recover their password if it is lost.
-4. Have a personalised user profile.
-5. Have an option to store their details for future ease of use.
-6. Add a review 
-7. Edit or delete their reviews.
+21. Easily log in and out of their account.
+22. Receive a confimation email after registering.
+23. Recover their password if it is lost.
+24. Have a personalised user profile.
+25. Have an option to store their details for future ease of use.
+26. Add a review 
+27. Edit or delete their reviews.
 
 ##### Superusers should be able to
-1. Add, edit or delete gins.
-2. Add, edit or delete distilleries.
-3. Edit or delete reviews.
+29. Add, edit or delete gins.
+30. Add, edit or delete distilleries.
+31. Edit or delete reviews.
 
 ## Strategy
 The site should provide a platform for people interested in irish Craft gins and distilleries to find out more about them and to share their visitor experiences.
@@ -132,15 +132,17 @@ In hindsite some of the apps a very small and their content and functionality co
 - [Balsamiq](https://balsamiq.com/wireframes/) was used to create the wireframes.
 - Gits's [gitpod](https://www.gitpod.io/) was used for writing and editing code, and for submitting and pushing to GitHub.
 - [Heroku](https://id.heroku.com/login) was used to deploy the app.
-- [sqlite](https://sqlite.org/index.html) was used to store data in development and [postgresql](https://www.postgresql.org/) was in the deployed project.
+- [sqlite](https://sqlite.org/index.html) is used to store data in development and [postgresql](https://www.postgresql.org/) in the deployed project.
 - [GitHub](https://github.com/) was used for storing the code after being pushed from Git.
 - [RandomKeygen](https://randomkeygen.com/) was used to generate a secret keys.
 - [Bootstrap](https://getbootstrap.com/) was sued for styling
 - [Google Fonts](https://fonts.google.com/) was used to choose and import the font.
-- Foreground/Backgound contrast was checked using [contrast-ratio.com](https://contrast-ratio.com/). 
+- Foreground/Backgound contrast was checked using [contrast-ratio.com](https://contrast-ratio.com/).
+- The logo was generated on [wix.com](https://www.wix.com/)
 - The space invader image for the favicon was found in [iconfinder.com](https://www.iconfinder.com/).
 - The favicon image was converted to an .ico file using [favicon.io](https://favicon.io/).
-- Instructions for adding the favicon were found on [flask.palletsprojects.co](https://flask.palletsprojects.com/).
-- The following websites were used for problem solving [stackoverflow.com](https://stackoverflow.com/), [w3schools.com](https://www.w3schools.com/), [geeksforgeeks.org](https://www.geeksforgeeks.org/), [pythonmorsels.com](https://www.pythonmorsels.com/), [teamtreehouse.com](https://teamtreehouse.com/) and [css-tricks.com](https://css-tricks.com/).
+- The following websites were used for problem solving [stackoverflow.com](https://stackoverflow.com/), [w3schools.com](https://www.w3schools.com/), [geeksforgeeks.org](https://www.geeksforgeeks.org/),  and [css-tricks.com](https://css-tricks.com/).
 - The html code was formatted using [webformatter.com](https://webformatter.com/html).
 - Information about automatically formatting  python with [black](https://pypi.org/project/black/) was found on [freecodecamp.org](https://www.freecodecamp.org/news/auto-format-your-python-code-with-black/)
+- The code for the onload modal was taken from [etutorialspoint.com](https://www.etutorialspoint.com/)
+- The code for standardising the icon sizes wa taken from [bulma.io](https://bulma.io/)
