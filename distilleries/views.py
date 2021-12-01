@@ -38,9 +38,11 @@ def individual_distillery(request, distillery_id):
     """The view to show individual distilleries"""
 
     distillery = get_object_or_404(Distillery, pk=distillery_id)
+    gins=Gin.objects.filter(distillery=distillery)
 
     context = {
         'distillery': distillery,
+        'gins': gins,
     }
 
     return render(request, 'distilleries/individual_distillery.html', context)

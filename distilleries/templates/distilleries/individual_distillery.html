@@ -13,7 +13,7 @@
     <div class="overlay"></div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 col-sm-6 col-lg-4 offset-lg-2">
+            <div class="col-12 col-sm-6 col-lg-3 offset-lg-1">
                 <div class="image-container my-5">
                     {% if distillery.image %}
                         <a href="{{ distillery.image.url }}" target="_blank">
@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="col-12 col-sm-6 col-lg-4">
-                <div class="distillery-container mb-5 mt-md-5">
+                <div class="distillery-container mb-5 mt-5">
                     <p class="mb-0 lead font-weight-bold">{{ distillery.name }}</p>
                     {% if request.user.is_superuser %}
                         <small class="ml-1">
@@ -44,22 +44,51 @@
                     {% else %}                  
                    <p>{{ distillery.name }} does not have a visitor centre</p>
                     {% endif %}
-
-
-
                     <p><a href="{% url 'add_review' %}" >Add a review now</a></p>
                 </div>
             </div>
-            <div class="col-12 col-sm-6 offset-sm-3">
+
+
+            <div class="col-lg-3 mt-5">
+                <p>This distillery produces these gins</p>
+                {% for gin in gins %}
+                
+                    {% if gin.image %}
+                    <a href="{% url 'individual_gin' gin.id %}">
+                    <img class="very-small-image" src="{{ gin.image.url }}" alt="{{ gin.name }}">
+                    </a>
+                    {% else %}
+                    <a href="{% url 'individual_gin' gin.id %}">
+                    <img class="very-small-image"  src="{{ MEDIA_URL }}emptybottle.jpg" alt="{{ gin.name }}">
+                    </a>
+                    {% endif %}
+                    
+                        <p class="mb-0">{{ gin.name }}</p>
+                    
+                                <p class="lead mb-0 text-left font-weight-bold">€{{ gin.price }}</p>
+                               
+                                {% if gin.rating %}
+                                    <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ gin.rating }} / 5</small>
+                                {% else %}
+                                    <small class="text-muted">Not Rated yet</small>
+                                {% endif %}
+                          <br>  
+                        
+                {% endfor %}
+
+            </div>
+
+            </div>
+
+
+
+
+
+            <div class="col-12 col-sm-8 offset-sm-2">
                 {% for review in distillery.review_set.all %} 
-                    <p class="mb-0 lead font-weight-bold">Review of: {{ distillery.name }}</p>
-                    <p class="mb-0">Posted by: {{ review.username}}</p>
-                    <p class="mb-0">First posted on: {{ review.first_created_on }}</p>
-                    <p>Last editted on : {{ review.last_editted_on }}</p> 
+                    <p class="mb-0 lead font-weight-bold text-center">Review of: {{ distillery.name }}</p>
+                    
                     <p>{{ review.body }}</p>
-                    
-                    <!-- OR IF PERSON WROTE THE REVIEW -->
-                    
                     {% if request.user.is_superuser %}
                     <!-- OR IF PERSON WROTE THE REVIEW -->
                     <small class="ml-1">
@@ -67,6 +96,10 @@
                     <a class="text-danger" href="{% url 'delete_review'  review.id %}">Delete review</a>
                     </small>
                     {% endif %}
+                    <p class="mb-0 small">Posted by: {{ review.username}}</p>
+                    <p class="mb-0 small">First posted on: {{ review.first_created_on }}</p>
+                    <p class="small">Last editted on : {{ review.last_editted_on }}</p> 
+                    
                 {% endfor %}
             </div> -->
         </div>
