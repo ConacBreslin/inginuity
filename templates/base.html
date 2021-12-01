@@ -115,7 +115,7 @@
             </div>            
         </div>
     </header>
-
+    
     {% if messages %}
     <div class="message-container">
         {% for message in messages %}
@@ -140,7 +140,30 @@
 
     {% block content %}
     {% endblock %}
-
+    <footer> 
+        <div class="row">
+            <div class="col-4">
+                <ul class="list-inline social-media-links ml-5 mt-3">
+                    <li class="list-inline-item">
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Goes to Facebook (opens in new tab)"><i class="fab fa-facebook-f icon footer-icon"></i></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://twitter.com/?lang=en-gb" target="_blank" rel="noopener" aria-label="Goes to Twitter (opens in new tab)"><i class="fab fa-twitter icon footer-icon"></i></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Goes to Instagram (opens in new tab)"><i class="fab fa-instagram icon footer-icon"></i></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="Goes to youtube (opens in new tab)"><i class="fab fa-youtube icon footer-icon"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-4 mt-3"><span>Contact Us at </span><a href="mailto:inginuity@inginuity.ie">inginuity@inginuity.ie</a></div>
+            <div class="col-4 mt-3">
+                <a href="https://media.ireland.com/en-ie/news-releases/global/new-map-points-the-way-to-an-irish-gin-journey.aspx"  target="_blank" rel="noopener" aria-label="Goes to ireland.som gin trail map (opens in new tab)">Ireland.com Gin Trail Map</a>
+            </div>
+        </div>
+    </footer>
     
 {% block postloadjs %}
     <script type="text/javascript">

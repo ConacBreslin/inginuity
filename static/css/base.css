@@ -12,6 +12,9 @@ body {
     color: #000;
     font-family: 'Open Sans', sans-serif;
 }
+footer {
+    background-color: #7fa1d1;
+}
 
 .modal {
     background-color: #7fa1d1;
@@ -36,6 +39,7 @@ body {
     justify-content: center;
     height: 1.5rem;
     width: 1.5rem;
+    color:black;
 }
 
 .main-logo-link {
