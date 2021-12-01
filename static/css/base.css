@@ -21,19 +21,18 @@ a {
 footer {
     background-color: #7fa1d1;
     color: #000;
-}
-
+}6
 .modal {
     background-color: #7fa1d1;
 
 }
 
 .home-link {
-    color: #FFF;    font-size: 80px;
+    color: #FFF;    
+    font-size: 80px;
     font-weight:900;
     letter-spacing: 2px;
-    
-
+    text-shadow: -5px 5px #0f305c;  
 }
 
 #topnav, .navbar  {
