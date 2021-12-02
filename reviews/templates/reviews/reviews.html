@@ -16,13 +16,13 @@
             <div class="col text-center mb-1">
                 <h2 class="mt-4">Reviews</h2>
             <hr class="w-50 mt-1">
-            <a class="btn btn-outline-black rounded-0 w-50" href="{% url 'add_review' %}">Add a review</a>
+                <div class="col-4 offset-4">
+                    <a class="btn btn-outline-black rounded-0 w-50" href="{% url 'add_review' %}">Add a review</a>
+                </div>
             <hr class="w-25 mt-3">
         </div>
 
-
-
-        
+      
     
     <div class="review-container col-10 offset-1">
         <div class="row mt-1 mb-2">
@@ -64,11 +64,11 @@
             <p class="mb-0">Posted by : {{ review.username }}</p>
             <p class="mb-0">Posted on : {{ review.first_created_on }}</p>
             <p>Last editted on : {{ review.last_editted_on }}</p>
-                {% if request.user.is_superuser %}
-                <!-- ALSO WOULD LIKE OR IF review.username == current logged in use-->
+                {% if request.user.is_superuser or review.username == request.user %}
                     <small class="ml-3">
                     <a href="{% url 'edit_review' review.id %}" >Edit this review    / </a>
-                    <a href="#checkDeleteModal" data-toggle="modal" >    Delete this review</a>
+                    <a href="#checkDeleteModal" class="delete" 
+                       data-attr-id={{ review.id }} >    Delete this review</a>
                     </small>
                 {% endif %}
         </div>
@@ -95,8 +95,8 @@
           Once deleted it cannot be retreived
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-black" data-dismiss="modal">Back to all the reviews</button>
-          <a type="button" href="#" class="btn btn-danger text-white">Delete this review</a>
+          <button type="button" class="btn btn-black rounded-0 " data-dismiss="modal">Back to all the reviews</button>
+          <a type="button" href="#" class="btn btn-danger rounded-0 text-white" id="delete-confirm">Delete this review</a>
         </div>
       </div>
     </div>
@@ -114,6 +114,8 @@
 	</script>
     
     <script type="text/javascript">
+        var delete_id = -1;
+
         $('#sort-selector').change(function() {
             var selector = $(this);
             var currentUrl = new URL(window.location);
@@ -133,6 +135,19 @@
 
                 window.location.replace(currentUrl);
             }
+        })
+
+        $(".delete").on("click", function(e)
+         { console.log("Toggle")
+            $("#checkDeleteModal").modal('show');
+            delete_id = $(this).attr("data-attr-id");
+        })
+
+        $("#delete-confirm").on("click", function(e) {
+            $("#checkDeleteModal").modal('hide');
+            fetch(`/reviews/delete/${delete_id}/`).then(resp => { 
+                window.location.reload() 
+            });
         })
     </script>
 {% endblock %}

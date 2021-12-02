@@ -50,7 +50,9 @@ def add_review(request):
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
-            review = form.save()
+            review = form.save(commit=False)
+            review.username = request.user
+            review.save()
             messages.success(request, 'You added a new review!')
             return redirect(
                 reverse('reviews')
@@ -108,12 +110,12 @@ def edit_review(request, review_id):
 @login_required
 def delete_review(request, review_id):
     """The view to delete a review from the site"""
-    if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only approved users can do this.')
-        return redirect(reverse('home'))
-
     review = get_object_or_404(Review, pk=review_id)
-    review.delete()
-    messages.success(request, 'That review has been deleted!')
-    return redirect(reverse('reviews'))
+    if request.user.is_superuser or review.username == request.user:
+        review.delete()
+        messages.success(request, 'That review has been deleted!')
+        return redirect(reverse('reviews'))
+
+    messages.error(request, 'Sorry, only approved users can do this.')
+    return redirect(reverse('home'))    
 
