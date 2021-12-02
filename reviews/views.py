@@ -57,6 +57,8 @@ def add_review(request):
             return redirect(
                 reverse('reviews')
                 )
+            #return redirect(reverse('individual_distillery', args=[distillery.id]))
+            
         else:
             messages.error(
                 request, 'This review was not added. ' +

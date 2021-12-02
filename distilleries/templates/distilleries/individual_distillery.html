@@ -93,18 +93,66 @@
                     <!-- OR IF PERSON WROTE THE REVIEW -->
                     <small class="ml-1">
                     <a href="{% url 'edit_review'  review.id %}">Edit review</a> | 
-                    <a class="text-danger" href="{% url 'delete_review'  review.id %}">Delete review</a>
+                    <!-- <a class="text-danger" href="{% url 'delete_review'  review.id %}">Delete review</a> -->
                     </small>
+
+                    ANCHOR
+                    <a href="#checkDeleteModal" class="delete" 
+                       data-attr-id={{ review.id }} >    Delete this review</a>
+
                     {% endif %}
                     <p class="mb-0 small">Posted by: {{ review.username}}</p>
                     <p class="mb-0 small">First posted on: {{ review.first_created_on }}</p>
                     <p class="small">Last editted on : {{ review.last_editted_on }}</p> 
                     
                 {% endfor %}
-            </div> -->
+            </div>
         </div>
     </div>
 
+    <div class="modal fade" id="checkDeleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="deleteModalLabel">Are you sure you want to delete this review?</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Once deleted it cannot be retreived
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-black rounded-0 " data-dismiss="modal">Back to all the reviews</button>
+              <a type="button" href="#" class="btn btn-danger rounded-0 text-white" id="delete-confirm">Delete this review</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    
     
 
 {% endblock %}
+
+
+{% block postloadjs %}
+<script type="text/javascript">
+    var delete_id = -1;
+
+$(".delete").on("click", function(e)
+         { console.log("Toggle")
+            $("#checkDeleteModal").modal('show');
+            delete_id = $(this).attr("data-attr-id");
+        })
+
+        $("#delete-confirm").on("click", function(e) {
+            $("#checkDeleteModal").modal('hide');
+            fetch(`/reviews/delete/${delete_id}/`).then(resp => { 
+                window.location.reload() 
+            });
+        })
+
+</script>
+
+
+{% endblock%}
