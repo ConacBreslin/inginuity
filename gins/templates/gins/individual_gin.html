@@ -45,12 +45,8 @@
                     {% endif %}
                     {% if request.user.is_superuser %}
                         <small class="ml-3">
-                        <a href="{% url 'edit_gin' gin.id %}">Edit</a> | 
-                        <a class="text-danger" href="{% url 'delete_gin' gin.id %}">Delete</a>
-                        
-                    
-
-
+                        <a href="{% url 'edit_gin' gin.id %}" class="btn-black btn-sm rounded-0">Edit this gin</a>
+                        <a href="#checkGinDeleteModal" class="delete btn-black btn-sm rounded-0" data-attr-id={{ gin.id }}>Delete this gin</a>
                         </small>
                     {% endif %}
                     <p class="mt-3">{{ gin.description }}</p>
@@ -102,7 +98,26 @@
             </div>
         </div>
     </div>
-    
+    <div class="modal fade" id="checkGinDeleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="deleteModalLabel">Are you sure you want to delete this gin?</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Once deleted it cannot be retrieved
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-black rounded-0" data-dismiss="modal">Back to the gin</button>
+              <a type="button" href="#" class="btn btn-danger rounded-0 text-white" id="delete-confirm">Delete this gin</a>
+            </div>
+          </div>
+        </div>
+      </div>
+        
 
 
 
@@ -113,4 +128,22 @@
 
 
 {% include 'gins/includes/quantity_input_script.html' %}
+<script type="text/javascript">
+    var delete_id = -1;
+
+$(".delete").on("click", function(e)
+         { 
+            $("#checkGinDeleteModal").modal('show');
+            delete_id = $(this).attr("data-attr-id");
+        })
+
+        $("#delete-confirm").on("click", function(e) {
+            $("#checkDeleteModal").modal('hide');
+            fetch(`/gins/delete/${delete_id}/`).then(resp => { 
+                window.location.reload() 
+            });
+        })
+
+</script>
+
 {% endblock %}

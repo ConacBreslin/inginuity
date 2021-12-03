@@ -63,15 +63,15 @@
                 <p class="mb-0 lead font-weight-bold">{{ review.title }}</p>
             {% endif %}
             <p> {{ review.body }}</p>
-            <p class="mb-0">Posted by : {{ review.username }}</p>
-            <p class="mb-0">First posted on : {{ review.firstcreated }}</p>
-            <p>Last editted on : {{ review.lasteditted }}</p>
+            <p class="mb-0 small font-weight-bold">Posted by : {{ review.username }}</p>
+            <p class="mb-0 small">First posted on : {{ review.firstcreated }}</p>
+            <p class="small">Last editted on : {{ review.lasteditted }}</p>
                 {% if request.user.is_superuser or review.username == request.user %}
-                    <small class="ml-3">
-                    <a href="{% url 'edit_review' review.id %}" >Edit this review    / </a>
-                    <a href="#checkDeleteModal" class="delete" 
-                       data-attr-id={{ review.id }} >    Delete this review</a>
-                    </small>
+                
+                    <a href="{% url 'edit_review' review.id %}" class="btn-black btn-sm rounded-0">Edit this review</a>
+                    <a href="#checkDeleteModal" class="delete btn-black btn-sm rounded-0" 
+                       data-attr-id={{ review.id }} >Delete this review</a>
+                
                 {% endif %}
         </div>
     </div>
