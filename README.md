@@ -153,14 +153,82 @@ In hindsite some of the apps are very small and their content and functionality 
 - The background image  is by [Michael](https://unsplash.com/@michael75?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) in [unsplash.com](https://unsplash.com/).
 - The empty bottle image is by [Bobby Donald](https://unsplash.com/@__b_d__) in [unsplash.com](https://unsplash.com/).
 
-- The empty bottle image is by [Bobby Donald](https://unsplash.com/@__b_d__) in [unsplash.com](https://unsplash.com/).
-https://unsplash.com/@__b_d__
-- When possible the distillery and gin photos were taken from distilleries' websites, as were their gins.
+- The road image is by Fabian Wiktor in [pexels.com](https://www.pexels.com/).
+- When possible the distillery and gin photos were taken from distilleries' websites, as were their gins. Otherwise they were taken from newspaaper articles.
 ## Testing.
 Bugs identified during development and testing and their solutions are reordede here [page 1](static/images/bugsone.png), [page 2](static/images/bugstwo.png).
 ### Validation
-- HTML source code for each all XX pages page was validited by direct input into [validator.w3.org](https://validator.w3.org/). The results of this can be seen  [here](static/images/htmlvalidation.jpg).
-- CSS code was tested repeatedly by direct input into [jigsaw.w3.org](https://jigsaw.w3.org/css-validator/) until it got a 'Congratulations! No error found!' message.
+- HTML source code for each all XX pages page was validited by direct input into [validator.w3.org](https://validator.w3.org/). The results of this can be seen  [here]().
+- CSS code was tested  by direct input into [jigsaw.w3.org](https://jigsaw.w3.org/css-validator/) until it got a 'Congratulations! No error found!' message.
 - JavaScript was checked using [jshint](https://jshint.com/). There were no errors and the warnings were checked, corrected where appropriate and otherwise left.
-- Python code was tested repeatedly with [pep8 online validator](http://pep8online.com/) until the vaildator deemed it 'All right'.
-- Lighthouse Audits. The site’s Performance, Accessibility, Best Practices and SEO were assessed by [Chrome Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk) and the results of this are [here](static/images/lighthousereport.png).
+- Python code was tested repeatedly with [pep8 online validator](http://pep8online.com/) until the validator deemed it 'All right'.
+- Lighthouse Audits. The site’s Performance, Accessibility, Best Practices and SEO were assessed by [Chrome Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk) and the results of this are [here]().
+- Manual Testing. At every step of development the errors highlighted in the code were addressed before proceeeding.
+The app was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers.
+It was viewed on a variety of devices. Friends and family members reviewed the site to identify bugs and give feedback on user experience. The code was submitted for peer-review in Code Institute's peer-code-review channel in [slack.com](https://app.slack.com/). 
+### Testing User Stories from User Experience (UX) Section.
+1. Only enter the site if they are over the legal age to buy alcohol in their country.
+2. Understand what the website is about and navigate it intuitively.
+3. View all the distilleries on the site.
+4. View individual distilleries.
+5. View all the gins on the site.
+6. View individual gins.
+7. View all the reviews about the distileries.
+8. Easily register for an account.
+9. Search across gins and distilleries from the navbar.
+10. See what was searched for ad the number of results.
+11. Sort distilleries and reviews county, province or and reviews those with tours.
+12. Sort gins and reviews price, name or rating.
+13. Sort reviews and reviews distillery, author or date posted.
+14. Be able to select gins to purchase and add them to their bag
+15. View items in a their bag.
+16. Change quantity of items in their bag.
+17. Easily enter payment details.
+18. Feel personal inforamtion is secure.
+19. View an order confirmation after checkout.
+20. Receive a confirmation email after checkout.
+21. Easily log in and out of their account.
+22. Receive a confimation email after registering.
+23. Recover their password if it is lost.
+24. Have a personalised user profile.
+25. Have an option to store their details for future ease of use.
+26. Add a review 
+27. Edit or delete their own reviews.
+29. Add, edit or delete gins.
+30. Add, edit or delete distilleries.
+31. Edit or delete reviews.
+
+## Known Bugs
+1. The modal loads every time the user visits the home page, thsi is not good user experience as once at the first landning should suffice.
+
+## Deployment
+### The project was deployed to Heroku in the following way. 
+In Heroku.com
+1. 'New' was selected.
+2. 'Create new app' was selected.
+3. The app-name was added and region closest to current location (Europe) selected
+4. 'Create app' was selected.
+5. In Heroku's resources tab in 'Add-ons' a postgre database was added.
+6. Migrations were migrated to set up postgres.
+7. A superuser was created.
+8. Gunicorn was installed in the project to act as webeserver.
+9. A Procfile was created in the project.
+10. The host name of the Herolu app was added to ALLOWED_HOSTS in settings.py.
+11. For automatic deployment to Heroku, on the Heroku dashboard deploy tab Github was selected in the deployment method, and connected to the repository for the app. 'Enable automatic deploys' was selected for automatic deployment.
+12. A bucket was created in Amazon Web Services s3 (ensuring public access was NOT blocked, static website hosting was enabled, suitable CORS configuration was added, a security policy was created and (for this app) allow public access was allowed in the Access Control List. A user was created to access the bucket in IAM and then Django was configured to connect to s3 using that user’s keys
+13. In the Heroku dashboard settings 'Reveal Config Vars' was selected and the variables needed, including the database URL and secret keys for the app, for AWS, Email and Stripe were added.
+
+### Forking the GitHub Repository
+The  GitHub Repository can be forked to make a copy of the original repository on the GitHub account to view and/or make changes without affecting the original repository in the following way.
+1.	By logging in to GitHub and locating the [GitHub Repository](https://github.com/ConacBreslin/technostalgia).
+2.	Selecting the "Fork" button at the top of the Repository located above the "Settings" Button and  to the right.
+3.	There should then be a copy of the original repository in your GitHub account.
+
+### Making a Local Clone
+1.	By logging in to GitHub and locating the [GitHub Repository](https://github.com/ConacBreslin/inginuity).
+2.	Under the repository name, clicking the dropdown button marked “Code” and then selecting "Clone or download".
+3.	Copying the link under "Clone with HTTPS", to clone the repository using HTTPS.
+4.	Opening Git Bash.
+5.	Changing the current working directory to the location where you want the cloned directory to be made.
+6.	Typing git clone, and pasting the URL copied in Step 3.
+7.	Pressing Enter to create the local clone.
