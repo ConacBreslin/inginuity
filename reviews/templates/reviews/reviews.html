@@ -137,7 +137,7 @@
         })
 
         $(".delete").on("click", function(e)
-         { console.log("Toggle")
+         { 
             $("#checkDeleteModal").modal('show');
             delete_id = $(this).attr("data-attr-id");
         })
@@ -146,6 +146,7 @@
             $("#checkDeleteModal").modal('hide');
             fetch(`/reviews/delete/${delete_id}/`).then(resp => { 
                 window.location.reload() 
+                
             });
         })
     </script>
