@@ -40,10 +40,14 @@
                     
                     {% if distillery.hasvisitorcentre %}
                        <p>{{ distillery.name }} has a visitor centre</p>
-                       <a href="{{ distillery.website }}">Visit their website</a>
                     {% else %}                  
                    <p>{{ distillery.name }} does not have a visitor centre</p>
                     {% endif %}
+
+                    {% if distillery.webite %}
+                        <a href="{{ distillery.website }}">Visit their website</a>
+                    {% endif %}
+
                     <p><a href="{% url 'add_review' %}" >Add a review now</a></p>
                 </div>
             </div>
@@ -96,14 +100,13 @@
                     <!-- <a class="text-danger" href="{% url 'delete_review'  review.id %}">Delete review</a> -->
                     </small>
 
-                    ANCHOR
                     <a href="#checkDeleteModal" class="delete" 
                        data-attr-id={{ review.id }} >    Delete this review</a>
 
                     {% endif %}
                     <p class="mb-0 small">Posted by: {{ review.username}}</p>
-                    <p class="mb-0 small">First posted on: {{ review.first_created_on }}</p>
-                    <p class="small">Last editted on : {{ review.last_editted_on }}</p> 
+                    <p class="mb-0 small">First posted on: {{ review.firstcreated }}</p>
+                    <p class="small">Last editted on : {{ review.lasteditted }}</p> 
                     
                 {% endfor %}
             </div>

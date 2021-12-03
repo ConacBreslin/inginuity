@@ -34,10 +34,9 @@
                         <option value="username_desc" {% if current_sorting == 'username_desc' %}selected{% endif %}>Author (Z-A)</option>
                         <option value="distillery_asc" {% if current_sorting == 'distillery_asc' %}selected{% endif %}>Distillery (A-Z)</option>
                         <option value="distillery_desc" {% if current_sorting == 'distillery_desc' %}selected{% endif %}>Distillery (Z-A)</option>
-<!--                        
-                        <option value="first_added-on_asc" {% if current_sorting == 'first_asc' %}selected{% endif %}>Date Posted (newest - oldest)</option>
-                        <option value="first_added_on_desc" {% if current_sorting == 'first_added_on_desc' %}selected{% endif %}>Date Posted (oldest -newest)</option>
-                     -->
+                        <option value="firstcreated_asc" {% if current_sorting == 'firstcreated_asc' %}selected{% endif %}>Date Posted (oldest-newest)</option>
+                        <option value="firstcreated_desc" {% if current_sorting == 'firstcreated_desc' %}selected{% endif %}>Date Posted (newest-oldest)</option>
+                    
                     </select>
                 </div>
             </div>
@@ -62,8 +61,8 @@
             <p class=" mb-0 text-left small">{{ review.distillery.town }}, {{ review.distillery.county }}</p> 
             <p> {{ review.body }}</p>
             <p class="mb-0">Posted by : {{ review.username }}</p>
-            <p class="mb-0">Posted on : {{ review.first_created_on }}</p>
-            <p>Last editted on : {{ review.last_editted_on }}</p>
+            <p class="mb-0">First posted on : {{ review.firstcreated }}</p>
+            <p>Last editted on : {{ review.lasteditted }}</p>
                 {% if request.user.is_superuser or review.username == request.user %}
                     <small class="ml-3">
                     <a href="{% url 'edit_review' review.id %}" >Edit this review    / </a>

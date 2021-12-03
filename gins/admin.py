@@ -8,6 +8,7 @@ class DistilleryAdmin(admin.ModelAdmin):
         'county',
         'province',
         'image',
+        'website',
     )
 
     ordering = ('county',)

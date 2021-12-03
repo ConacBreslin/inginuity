@@ -22,8 +22,6 @@ def all_reviews(request):
             sort = sortkey
             if sortkey == 'username':
                 reviews = reviews.annotate(lower_username=Lower('username'))
-            #if sortkey == 'first_created_on':
-                # sortkey = 'first'
             if sortkey == 'distillery':
                 sortkey = 'distillery__name'
             if 'direction' in request.GET:
