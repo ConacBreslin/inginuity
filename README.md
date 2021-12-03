@@ -32,9 +32,9 @@ To enjoy visiting the site, to find out up to date information about Irish Craft
 ###### Sorting and Searching
 9. Search across gins and distilleries from the navbar.
 10. See what was searched for ad the number of results.
-11. Sort distilleries by county, province or by those with tours.
-12. Sort gins by price, name or rating.
-13. Sort reviews by distillery, author or date posted.
+11. Sort distilleries and reviews county, province or and reviews those with tours.
+12. Sort gins and reviews price, name or rating.
+13. Sort reviews and reviews distillery, author or date posted.
  
 ###### Purchasing and checkout
 14. Be able to select gins to purchase and add them to their bag
@@ -52,7 +52,7 @@ To enjoy visiting the site, to find out up to date information about Irish Craft
 24. Have a personalised user profile.
 25. Have an option to store their details for future ease of use.
 26. Add a review 
-27. Edit or delete their reviews.
+27. Edit or delete their own reviews.
 
 ##### Superusers should be able to
 29. Add, edit or delete gins.
@@ -69,7 +69,7 @@ The site should provide a platform for people interested in irish Craft gins and
 The site starts with a modal/overlay to confirm the vsisitor is old enough to visit the site. If so, they come to the landing page and from there they can follow the main navigation to Distilleries or gins. This page also has a link to the users account which also provides the ability to register if they have not already done so.There is also alink to teh visitors shopping bag.
 1. The distilleries gin, reviews, shopping bag and checkout pages are available to all users. The logout page is available to logged in users.
 2. The pages to ad or edit reviews is only avilable to logged in users.
-3. The pages to add, edit or delete distilleries, gins or reviews can only be accessed by superusers.
+3. The pages to add, edit or delete distilleries, gins or reviews can only be accessed and reviews superusers.
 4. All registered, logged in users can access their profile page. This lists their personal deatils and infomration on past orders made.
 5. Superusers also ahve access to the django admin page where allthe data can be accessed and modified.
 
@@ -79,12 +79,12 @@ The wireframes for the site can be seen [here]() and [here](static/images/wirefr
 
 There are 8 apps in the project.
 **home** This introduces the site. It has a navbar at  the top that includes the search box, links to the users account and their shopping basket. It has two buttons to provide filtering and sorting of distilleries and gins and there are two main navigation links to distilleries and gins in the body of the page.
-**distilleries** This is where all the distilleries are displayed. The page can be sorted by county, province or if the distillery has a visitor centre. Each distillery listed there links to a page that shows the indiviual distillery and the reveiws relating to it. If a superuser is logged in there are links to pages to edit or delete the distillery.
-**gins** This is where each gin and its information is displayed. The page can be sorted by price, name or rating. Each gin has a page that shows more detail about the gin and the ablity to add it to the user's shopping bag. If a superuser is logged in there are links to pages to edit or delete the gin.
-**shopping bag** This can be accessed by the icon on the nav bar or from the toast that appears when a user adds an item. It has a form for the user to add their details (which is already prepopulated with the user's informations they have selected the option to save the infomation to their profile). It also shows all the items in the user's shopping bag, the subtotal, delivery charge and grand total. From here the user has the option to keep shopping or to checkout.
+**distilleries** This is where all the distilleries are displayed. The page can be sorted and reviews county, province or if the distillery has a visitor centre. Each distillery listed there links to a page that shows the indiviual distillery and the reveiws relating to it. If a superuser is logged in there are links to pages to edit or delete the distillery.
+**gins** This is where each gin and its information is displayed. The page can be sorted and reviews price, name or rating. Each gin has a page that shows more detail about the gin and the ablity to add it to the user's shopping bag. If a superuser is logged in there are links to pages to edit or delete the gin.
+**shopping bag** This can be accessed and reviews the icon on the nav bar or from the toast that appears when a user adds an item. It has a form for the user to add their details (which is already prepopulated with the user's informations they have selected the option to save the infomation to their profile). It also shows all the items in the user's shopping bag, the subtotal, delivery charge and grand total. From here the user has the option to keep shopping or to checkout.
 **checkout** This page  has a form for the user to add their details and their credit card number, a summary of the order, and the option to complete the order or return to their shopping bag.
 **profile** This  displays the user's details, gives them the option to update them and displays a summary of any previous orders the user has made.
-**reviews** This displays all the reviews that have been added to the site. It can be sorted by distillery name, rating, or date of the review. Here they can read all the reviews that have been made about all the distilleries and (if registered and logged in) they can add their own review.
+**reviews** This displays all the reviews that have been added to the site. It can be sorted and reviews distillery name, rating, or date of the review. Here they can read all the reviews that have been made about all the distilleries and (if registered and logged in) they can add their own review.
 **wholesitesearch** This app was added to provide  facility to display search results that are made across both gins and distilleries.
 
 ## Surface/Design (Design Choices fonts, icons, colours, styling, backgroundss)
@@ -93,7 +93,7 @@ There are 8 apps in the project.
 The overall the site was to create a sense of Irish identity while maintaining simplicity and clarity. 
 ### Colour scheme
 According to Shane Barker in ["The Psychology of Color in Web Design"](https://www.vandelaydesign.com/the-psychology-of-color-in-web-design/), blue "signifies trustworthiness and provides an air of coolness". The backgound picture was picked from ["unsplash.com](https://unsplash.com/) beacuse it was felt that it was an un mistakelably Irish lanndmark and the blue used in the overlay and logo were picked up from it using [imagecolorpicker.com](https://imagecolorpicker.com/) and used throughout the site.
- A [minimum contrast ratio](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast) of 4.5:1 for small text and 3:1 for large text is recommended. There were a range of combinations of backgrounds and text across the site and their contrast ratios ranged from the best 21(#f3e5f5 white/black backgound and black/white text) to 7.92 (#7fa1d1 blue background and black text to 3.11 (#7fa1d1 blue backgound and white text) as assessed by [contrast-ratio.com]("https://contrast-ratio.com/"). While the contrast ratio of the blue/white was not great it was felt that the very large size of the text would compenstae for this.
+ A [minimum contrast ratio](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast) of 4.5:1 for small text and 3:1 for large text is recommended. There were a range of combinations of backgrounds and text across the site and their contrast ratios ranged from the best 21(white/black background and black/white text) to 7.92 (blue background and black text to 3.11 (blue backgound and white text) as assessed and reviews [contrast-ratio.com]("https://contrast-ratio.com/"). While the contrast ratio of the blue/white was not great it was felt that the very large size of the text would compensate for this and shadowing was added to improve its definition.
 
 ### Typography
 The fonts were found on google font. The Open+Sans wasc chosen as it was clear and easily readable.
@@ -101,19 +101,20 @@ The fonts were found on google font. The Open+Sans wasc chosen as it was clear a
 - Responsiveness on all device sizes.
 - A nav bar that displays links dependent on the user type.
 - A registration and login procedure which is secure and easy to use. 
-- A method of searching the distilleries and gins by keywords.
-- A method of sorting gins by name or price or ratng.
-- The ability to allow users to select andpay for purchases.
+- A method of searching the distilleries and gins and reviews by keywords.
+- A method of sorting distilleries, gins and reviews using different fields for each.
+- The ability to allow users to select and pay for purchases.
 - The ability to allow superusers to create, edit and delete distilleries or gins.
-- The ability for registered, logged in users to create, edit and delete reviews.
-- The functionality so that when a distillery is deleted all the reviewss associated with it are also deleted.
+- The ability for superusers and registered, logged in users to add reviews.
+- The ability for review writers to edit or delete their own reviews and for superusers to be able to edit or delete any review.
+- The functionality so that if a distillery is deleted all the reviews associated with it are also deleted.
 - A check that user wants to perform irreversible actions before they do so.
 
 ## Future features
 If time had allowed it would have been nice to provide the facility to book a tour.
-I would also have liked to nclude an interactive map whereby visitors to tthe site could se all the distilleries pinned on a map and access the each indiviual distillery from there
+I would also have liked to nclude an interactive map whereby visitors to tthe site could see the distilleries pinned on a map and access the each indiviual distillery from there
 The ability for users to leave reviews about individual gins could be added.
-In hindsite some of the apps a very small and their content and functionality could be moved to within other apps.
+In hindsite some of the apps are very small and their content and functionality could perhaps be moved to within other apps.
 
 # Languages used
 [HTML5](https://en.wikipedia.org/wiki/HTML5)
@@ -146,3 +147,16 @@ In hindsite some of the apps a very small and their content and functionality co
 - Information about automatically formatting  python with [black](https://pypi.org/project/black/) was found on [freecodecamp.org](https://www.freecodecamp.org/news/auto-format-your-python-code-with-black/)
 - The code for the onload modal was taken from [etutorialspoint.com](https://www.etutorialspoint.com/)
 - The code for standardising the icon sizes wa taken from [bulma.io](https://bulma.io/)
+## Images
+- The images were stored in [Imgur](https://i.imgur.com/).
+- The images were formatted using [online-im age-editor.com/](https://www.online-image-editor.com/) and [tinypng.com/](https://tinypng.com/).
+- The background image  is by [Michael](https://unsplash.com/@michael75?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) in [unsplash.com](https://unsplash.com/).
+- When possible the distillery and gin photos were taken from distilleries' websites, as were their gins.
+## Testing.
+Bugs identified during development and testing and their solutions are reordede here [page 1](static/images/bugsone.png), [page 2](static/images/bugstwo.png).
+### Validation
+- HTML source code for each all XX pages page was validited by direct input into [validator.w3.org](https://validator.w3.org/). The results of this can be seen  [here](static/images/htmlvalidation.jpg).
+- CSS code was tested repeatedly by direct input into [jigsaw.w3.org](https://jigsaw.w3.org/css-validator/) until it got a 'Congratulations! No error found!' message.
+- JavaScript was checked using [jshint](https://jshint.com/). There were no errors and the warnings were checked, corrected where appropriate and otherwise left.
+- Python code was tested repeatedly with [pep8 online validator](http://pep8online.com/) until the vaildator deemed it 'All right'.
+- Lighthouse Audits. The site’s Performance, Accessibility, Best Practices and SEO were assessed by [Chrome Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk) and the results of this are [here](static/images/lighthousereport.png).

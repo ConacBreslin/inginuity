@@ -7,8 +7,8 @@ class ReviewAdmin(admin.ModelAdmin):
     list_display = (
         'username',
         'body',
-        'first_created_on',
-        'last_editted_on',
+        'firstcreated',
+        'lasteditted',
     )
 
 admin.site.register(Review, ReviewAdmin)
