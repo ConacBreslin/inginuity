@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 class ReviewAdmin(admin.ModelAdmin):
     list_display = (
         'username',
+        'title',
         'body',
         'firstcreated',
         'lasteditted',

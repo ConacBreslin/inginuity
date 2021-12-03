@@ -59,6 +59,9 @@
         <div class="col-md-5 ml-5">
             <p class="mb-0 lead font-weight-bold">{{ review.distillery.name }}</p>
             <p class=" mb-0 text-left small">{{ review.distillery.town }}, {{ review.distillery.county }}</p> 
+            {% if review.title %}
+                <p class="mb-0 lead font-weight-bold">{{ review.title }}</p>
+            {% endif %}
             <p> {{ review.body }}</p>
             <p class="mb-0">Posted by : {{ review.username }}</p>
             <p class="mb-0">First posted on : {{ review.firstcreated }}</p>
