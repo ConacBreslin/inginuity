@@ -135,7 +135,7 @@ $(".delete").on("click", function(e)
         $("#delete-confirm").on("click", function(e) {
             $("#checkDeleteModal").modal('hide');
             fetch(`/gins/delete/${delete_id}/`).then(resp => { 
-                window.location.reload() 
+                window.location.replace("{% url 'gins' %}")
             });
         })
 

@@ -65,7 +65,10 @@
                                             {% if request.user.is_superuser %}
                                                 <small class="ml-3">
                                                     <a href="{% url 'edit_distillery' distillery.id %}">Edit</a> | 
-                                                    <a class="text-danger" href="{% url 'delete_distillery' distillery.id %}">Delete</a>
+                                                    <!-- <a class="text-danger" href="{% url 'delete_distillery' distillery.id %}">Delete</a> -->
+                                                    <a href="#checkDistDeleteModal" class="delete" 
+                                                    data-attr-id={{ distillery.id }} >Delete this distillery</a>
+                             
                                                 </small>
                                             {% endif %}
                                         </div>
@@ -103,6 +106,26 @@
             <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
         </a>	
     </div>
+    <div class="modal fade" id="checkDistDeleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="deleteModalLabel">Are you sure you want to delete this distillery?</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Once deleted it cannot be retreived
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-black rounded-0 " data-dismiss="modal">Back to all the safety</button>
+              <a type="button" href="#" class="btn btn-danger rounded-0 text-white" id="delete-confirm">Delete this distillery</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    
 {% endblock %}
 
 
@@ -135,5 +158,23 @@
                 window.location.replace(currentUrl);
             }
         })
+
+        var delete_id = -1;
+
+$(".delete").on("click", function(e)
+         { 
+            $("#checkDistDeleteModal").modal('show');
+            delete_id = $(this).attr("data-attr-id");
+        })
+
+        $("#delete-confirm").on("click", function(e) {
+            $("#checkDistDeleteModal").modal('hide');
+            fetch(`/distilleries/delete/${delete_id}/`).then(resp => { 
+                window.location.replace("{% url 'distilleries' %}")
+            });
+        })
+
+
+        
     </script>
 {% endblock %}
