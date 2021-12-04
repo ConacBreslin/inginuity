@@ -33,7 +33,7 @@
 <!--CB TO CHECK THIS I THINK THE DISTILLERY WILL NEED TO LINK TO THE DISTILLERY PAGE WHEN IT HAS BEEN MADE-->
                     {% if gin.distillery %}
                     <p class="small mt-1 mb-0">
-                        <a class="text-muted" href="{% url 'individual_distillery' gin.distillery.id %}">
+                        <a href="{% url 'individual_distillery' gin.distillery.id %}">
                             <i class="fas fa-warehouse"></i> {{ gin.distillery.name }}
                         </a>
                     </p>
