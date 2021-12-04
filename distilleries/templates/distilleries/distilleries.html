@@ -61,15 +61,14 @@
                                 <div class="card-footer bg-white pt-0 border-0 text-left">
                                     <div class="row">
                                         <div class="col">
-                                            <p class="mb-0 text-left">{{ distillery.town }}, {{ distillery.county }}</p>
+                                            <p class="mb-2 text-left">{{ distillery.town }}, {{ distillery.county }}</p>
                                             {% if request.user.is_superuser %}
-                                                <small class="ml-3">
-                                                    <a href="{% url 'edit_distillery' distillery.id %}">Edit</a> | 
-                                                    <!-- <a class="text-danger" href="{% url 'delete_distillery' distillery.id %}">Delete</a> -->
-                                                    <a href="#checkDistDeleteModal" class="delete" 
-                                                    data-attr-id={{ distillery.id }} >Delete this distillery</a>
+                                                
+                                                    <a href="{% url 'edit_distillery' distillery.id %}" class="btn-black btn-sm rounded-0">Edit distillery</a>
+                                                    <a href="#checkDistDeleteModal" class="delete btn-black btn-sm rounded-0" 
+                                                    data-attr-id={{ distillery.id }} >Delete distillery</a>
                              
-                                                </small>
+                                                
                                             {% endif %}
                                         </div>
                                     </div>

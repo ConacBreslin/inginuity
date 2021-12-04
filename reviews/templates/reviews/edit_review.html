@@ -27,9 +27,9 @@
                     {{ form | crispy }}   
                     <div class="text-right">
                         <a class="btn btn-outline-black rounded-0" href="{% url 'reviews' %}">Cancel</a>
-                        <button class="btn btn-black rounded-0" type="submit">Edit this review now!</button>
+                        <button class="btn btn-black rounded-0" type="submit">Edit review</button>
                         <a href="#checkReviewDeleteModal" class="delete btn btn-black rounded-0" 
-                        data-attr-id={{ review.id }} >Delete this review</a>
+                        data-attr-id={{ review.id }} >Delete review</a>
 
                     </div>
                 </form>

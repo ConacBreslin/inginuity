@@ -29,17 +29,7 @@
             <div class="col-12 col-sm-6 col-lg-4">
                 <div class="distillery-container mb-5 mt-5">
                     <p class="mb-0 lead font-weight-bold">{{ distillery.name }}</p>
-                    {% if request.user.is_superuser %}
-                        <small class="ml-1">
-                        <a href="{% url 'edit_distillery' distillery.id %}">Edit distillery</a> | 
-                       
-                        
-                        <a href="#checkDistDeleteModal" class="delete" 
-                        data-attr-id={{ distillery.id }} >Delete this distillery</a>
- 
-
-                        </small>
-                    {% endif %}
+                   
                     <p class="mb-0 ">{{ distillery.town }}, County {{ distillery.county }}</p>
                     <p> {{ distillery.description }}</p>
                     
@@ -51,9 +41,19 @@
 
                     {% if distillery.website %}
                         <a href="{{ distillery.website }}">Visit their website</a>
+                        <br>
                     {% endif %}
+                    {% if request.user.is_superuser %}
+                        
+                    <a href="{% url 'edit_distillery' distillery.id %}" class="btn-black btn-sm rounded-0">Edit distillery</a>
+                    <a href="#checkDistDeleteModal" class="delete btn-black btn-sm rounded-0 ml-4" 
+                    data-attr-id={{ distillery.id }} >Delete distillery</a>
+                    <a href="{% url 'add_review' %}" class="btn-black btn-sm rounded-0 ml-4">Add a review</a>
 
-                    <p><a href="{% url 'add_review' %}" >Add a review now</a></p>
+
+                    
+                {% endif %}
+                    
                 </div>
             </div>
 

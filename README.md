@@ -199,7 +199,7 @@ It was viewed on a variety of devices. Friends and family members reviewed the s
 31. Edit or delete reviews.
 
 ## Known Bugs
-1. The modal loads every time the user visits the home page, thsi is not good user experience as once at the first landning should suffice.
+1. The modals introduced for defensive programming were complicated beacuse of the difficulty getting the distillery/gin/review id into the delete button on the modal and the fix for this caused the success message box to no longer display after deleting becaus of using window.location.replace(), however at this time it was felt that defensive programming took precedence over the success message.
 
 ## Deployment
 ### The project was deployed to Heroku in the following way. 

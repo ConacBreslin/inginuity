@@ -68,9 +68,9 @@
             <p class="small">Last editted on : {{ review.lasteditted }}</p>
                 {% if request.user.is_superuser or review.username == request.user %}
                 
-                    <a href="{% url 'edit_review' review.id %}" class="btn-black btn-sm rounded-0">Edit this review</a>
+                    <a href="{% url 'edit_review' review.id %}" class="btn-black btn-sm rounded-0">Edit review</a>
                     <a href="#checkDeleteModal" class="delete btn-black btn-sm rounded-0" 
-                       data-attr-id={{ review.id }} >Delete this review</a>
+                       data-attr-id={{ review.id }} >Delete review</a>
                 
                 {% endif %}
         </div>
@@ -148,7 +148,8 @@
         $("#delete-confirm").on("click", function(e) {
             $("#checkDeleteModal").modal('hide');
             fetch(`/reviews/delete/${delete_id}/`).then(resp => { 
-                window.location.reload() 
+                window.location.replace("{% url 'reviews' %}")
+                
                 
             });
         })

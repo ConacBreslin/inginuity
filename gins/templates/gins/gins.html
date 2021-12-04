@@ -64,18 +64,18 @@
                                     <div class="col">
                                         <p class="lead mb-0 text-left font-weight-bold">€{{ gin.price }}</p>
                                         {% if gin.distillery %}
-                                        <p class="small mt-1 mb-0">
+                                        <p class="small mt-1 mb-2">
                                             <a class="text-muted" href="{% url 'individual_distillery' gin.distillery.id %}">
                                                 <i class="fas fa-warehouse"></i> {{ gin.distillery.name }}
                                             </a>
                                         </p>
                                         {% endif %}
                                         {% if request.user.is_superuser %}
-                                                <small class="ml-3">
-                                                    <a href="{% url 'edit_gin' gin.id %}">Edit</a> | 
-                                                    <a class="text-danger" href="#">Delete</a>
-                                                    <a href="#checkGinDeleteModal" class="delete btn-black btn-sm rounded-0" data-attr-id={{ gin.id }}>Delete this gin</a>
-                                                </small>
+                                                
+                                                    <a href="{% url 'edit_gin' gin.id %}" class="btn-black btn-sm rounded-0">Edit gin</a> 
+                                                    
+                                                    <a href="#checkGinDeleteModal" class="delete btn-black btn-sm rounded-0" data-attr-id={{ gin.id }}>Delete gin</a>
+                                                
                                         {% endif %}
                                     </div>
                                 </div>

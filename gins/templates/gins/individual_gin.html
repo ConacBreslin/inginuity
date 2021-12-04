@@ -39,10 +39,10 @@
                     </p>
                     {% endif %}
                     {% if request.user.is_superuser %}
-                        <small class="ml-3">
-                        <a href="{% url 'edit_gin' gin.id %}" class="btn-black btn-sm rounded-0">Edit this gin</a>
-                        <a href="#checkGinDeleteModal" class="delete btn-black btn-sm rounded-0" data-attr-id={{ gin.id }}>Delete this gin</a>
-                        </small>
+                        
+                        <a href="{% url 'edit_gin' gin.id %}" class="btn-black btn-sm rounded-0">Edit gin</a>
+                        <a href="#checkGinDeleteModal" class="delete btn-black btn-sm rounded-0" data-attr-id={{ gin.id }}>Delete  gin</a>
+                        
                     {% endif %}
                     <p class="mt-3">{{ gin.description }}</p>
                     <form class="form" action="{% url 'add_to_shoppingbag' gin.id %}" method="POST">
