@@ -30,7 +30,7 @@
                 <div class="distillery-container mb-5 mt-5">
                     <p class="mb-0 lead font-weight-bold">{{ distillery.name }}</p>
                    
-                    <p class="mb-0 ">{{ distillery.town }}, County {{ distillery.county }}</p>
+                    <p class="mb-0 small">{{ distillery.town }}, County {{ distillery.county }}</p>
                     <p> {{ distillery.description }}</p>
                     
                     {% if distillery.hasvisitorcentre %}
@@ -40,7 +40,7 @@
                     {% endif %}
 
                     {% if distillery.website %}
-                        <a href="{{ distillery.website }}">Visit their website</a>
+                        <a href="{{ distillery.website }}" target="_blank">Visit their website</a>
                         <br>
                     {% endif %}
                     {% if request.user.is_superuser %}
