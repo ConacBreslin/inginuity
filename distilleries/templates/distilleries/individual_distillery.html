@@ -30,19 +30,20 @@
                 <div class="distillery-container mb-5 mt-5">
                     <p class="mb-0 lead font-weight-bold">{{ distillery.name }}</p>
                    
-                    <p class="mb-0 small">{{ distillery.town }}, County {{ distillery.county }}</p>
-                    <p> {{ distillery.description }}</p>
+                    <p class="mb-0 small font-italic">{{ distillery.town }}, County {{ distillery.county }}</p>
+                    <p class="text-justify mr-3"> {{ distillery.description }}</p>
                     
                     {% if distillery.hasvisitorcentre %}
                        <p>{{ distillery.name }} has a visitor centre</p>
                     {% else %}                  
                    <p>{{ distillery.name }} does not have a visitor centre</p>
                     {% endif %}
-                    <a class="btn-black btn-sm rounded-0" href="{% url 'add_review' %}">Add a review</a>
                     {% if distillery.website %}
-                        <a href="{{ distillery.website }}" target="_blank">Visit their website</a>
-                        <br>
+                        <a href="{{ distillery.website }}" target="_blank" class="btn-black btn-sm rounded-0">Visit their website</a>
+                        
                     {% endif %}
+                    <a class="btn-black btn-sm rounded-0" href="{% url 'add_review' %}">Add a review</a>
+                    
                     {% if request.user.is_superuser %}
                         
                     <a href="{% url 'edit_distillery' distillery.id %}" class="btn-black btn-sm rounded-0">Edit distillery</a>
@@ -75,36 +76,26 @@
                         <p class="mb-0">{{ gin.name }}</p>
                         <p class="lead mb-0 text-left font-weight-bold">€{{ gin.price }}</p>   
                         
-                        <br> 
-                        
-                {% endfor %}
-            
-
+                {% endfor %}        
             </div>
-
             </div>
-
-
-
-
-
             <div class="col-12 col-sm-8 offset-sm-2">
+                <hr>
+                <h2 class="text-center ">Reviews of {{ distillery.name }}</h2>
                 {% for review in distillery.review_set.all %} 
-                    <p class="mb-0 lead font-weight-bold text-center">Review of: {{ distillery.name }}</p>
+                    <p class="mb-0 lead font-weight-bold">{{ review.title }}</p>
                     
-                    <p>{{ review.body }}</p>
+                    <p class="text-justified">{{ review.body }}</p>
                     {% if request.user.is_superuser %}
                     <!-- OR IF PERSON WROTE THE REVIEW -->
                     <small class="ml-1">
                     <a href="{% url 'edit_review'  review.id %}">Edit or delete this review here</a> | 
                     </small>
-
-                    
-
                     {% endif %}
-                    <p class="mb-0 small">Posted by: {{ review.username}}</p>
+                    <p class="mb-0 small font-weight-bold">Posted by: {{ review.username}}</p>
                     <p class="mb-0 small">First posted on: {{ review.firstcreated }}</p>
                     <p class="small">Last editted on : {{ review.lasteditted }}</p> 
+                    <hr class="w-25">
                     
                 {% endfor %}
             </div>
