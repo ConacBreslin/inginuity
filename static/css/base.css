@@ -18,6 +18,7 @@ a {
     color: #000;
 }
 
+
 footer {
     background-color: #7fa1d1;
     color: #000;
@@ -29,12 +30,20 @@ footer {
 
 }
 
-.home-link {
+#landing-heading {
     color: #FFF;    
-    font-size: 80px;
+    font-size: 120px;
     font-weight:900;
+    letter-spacing: 5px;
+    text-shadow: -7px 7px #0f305c;  
+}
+
+#landing-subheading {
+    color: #FFF;    
+    font-size: 40px;
+    font-weight:700;
     letter-spacing: 2px;
-    text-shadow: -5px 5px #0f305c;  
+    text-shadow: -4px 4px #0f305c;  
 }
 
 #topnav, .navbar  {
