@@ -38,11 +38,6 @@
                         </a>
                     </p>
                     {% endif %}
-                    {% if gin.rating %}
-                        <small><i class="fas fa-star mr-1"></i>{{ gin.rating }} / 5</small>
-                    {% else %}
-                        <small>No Rating</small>
-                    {% endif %}
                     {% if request.user.is_superuser %}
                         <small class="ml-3">
                         <a href="{% url 'edit_gin' gin.id %}" class="btn-black btn-sm rounded-0">Edit this gin</a>
