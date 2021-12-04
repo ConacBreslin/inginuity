@@ -111,10 +111,10 @@ The fonts were found on google font. The Open+Sans wasc chosen as it was clear a
 - A check that user wants to perform irreversible actions before they do so.
 
 ## Future features
-If time had allowed it would have been nice to provide the facility to book a tour.
-I would also have liked to nclude an interactive map whereby visitors to tthe site could see the distilleries pinned on a map and access the each indiviual distillery from there
-The ability for users to leave reviews about individual gins could be added.
-In hindsite some of the apps are very small and their content and functionality could perhaps be moved to within other apps.
+The ability to display details about distilleries' visitor centres and their tours and provide the facility to book a tour.
+An interactive map whereby visitors to tthe site could see the distilleries pinned on a map and access the each indiviual distillery from there
+A facility for users to leave reviews about individual gins could be added.
+A facility forusers to rate gins and distilleries (the static ratings were removed as it was felt they did not add benefit to the site but were left in the model).
 
 # Languages used
 [HTML5](https://en.wikipedia.org/wiki/HTML5)
