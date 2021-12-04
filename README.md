@@ -20,7 +20,7 @@ To enjoy visiting the site, to find out up to date information about Irish Craft
 
 ##### All visitors to the site should be able to; 
 ###### Visiting, Navigation and viewing
-1. Only enter the site if they are over the legal age to buy alcohol in their country.
+<!-- 1. Only enter the site if they are over the legal age to buy alcohol in their country. -->
 2. Understand what the website is about and navigate it intuitively.
 3. View all the distilleries on the site.
 4. View individual distilleries.
@@ -40,6 +40,7 @@ To enjoy visiting the site, to find out up to date information about Irish Craft
 14. Be able to select gins to purchase and add them to their bag
 15. View items in a their bag.
 16. Change quantity of items in their bag.
+Be alerteed to legal age to buy alcohol
 17. Easily enter payment details.
 18. Feel personal inforamtion is secure.
 19. View an order confirmation after checkout.
