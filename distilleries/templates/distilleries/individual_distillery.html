@@ -38,11 +38,17 @@
                     {% else %}                  
                    <p>{{ distillery.name }} does not have a visitor centre</p>
                     {% endif %}
+                    <p></p>
                     {% if distillery.website %}
-                        <a href="{{ distillery.website }}" target="_blank" class="btn-black btn-sm rounded-0">Visit website</a>
-                        <br>
-                    {% endif %}
                     
+                        <a href="{{ distillery.website }}" target="_blank" class="btn-black btn-sm rounded-0">Visit website</a>
+                    
+                    {% endif %}
+                    <a href="{% url 'add_review' %}" class="btn-black btn-sm rounded-0 ml-4">Add a review</a>
+                </p>
+                        
+                    
+                     
                     
                     
                     {% if request.user.is_superuser %}
@@ -50,12 +56,12 @@
                     <a href="{% url 'edit_distillery' distillery.id %}" class="btn-black btn-sm rounded-0">Edit distillery</a>
                     <a href="#checkDistDeleteModal" class="delete btn-black btn-sm rounded-0 ml-4" 
                     data-attr-id={{ distillery.id }} >Delete distillery</a>
-                    <br>
+                
                     
  
                 {% endif %}
-                <a href="{% url 'add_review' %}" class="btn-black btn-sm rounded-0 ml-4">Add a review</a>
-                </div>
+                
+        </div>
             </div>
 
 
@@ -86,13 +92,12 @@
                     <p class="mb-0 lead font-weight-bold">{{ review.title }}</p>
                     
                     <p class="text-justified">{{ review.body }}</p>
-                    {% if request.user.is_superuser %}
-                    <!-- OR IF PERSON WROTE THE REVIEW -->
-                    <small class="ml-1">
-                    <a href="{% url 'edit_review'  review.id %}">Edit or delete this review here</a> | 
+                    {% if request.user.is_superuser or review.username == request.user %}
+                    <small>
+                    <a href="{% url 'edit_review'  review.id %}" class="btn-black btn-sm rounded-0 ">Edit or delete this review</a>
                     </small>
                     {% endif %}
-                    <p class="mb-0 small font-weight-bold">Posted by: {{ review.username}}</p>
+                    <p class="mt-2 mb-0 small font-weight-bold">Posted by: {{ review.username}}</p>
                     <p class="mb-0 small">First posted on: {{ review.firstcreated }}</p>
                     <p class="small">Last editted on : {{ review.lasteditted }}</p> 
                     <hr class="w-25">
