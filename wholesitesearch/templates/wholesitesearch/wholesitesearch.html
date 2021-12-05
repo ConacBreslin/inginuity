@@ -51,15 +51,11 @@
                                         </a>
                                     </p>
                                     {% endif %}
-                                    {% if gin.rating %}
-                                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ gin.rating }} / 5</small>
-                                    {% else %}
-                                        <small class="text-muted">Not Rated yet</small>
-                                    {% endif %}
+                                    
                                     {% if request.user.is_superuser %}
-                                            <small class="ml-3">
-                                                <a href="{% url 'edit_gin' gin.id %}">Edit</a> | 
-                                                <a class="text-danger" href="{% url 'delete_gin' gin.id %}">Delete</a>
+                                            <small>
+                                                <a href="{% url 'edit_gin' gin.id %}" class="delete btn-black btn-sm rounded-0">Edit</a>
+                                                <a class="delete btn-black btn-sm rounded-0" href="{% url 'delete_gin' gin.id %}">Delete</a>
                                             </small>
                                     {% endif %}
                                 </div>
