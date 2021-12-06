@@ -27,8 +27,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # Debug only True if in development environment!
-#DEBUG = 'DEVELOPMENT' in os.environ
-DEBUG=True
+DEBUG = 'DEVELOPMENT' in os.environ
+
 
 ALLOWED_HOSTS = ['inginuity.herokuapp.com', 'localhost']
 
