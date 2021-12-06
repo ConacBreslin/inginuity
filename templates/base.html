@@ -16,7 +16,7 @@
     {% block corecss %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <link rel="shortcut icon" type="image/png" href="/media/favicon.ico"/>
+    <link rel="shortcut icon" type="image/png" href="{{ MEDIA_URL }}favicon.ico"/>
     {% endblock %}
 
     {% block extra_css %}
@@ -41,7 +41,7 @@
         <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
                 <a href="{% url 'home' %}" class="nav-link">
-                    <img src="/media/logo.jpg" alt="logo-image">
+                    <img src="{{ MEDIA_URL }}logo.jpg" alt="logo-image">
                 </a>
             </div>
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
