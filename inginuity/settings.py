@@ -20,15 +20,11 @@ if os.path.exists("env.py"):
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
 # SECRET_KEY for development in in env.py and in heroku config vars
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
-# Debug only True if in development environment!
+# Debug only True if in development environment
 DEBUG = 'DEVELOPMENT' in os.environ
-
 
 
 ALLOWED_HOSTS = ['inginuity.herokuapp.com', 'localhost']
@@ -123,7 +119,7 @@ LOGIN_REDIRECT_URL = '/'
 WSGI_APPLICATION = 'inginuity.wsgi.application'
 
 
-# Ensure app connects to postges in Heroku or sqlite in development
+# Ensure app connects to postgres in Heroku or sqlite in development
 
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
@@ -139,7 +135,6 @@ else:
 
 
 # Password validation
-# https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -158,8 +153,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/3.2/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -172,7 +165,6 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
@@ -206,7 +198,6 @@ if 'USE_AWS' in os.environ:
 
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
