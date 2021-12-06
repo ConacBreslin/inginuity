@@ -116,6 +116,7 @@ The ability to display details about distilleries' visitor centres and their tou
 An interactive map whereby visitors to the site could see the distilleries pinned on a map and access each distillery from there
 A facility for users to leave reviews about individual gins.
 A facility for users to rate gins and distilleries (the static ratings were removed for the site as it was felt they did not add benefit to the site but were left in the model for future use).
+the ability to sign in using social media.
 
 # Languages used
 [HTML5](https://en.wikipedia.org/wiki/HTML5)
