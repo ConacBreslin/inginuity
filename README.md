@@ -76,7 +76,7 @@ The site starts with a modal/overlay to confirm the vsisitor is old enough to vi
 
 ## Skeleton
 
-The wireframes for the site can be seen [here]() and [here](static/images/wireframes2.jpg)
+The wireframes for the site can be seen [here](/media/wireframes1.png) and [here](/media/wireframes2.png)
 
 There are 8 apps in the project.
 **home** This introduces the site. It has a navbar at  the top that includes the search box, links to the users account and their shopping basket. It has two buttons to provide filtering and sorting of distilleries and gins and there are two main navigation links to distilleries and gins in the body of the page.
