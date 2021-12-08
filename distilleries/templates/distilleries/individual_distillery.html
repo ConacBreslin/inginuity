@@ -20,7 +20,7 @@
                             <img class="card-img-top img-fluid" src="{{ distillery.image.url }}" alt="{{ distillery.name }}">
                         </a>
                         {% else %}
-                        <a href="">
+                        <a href="{{ MEDIA_URL }}nodistillery.jpg" target="_blank">
                             <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}nodistillery.jpg" alt="{{ distillery.name }}">
                         </a>
                     {% endif %}
@@ -42,7 +42,7 @@
                     {% if distillery.website %}
                         <a href="{{ distillery.website }}" target="_blank" class="btn-black btn-sm rounded-0 ">Visit website</a>
                     {% endif %}
-                    <a href="{% url 'add_review' %}" class="btn-black btn-sm rounded-0 ml-4">Add a review</a>
+                    <a href="{% url 'add_review' %}" class="btn-black btn-sm rounded-0">Add a review</a>
                 </p>
                         
     

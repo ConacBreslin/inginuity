@@ -8,7 +8,7 @@ body {
 	background: url('/media/skellig.jpg') no-repeat center center fixed;
 	background-size: cover;
     background-color:rgb(127, 161, 209);
-    height: calc(100vh - 164px);
+    height: calc(100vh - 180px);
     color: #000;
     font-family: 'Open Sans', sans-serif;
 }
@@ -316,7 +316,7 @@ input[name='q']::placeholder {
     }
 
     .header-container {
-        padding-top: 164px;
+        padding-top: 180px;
     }
 }
 

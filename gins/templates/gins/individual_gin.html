@@ -20,7 +20,7 @@
                             <img class="card-img-top img-fluid" src="{{ gin.image.url }}" alt="{{ gin.name }}">
                         </a>
                         {% else %}
-                        <a href="">
+                        <a href="{{ MEDIA_URL }}emptybottle.jpg" target="_blank">
                             <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}emptybottle.jpg" alt="{{ gin.name }}">
                         </a>
                     {% endif %}
