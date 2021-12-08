@@ -33,10 +33,10 @@
                         {% endif %}
                     {% endfor %}
                     <div class="text-right">
-                        <a class="btn-black btn-sm rounded-0" href="{% url 'gins' %}">Cancel</a>
-                        <button class="btn-black btn-sm rounded-0" type="submit">Update gin</button>
-                        <a href="#checkGinDeleteModal" class="delete btn-black btn-sm rounded-0" 
-                        data-attr-id={{ gin.id }} >Delete gin</a>
+                        <a class="btn-black btn-sm rounded-0 p-2" href="{% url 'gins' %}">Cancel</a>
+                        <button class="btn-black btn-sm rounded-0 p-1" type="submit">Update</button>
+                        <a href="#checkGinDeleteModal" class="delete btn-black btn-sm rounded-0 p-2" 
+                        data-attr-id={{ gin.id }} >Delete</a>
 
                     </div>
                 </form>
