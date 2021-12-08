@@ -220,6 +220,7 @@ It was viewed on a variety of devices. Friends and family members reviewed the s
 
 ## Known Bugs
 1. The modals introduced for defensive programming were complicated beacuse of the difficulty getting the distillery/gin/review id into the delete button on the modal and the fix for this caused the success message box to no longer display after deleting becaus of using window.location.replace(), however at this time it was felt that defensive programming took precedence over the success message.
+2. There is some poor visual experiences when red inbuilt error messages from Django appear against the blue background of the site, these were changed to red buttons on custom html pages but time did not allow them to be changed on inbuilt Django pages. In particular this was noted on the checkout page if an incorrect credit card number is enetered and on the add a distillery page when an image is selected
 
 ## Deployment
 ### The project was deployed to Heroku in the following way. 
