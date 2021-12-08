@@ -120,10 +120,9 @@ The ability to sign in using social media.
 The ability to filter, not just sort boththe distilleries and gins.
 
 ## Database architecture
-Django uses the sql database and the default SQLIte databas was used during developemnt.
-In deployment the Postgresql data base was used and it was connected to the project through Heroku's settings.
-There are XX models in the project and they can be see here 
-An ERD diagram for the prokject can be seen here
+The default Django sqlite database  was used during developemnt.
+In deployment the PostgreSQL was used and it was connected to the project through Heroku's settings.
+An Entity Relationship Diagram for the prokject can be seen [here](/inginuityerd.jpeg)
 ### Database used
 
 ### Database models
