@@ -1,3 +1,6 @@
+"""The views to display all the distilleries, individual
+distilleries and to add, edit and delete distilleries."""
+
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models.functions import Lower
@@ -23,7 +26,7 @@ def all_distilleries(request):
                 direction = request.GET['direction']
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
-            distilleries = distilleries.order_by(sortkey)   
+            distilleries = distilleries.order_by(sortkey)
 
     current_sorting = f'{sort}_{direction}'
     context = {
@@ -38,7 +41,7 @@ def individual_distillery(request, distillery_id):
     """The view to show individual distilleries"""
 
     distillery = get_object_or_404(Distillery, pk=distillery_id)
-    gins=Gin.objects.filter(distillery=distillery)
+    gins = Gin.objects.filter(distillery=distillery)
 
     context = {
         'distillery': distillery,
@@ -60,12 +63,14 @@ def add_distillery(request):
         if form.is_valid():
             distillery = form.save()
             messages.success(request, 'You added a new distillery!')
-            return redirect(reverse('individual_distillery', args=[distillery.id]))
+            return redirect(reverse('individual_distillery',
+                            args=[distillery.id]))
         else:
-            messages.error(request, 'This distillery failed to add. Please check the form is valid.')
+            messages.error(request, 'This distillery failed to add.' +
+                           'Please check the form is valid.')
     else:
         form = DistilleryForm()
-        
+
     template = 'distilleries/add_distillery.html'
     context = {
         'form': form,
@@ -87,9 +92,12 @@ def edit_distillery(request, distillery_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'You updated this distillery!')
-            return redirect(reverse('individual_distillery', args=[distillery.id]))
+            return redirect(reverse('individual_distillery',
+                            args=[distillery.id]))
         else:
-            messages.error(request, 'This distillery failed to update. Please ensure the form is valid.')
+            messages.error(request,
+                           'This distillery failed to update.' +
+                           'Please ensure the form is valid.')
     else:
         form = DistilleryForm(instance=distillery)
         messages.info(request, f'You are editing {distillery.name}')
@@ -101,7 +109,6 @@ def edit_distillery(request, distillery_id):
     }
 
     return render(request, template, context)
-
 
 
 @login_required

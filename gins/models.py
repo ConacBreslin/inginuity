@@ -1,9 +1,9 @@
+""" The Distillery and Gin models """
 from django.db import models
 
 
-# Create your models here.
 class Distillery(models.Model):
-
+    """Distillery Model"""
     class Meta:
         verbose_name_plural = 'Distilleries'
 
@@ -22,6 +22,7 @@ class Distillery(models.Model):
 
 
 class Gin(models.Model):
+    """Gin Model"""
     name = models.CharField(max_length=254)
     distillery = models.ForeignKey(
         'Distillery', null=True, blank=True, on_delete=models.SET_NULL

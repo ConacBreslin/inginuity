@@ -1,3 +1,6 @@
+"""The views to display all the gins, individual
+gins and to add, edit and delete gins."""
+
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models.functions import Lower

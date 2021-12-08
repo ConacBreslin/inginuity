@@ -1,8 +1,8 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
+"""The views to add, update and delete items from the shopping bag"""
+from django.shortcuts import (render, redirect, reverse,
+                              HttpResponse, get_object_or_404)
 from django.contrib import messages
 from gins.models import Gin
-
-# Create your views here.
 
 
 def view_shoppingbag(request):
@@ -21,7 +21,8 @@ def add_to_shoppingbag(request, item_id):
 
     if item_id in list(shoppingbag.keys()):
         shoppingbag[item_id] += quantity
-        messages.success(request, f'Updated {gin.name} quantity to {shoppingbag[item_id]}')
+        messages.success(
+            request, f'Updated {gin.name} quantity to {shoppingbag[item_id]}')
     else:
         shoppingbag[item_id] = quantity
         messages.success(request, f'{gin.name} was added to your shopping bag')
@@ -31,19 +32,21 @@ def add_to_shoppingbag(request, item_id):
 
 
 def adjust_shoppingbag(request, item_id):
-    """The view to adjust the quantity of the specified product to the specified amount"""
+    """The view to adjust the quantity of the specified
+        product to the specified amount"""
 
     gin = get_object_or_404(Gin, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     shoppingbag = request.session.get('shoppingbag', {})
-    
+
     if quantity > 0:
         shoppingbag[item_id] = quantity
-        messages.success(request, f'Updated {gin.name} quantity to {shoppingbag[item_id]}')
-           
+        messages.success(
+            request, f'Updated {gin.name} quantity to {shoppingbag[item_id]}')
     else:
         shoppingbag.pop(item_id)
-        messages.success(request, f'{gin.name} was removed from your shopping bag')
+        messages.success(request,
+                         f'{gin.name} was removed from your shopping bag')
 
     request.session['shoppingbag'] = shoppingbag
     return redirect(reverse('view_shoppingbag'))
@@ -55,9 +58,9 @@ def remove_from_shoppingbag(request, item_id):
     try:
         gin = get_object_or_404(Gin, pk=item_id)
         shoppingbag = request.session.get('shoppingbag', {})
-            
         shoppingbag.pop(item_id)
-        messages.success(request, f'{gin.name} was removed from your shopping bag')
+        messages.success(
+            request, f'{gin.name} was removed from your shopping bag')
 
         request.session['shoppingbag'] = shoppingbag
         return HttpResponse(status=200)

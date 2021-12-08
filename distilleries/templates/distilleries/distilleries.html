@@ -60,6 +60,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <p class="mb-2 text-left">{{ distillery.town }}, {{ distillery.county }}</p>
+                                            <p class="mb-2 text-left">{{ distillery.province }}</p>
                                             {% if request.user.is_superuser %}
                                                 
                                                     <a href="{% url 'edit_distillery' distillery.id %}" class="btn-black btn-sm rounded-0">Edit distillery</a>

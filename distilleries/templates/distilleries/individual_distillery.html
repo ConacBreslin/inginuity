@@ -30,7 +30,8 @@
                 <div class="distillery-container mb-5 mt-5">
                     <p class="mb-0 lead font-weight-bold">{{ distillery.name }}</p>
                    
-                    <p class="mb-0 small font-italic">{{ distillery.town }}, County {{ distillery.county }}</p>
+                    <p class="mb-0 small">{{ distillery.town }}, County {{ distillery.county }}</p>
+                    <p class="mb-0 small">{{ distillery.province }}</p>
                     <p class="text-justify mr-3"> {{ distillery.description }}</p>
                     
                     {% if distillery.hasvisitorcentre %}
@@ -38,11 +39,12 @@
                     {% else %}                  
                    <p>{{ distillery.name }} does not have a visitor centre</p>
                     {% endif %}
-                    <p></p>
-                    {% if distillery.website %}
-                        <a href="{{ distillery.website }}" target="_blank" class="btn-black btn-sm rounded-0 ">Visit website</a>
-                    {% endif %}
+                    <p>
                     <a href="{% url 'add_review' %}" class="btn-black btn-sm rounded-0">Add a review</a>
+                    {% if distillery.website %}
+                        <a href="{{ distillery.website }}" target="_blank" class="btn-black btn-sm rounded-0 ml-4">Visit website</a>
+                    {% endif %}
+                    
                 </p>
                         
     

@@ -1,6 +1,6 @@
-from django.shortcuts import render
+"""The view to render the home page"""
 
-# Create your views here.
+from django.shortcuts import render
 
 
 def index(request):

@@ -1,3 +1,4 @@
+"""The Review model"""
 from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User
@@ -5,6 +6,7 @@ from gins.models import Distillery
 
 
 class Review(models.Model):
+    """Model for reviews"""
     username = models.ForeignKey(User, on_delete=models.CASCADE,
                                  null=True, blank=True)
     distillery = models.ForeignKey(Distillery, on_delete=models.CASCADE)

@@ -1,10 +1,13 @@
+"""The views to display all the reviews, and to
+    add, edit and delete reviews."""
+
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
 from django.contrib.auth.decorators import login_required
-from gins.models import Distillery
 from django.contrib.auth.models import User
+from gins.models import Distillery
 from .models import Review
 from .forms import ReviewForm
 
@@ -28,10 +31,9 @@ def all_reviews(request):
                 direction = request.GET['direction']
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
-            reviews = reviews.order_by(sortkey)   
+            reviews = reviews.order_by(sortkey)
 
     current_sorting = f'{sort}_{direction}'
-
 
     context = {
         'reviews': reviews,
@@ -44,7 +46,7 @@ def all_reviews(request):
 @login_required
 def add_review(request):
     """The view to add a review to the site"""
-   
+
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
@@ -55,8 +57,7 @@ def add_review(request):
             return redirect(
                 reverse('reviews')
                 )
-            #return redirect(reverse('individual_distillery', args=[distillery.id]))
-            
+
         else:
             messages.error(
                 request, 'This review was not added. ' +
@@ -96,7 +97,8 @@ def edit_review(request, review_id):
                 )
     else:
         form = ReviewForm(instance=review)
-        messages.info(request, f'You are editing a review of { review.distillery.name }')
+        messages.info(
+            request, f'You are editing a review of { review.distillery.name }')
 
     template = 'reviews/edit_review.html'
     context = {
@@ -117,5 +119,4 @@ def delete_review(request, review_id):
         return redirect(reverse('reviews'))
 
     messages.error(request, 'Sorry, only approved users can do this.')
-    return redirect(reverse('home'))    
-
+    return redirect(reverse('home'))

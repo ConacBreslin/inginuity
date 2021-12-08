@@ -1,3 +1,5 @@
+"""URLs for Gin pages"""
+
 from django.urls import path
 from . import views
 
@@ -8,4 +10,3 @@ urlpatterns = [
     path('edit/<int:gin_id>/', views.edit_gin, name='edit_gin'),
     path('delete/<int:gin_id>/', views.delete_gin, name='delete_gin'),
 ]
-
