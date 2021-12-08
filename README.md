@@ -1,16 +1,16 @@
 # **Inginuity - a website where you can find out about Ireland's Craft Gin distilleries, the  gins they produce and buuy these gins.**
-Ireland has a surprising numebr of small craft gin producers and the number is increasing all the time. This website aims to give the visitor up-to-date information about these distilleries and their gins.
+Ireland has a surprising number of small craft gin producers and the number is increasing all the time. This website aims to give the visitor up-to-date information about these distilleries and their gins.
 
 For assessment purposes you can log in as an admin user with the username "InginuitySuperUser" and the password "Inginuity1234".
 
 ## Visit the deployed website
-[![Inginuity](static/images/banner.png "Visit the deployed site here")](https://inginuity.herokuapp.com//)
+[![Inginuity](/media/banner.png "Visit the deployed site here")](https://inginuity.herokuapp.com/)
 
 ## User Experience (UX)
 
 ### Project Goals
 
-The site was created to enagage visitors so that they will want to register and visit regularly. It was built to fulfill the requirements of Code Institutes's Diploma in Full Stack Development Milestone 3 project.
+The site was created to enagage visitors so that they will want to register and visit regularly. It was built to fulfill the requirements of Code Institutes's Diploma in Full Stack Development Milestone 4 project.
 
 #### Visitor Goals
 
@@ -20,7 +20,7 @@ To enjoy visiting the site, to find out up to date information about Irish Craft
 
 ##### All visitors to the site should be able to; 
 ###### Visiting, Navigation and viewing
-<!-- 1. Only enter the site if they are over the legal age to buy alcohol in their country. -->
+
 2. Understand what the website is about and navigate it intuitively.
 3. View all the distilleries on the site.
 4. View individual distilleries.
@@ -40,20 +40,20 @@ To enjoy visiting the site, to find out up to date information about Irish Craft
 14. Be able to select gins to purchase and add them to their bag
 15. View items in a their bag.
 16. Change quantity of items in their bag.
-Be alerteed to legal age to buy alcohol
-17. Easily enter payment details.
-18. Feel personal inforamtion is secure.
-19. View an order confirmation after checkout.
-20. Receive a confirmation email after checkout.
+17. Be alerteed to legal age to buy alcohol
+18. Easily enter payment details.
+19. Feel personal inforamtion is secure.
+20. View an order confirmation after checkout.
+21. Receive a confirmation email after checkout.
 
 ##### In addition logged in users should be able to;
-21. Easily log in and out of their account.
-22. Receive a confimation email after registering.
-23. Recover their password if it is lost.
-24. Have a personalised user profile.
-25. Have an option to store their details for future ease of use.
-26. Add a review 
-27. Edit or delete their own reviews.
+22. Easily log in and out of their account.
+23. Receive a confimation email after registering.
+24. Recover their password if it is lost.
+25. Have a personalised user profile.
+26. Have an option to store their details for future ease of use.
+27. Add a review 
+28. Edit or delete their own reviews.
 
 ##### Superusers should be able to
 29. Add, edit or delete gins.
@@ -98,7 +98,7 @@ According to Shane Barker in ["The Psychology of Color in Web Design"](https://w
 
 ### Typography
 The fonts were found on google font. The Open+Sans wasc chosen as it was clear and easily readable.
-## Features
+## Current Features
 - Responsiveness on all device sizes.
 - A nav bar that displays links dependent on the user type.
 - A registration and login procedure which is secure and easy to use. 
@@ -116,7 +116,17 @@ The ability to display details about distilleries' visitor centres and their tou
 An interactive map whereby visitors to the site could see the distilleries pinned on a map and access each distillery from there
 A facility for users to leave reviews about individual gins.
 A facility for users to rate gins and distilleries (the static ratings were removed for the site as it was felt they did not add benefit to the site but were left in the model for future use).
-the ability to sign in using social media.
+The ability to sign in using social media.
+The ability to filter, not just sort boththe distilleries and gins.
+
+## Database architecture
+Django uses the sql database and the default SQLIte databas was used during developemnt.
+In deployment the Postgresql data base was used and it was connected to the project through Heroku's settings.
+There are XX models in the project and they can be see here 
+An ERD diagram for the prokject can be seen here
+### Database used
+
+### Database models
 
 # Languages used
 [HTML5](https://en.wikipedia.org/wiki/HTML5)
@@ -137,8 +147,11 @@ the ability to sign in using social media.
 - [Heroku](https://id.heroku.com/login) was used to deploy the app.
 - [sqlite](https://sqlite.org/index.html) is used to store data in development and [postgresql](https://www.postgresql.org/) in the deployed project.
 - [GitHub](https://github.com/) was used for storing the code after being pushed from Git.
+- [Amazon Simple Storage Service (s3)](https://aws.amazon.com/products/storage/?nc2=h_ql_prod_st) was used to store the static files for teh deployed project.
+STRIPE was used a ap paymetn platform for secure checkout and payment
 - [RandomKeygen](https://randomkeygen.com/) was used to generate a secret keys.
-- [Bootstrap](https://getbootstrap.com/) was sued for styling
+FONT AWESOMW
+- [Bootstrap](https://getbootstrap.com/) was used for styling
 - [Google Fonts](https://fonts.google.com/) was used to choose and import the font.
 - Foreground/Backgound contrast was checked using [contrast-ratio.com](https://contrast-ratio.com/).
 - The logo was generated on [wix.com](https://www.wix.com/)
@@ -148,7 +161,13 @@ the ability to sign in using social media.
 - The html code was formatted using [webformatter.com](https://webformatter.com/html).
 - Information about automatically formatting  python with [black](https://pypi.org/project/black/) was found on [freecodecamp.org](https://www.freecodecamp.org/news/auto-format-your-python-code-with-black/)
 - The code for the onload modal was taken from [etutorialspoint.com](https://www.etutorialspoint.com/)
-- The code for standardising the icon sizes wa taken from [bulma.io](https://bulma.io/)
+- The code for standardising the icon sizes was taken from [bulma.io](https://bulma.io/)
+Django allauth, cirpsy forms, 
+Gunicorn WSGI HTTP Server for UNIX to aid in the deployment of the Django project to Heroku.
+Pillow a python imaging library to aid in processing image files to store in the database.
+Pyscopg2 as PostgreSQL database adapter for Python.
+
+
 ## Images
 - The images were stored in [Imgur](https://i.imgur.com/).
 - The images were formatted using [online-im age-editor.com/](https://www.online-image-editor.com/) and [tinypng.com/](https://tinypng.com/).
@@ -234,3 +253,19 @@ The  GitHub Repository can be forked to make a copy of the original repository o
 5.	Changing the current working directory to the location where you want the cloned directory to be made.
 6.	Typing git clone, and pasting the URL copied in Step 3.
 7.	Pressing Enter to create the local clone.
+
+## Credits
+### Code
+The intial design, layout and fucntionality was taken from the Code Institute's walk through project on Boutique Ado. 
+
+### Media
+The gin and distillery images and content were, when possible, taken directly from the distillery websites, if this was not available magazine articles, in particular [Irish Whiskey Magazine](https://www.irishwhiskeymagazine.com/), were used. Some gin images were taken from shop websites including [the whiskeyexchange](https://www.thewhiskyexchange.com/) and [celticwhiskey](https://celticwhiskey.com/).
+Some reviews were copied from [tripadvisor.ie](https://www.tripadvisor.ie/)
+
+
+## Acknoweldgements
+I would like to thank the following people;
+- my very zen mentor Chris Quinn whose wisdom and experience were invaluable,
+- the many tutors in Code Institute for being unfailingly helpful, patient and knowledgeable throughout the hours and hours I spent online with them. I do not generally like to single out tutors (they all do an amazing job) but this time I have to mention Igor who never failed to assist, support, direct and sort out any issue but most of all furthered my understanding if the process,    
+- my family and friends for all their support and feedback,
+- my unbelieveably supportive husband who, despite being very neglected recently, has not only kept me going but has also kept me (well) fed.

@@ -40,25 +40,18 @@
                     {% endif %}
                     <p></p>
                     {% if distillery.website %}
-                    
-                        <a href="{{ distillery.website }}" target="_blank" class="btn-black btn-sm rounded-0">Visit website</a>
-                    
+                        <a href="{{ distillery.website }}" target="_blank" class="btn-black btn-sm rounded-0 ">Visit website</a>
                     {% endif %}
-                    <a href="{% url 'add_review' %}" class="btn-black btn-sm rounded-0">Add a review</a>
+                    <a href="{% url 'add_review' %}" class="btn-black btn-sm rounded-0 ml-4">Add a review</a>
                 </p>
                         
-                    
-                     
-                    
-                    
+    
                     {% if request.user.is_superuser %}
-                        
+        
                     <a href="{% url 'edit_distillery' distillery.id %}" class="btn-black btn-sm rounded-0">Edit distillery</a>
                     <a href="#checkDistDeleteModal" class="delete btn-black btn-sm rounded-0 ml-4" 
                     data-attr-id={{ distillery.id }} >Delete distillery</a>
-                
-                    
- 
+
                 {% endif %}
                 
         </div>
@@ -66,10 +59,12 @@
 
 
             <div class="col-lg-3 mt-5">
-            
-                <p>This distillery produces these gins</p>
-                {% for gin in gins %}
                 
+    
+                <p>This distillery produces these gins</p>
+
+                {% for gin in gins %}
+
                     {% if gin.image %}
                         <a href="{% url 'individual_gin' gin.id %}">
                             <img class="very-small-image" src="{{ gin.image.url }}" alt="{{ gin.name }}">
@@ -79,22 +74,32 @@
                             <img class="very-small-image"  src="{{ MEDIA_URL }}emptybottle.jpg" alt="{{ gin.name }}">
                         </a>
                     {% endif %}
-                        <p class="mb-0">{{ gin.name }}</p>
-                        <p class="lead mb-0 text-left font-weight-bold">€{{ gin.price }}</p>   
-                        
+                        <p class="mb-0 font-weight-bold">{{ gin.name }}</p>
+                        <p class="mb-0 text-left ">€{{ gin.price }}</p>   
+                      
                 {% endfor %}        
             </div>
+            
+
+
             </div>
             <div class="col-12 col-sm-8 offset-sm-2">
                 <hr>
                 <h2 class="text-center ">Reviews of {{ distillery.name }}</h2>
+
+                
+                
+                <p class="text-center">You can add a review now <a href="{% url 'add_review' %}" class="btn-black btn-sm rounded-0 ml-4">Add a review</a> </p>
+                
+
+
                 {% for review in distillery.review_set.all %} 
                     <p class="mb-0 lead font-weight-bold">{{ review.title }}</p>
                     
                     <p class="text-justified">{{ review.body }}</p>
                     {% if request.user.is_superuser or review.username == request.user %}
                     <small>
-                    <a href="{% url 'edit_review'  review.id %}" class="btn-black btn-sm rounded-0 ">Edit or delete this review</a>
+                    <a href="{% url 'edit_review'  review.id %}" class="btn-black btn-sm rounded-0">Edit or delete this review</a>
                     </small>
                     {% endif %}
                     <p class="mt-2 mb-0 small font-weight-bold">Posted by: {{ review.username}}</p>
