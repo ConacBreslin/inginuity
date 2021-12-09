@@ -32,28 +32,26 @@ To enjoy visiting the site, to find out up to date information about Irish Craft
 ###### Sorting and Searching
 8. Search across gins and distilleries from the navbar.
 9. See what was searched for ad the number of results.
-10. Sort distilleries and reviews county, province or and reviews those with tours.
-11. Sort gins and reviews price, name or rating.
-12. Sort reviews and reviews distillery, author or date posted.
+10. Sort distilleries, gins and reviews by appropriate paranmeters.
  
 ###### Purchasing and checkout
-14. Be able to select gins to purchase and add them to their bag
-15. View items in a their bag.
-16. Change quantity of items in their bag.
-17. Be alerteed to legal age to buy alcohol
-18. Easily enter payment details.
-19. Feel personal inforamtion is secure.
-20. View an order confirmation after checkout.
-21. Receive a confirmation email after checkout.
+11. Be able to select gins to purchase and add them to their bag
+12. View items in a their bag.
+13. Change quantity of items in their shopping bag.
+14. Be alerteed to legal age to buy alcohol
+15. Easily enter payment details.
+16. Feel personal inforamtion is secure.
+17. View an order confirmation after checkout.
+18. Receive a confirmation email after checkout.
 
 ##### In addition logged in users should be able to;
-22. Easily log in and out of their account.
-23. Receive a confimation email after registering.
-24. Recover their password if it is lost.
-25. Have a personalised user profile.
-26. Have an option to store their details for future ease of use.
-27. Add a review 
-28. Edit or delete their own reviews.
+19. Easily log in and out of their account.
+20. Receive a confimation email after registering.
+21. Recover their password if it is lost.
+22. Have a personalised user profile.
+23. Have an option to store their details for future ease of use.
+24. Add a review 
+25. Edit or delete their own reviews.
 
 ##### Superusers should be able to
 29. Add, edit or delete gins.
@@ -118,6 +116,7 @@ A facility for users to leave reviews about individual gins.
 A facility for users to rate gins and distilleries (the static ratings were removed for the site as it was felt they did not add benefit to the site but were left in the model for future use).
 The ability to sign in using social media.
 The ability to filter, not just sort boththe distilleries and gins.
+Currently the only alert to needing to be over the legal age to buy alcohol is a small tooltip when the user hovers over the checkout button. I would like an onload modal before the user enters the site confimrming that they are over the legal age to buy alcohol in their country. I added an onload modal that appeared every time the user landed on the landing page but it was felt this was poor user experience when the user returned there andthis would need to be improved before inclusion.
 
 ## Database architecture
 The default Django sqlite database  was used during developemnt.
@@ -204,10 +203,33 @@ It was viewed on a variety of devices. Friends and family members reviewed the s
 8. Search across distilleries and gins from the navbar.
 - Links to the distilleries and gins appear on the navigation in all devices. The distilleries have an option to sort by name. county or province and the gins have an option to sort by name, distillery or price.
 9. See what was searched for and the number of results.
-10. Sort distilleries and reviews county, province or and reviews those with tours.
-11. Sort gins and reviews price, name or rating.
-12. Sort reviews and reviews distillery, author or date posted.
- 
+- On the whole site search page at the top the search term is displayed. The results are categorized into gins, distilleries and reviews and the number of results for each one is displayed.
+10. Sort distilleries, gins and reviews by appropriate parameters.
+- Distilleries can be sorted by name, county or province. Gins can be sorted by name, distillery and price and reviws can be sorted by author, distillery or dateposted. Each page includes a sort box at the top if the page if the user wants to change their selection.
+11. Be able to select gins to purchase and add them to their shopping bag.
+- Gins can be added to a shopping bag from the individual gin page.
+12. View items in a their bag.
+- The shopping bag can be accessed from either the shoppping cart icon on the navigation or by clicking on the 'Go to secure chcekout' link on the message that appears when a user adds anything to their bag. The shopping bag shows details of waht has been added, its name, image, quantity, subtotal ad grand total including delivery.
+13. Change quantity of items in their bag.
+- Quantities can be changed using the '+' and '-' buttons on the quantity box both on the individual gin page and on the shopping bag page. This button does not go below 1 or above 99.
+14. Be alerted to legal age to buy alcohol.
+- A tooltip shows when the user hovers over the complete order button.
+15. Easily enter payment details.
+- the form to eneter payment details is clear and does not accept invalid information.
+16. Feel personal inforamtion is secure.
+- It is explicitly highlighted in the checkout process that checkout is secure.
+17. View an order confirmation after checkout.
+- After checkout the order detail comes up in the success message and the user is directed to a page that summarises the order
+18. Receive a confirmation email after checkout.
+- A confirmation email is sent out for each completed order.
+19. Easily log in and out of their account.
+20. Receive a confimation email after registering.
+21. Recover their password if it is lost.
+22. Have a personalised user profile.
+23. Have an option to store their details for future ease of use.
+24. Add a review 
+25. Edit or delete their own reviews.
+
 
 
 
