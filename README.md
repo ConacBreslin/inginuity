@@ -176,7 +176,7 @@ Pyscopg2 as PostgreSQL database adapter for Python.
 - The road image is by Fabian Wiktor in [pexels.com](https://www.pexels.com/).
 - When possible the distillery and gin photos were taken from distilleries' websites, as were their gins. Otherwise they were taken from newspaaper articles.
 ## Testing.
-Bugs identified during development and testing and their solutions are reordede here [page 1](static/images/bugsone.png), [page 2](static/images/bugstwo.png).
+Bugs identified during development and testing and their solutions are recorded [here](/media/inginuitybugs.png).
 ### Validation
 - HTML source code for each all XX pages page was validited by direct input into [validator.w3.org](https://validator.w3.org/). The results of this can be seen  [here]().
 - CSS code was tested  by direct input into [jigsaw.w3.org](https://jigsaw.w3.org/css-validator/) until it got a 'Congratulations! No error found!' message.
