@@ -8,6 +8,9 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Ireland's craft gins and distilleries"/>
+        <meta name="keywords" content="ireland irish gin gins distillery distilleries craft artisan" />
+        <meta name="author" content="Conac Breslin for educational purposes"/>
     {% endblock %}
 
     {% block extra_meta %}
@@ -85,7 +88,7 @@
                     <li class="list-inline-item">
                         <a class=" text-black nav-link" href="{% url 'view_shoppingbag' %}">
                             <div class="text-center">
-                                <div><span class="icon"><i class="fas fa-shopping-cart fa-lg"></span></i></div>
+                                <div><span class="icon"><i class="fas fa-shopping-cart fa-lg"></i></span></div>
                                 <p class="my-0">
                                     {% if grand_total %}
                                         €{{ grand_total|floatformat:2 }}
