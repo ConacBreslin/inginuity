@@ -21,20 +21,20 @@ To enjoy visiting the site, to find out up to date information about Irish Craft
 ##### All visitors to the site should be able to; 
 ###### Visiting, Navigation and viewing
 
-2. Understand what the website is about and navigate it intuitively.
-3. View all the distilleries on the site.
-4. View individual distilleries.
-5. View all the gins on the site.
-6. View individual gins.
-7. View all the reviews about the distileries.
-8. Easily register for an account.
+1. Understand what the website is about and navigate it intuitively.
+2. View all the distilleries on the site.
+3. View individual distilleries.
+4. View all the gins on the site.
+5. View individual gins.
+6. View all the reviews about the distileries.
+7. Easily register for an account.
 
 ###### Sorting and Searching
-9. Search across gins and distilleries from the navbar.
-10. See what was searched for ad the number of results.
-11. Sort distilleries and reviews county, province or and reviews those with tours.
-12. Sort gins and reviews price, name or rating.
-13. Sort reviews and reviews distillery, author or date posted.
+8. Search across gins and distilleries from the navbar.
+9. See what was searched for ad the number of results.
+10. Sort distilleries and reviews county, province or and reviews those with tours.
+11. Sort gins and reviews price, name or rating.
+12. Sort reviews and reviews distillery, author or date posted.
  
 ###### Purchasing and checkout
 14. Be able to select gins to purchase and add them to their bag
@@ -67,7 +67,7 @@ The site should provide a platform for people interested in irish Craft gins and
 - Non-functional requirements; 	The site should be attractive and intuitive.
 
 ## Structure
-The site starts with a modal/overlay to confirm the vsisitor is old enough to visit the site. If so, they come to the landing page and from there they can follow the main navigation to Distilleries or gins. This page also has a link to the users account which also provides the ability to register if they have not already done so.There is also alink to teh visitors shopping bag.
+The site starts with a modal/overlay to confirm the vsisitor is old enough to visit the site. If so, they come to the landing page and from there they can follow the main navigation to Distilleries or gins. This page also has a link to the users account which also provides the ability to register if they have not already done so.There is also alink to the visitors shopping bag.
 1. The distilleries gin, reviews, shopping bag and checkout pages are available to all users. The logout page is available to logged in users.
 2. The pages to ad or edit reviews is only avilable to logged in users.
 3. The pages to add, edit or delete distilleries, gins or reviews can only be accessed and reviews superusers.
@@ -146,7 +146,7 @@ An Entity Relationship Diagram for the prokject can be seen [here](/inginuityerd
 - [Heroku](https://id.heroku.com/login) was used to deploy the app.
 - [sqlite](https://sqlite.org/index.html) is used to store data in development and [postgresql](https://www.postgresql.org/) in the deployed project.
 - [GitHub](https://github.com/) was used for storing the code after being pushed from Git.
-- [Amazon Simple Storage Service (s3)](https://aws.amazon.com/products/storage/?nc2=h_ql_prod_st) was used to store the static files for teh deployed project.
+- [Amazon Simple Storage Service (s3)](https://aws.amazon.com/products/storage/?nc2=h_ql_prod_st) was used to store the static files for the deployed project.
 STRIPE was used a ap paymetn platform for secure checkout and payment
 - [RandomKeygen](https://randomkeygen.com/) was used to generate a secret keys.
 FONT AWESOMW
@@ -187,6 +187,32 @@ Bugs identified during development and testing and their solutions are recorded 
 The app was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers.
 It was viewed on a variety of devices. Friends and family members reviewed the site to identify bugs and give feedback on user experience. The code was submitted for peer-review in Code Institute's peer-code-review channel in [slack.com](https://app.slack.com/). 
 ### Testing User Stories from User Experience (UX) Section.
+1. Understand what the website is about and navigate it intuitively.
+- The subheading on the landing page explains the nature of the site. Testers reorted no issues understanding what the site was about
+2. View all the distilleries on the site.
+- The link to 'distilleries' in the navigation is always at the top of the page (either displayed or in a dropdown on mobiles) and brings the user to a page displaying all the distilleries.
+3. View individual distilleries.
+- From the page displaying all the distilleries the user can click on the image of the distillery and this will bring them to a page with more detailed information about each distillery.
+4. View all the gins on the site.
+- The link to 'gins' in the navigation is always at the top of the page (either displayed or in a dropdown on mobiles) and brings the user to a page displaying all the distilleries.
+5. View individual gins.
+- From the page displaying all the gins the user can click on the image of the gin and this will bring them to a page with  details  about the gin.
+6. View all the reviews about the distilleries.
+- THe reviews for each distillery are included at the bottom of the individual distillery page. All the reviews of all the distilleries are listed on the reviews page which can be accessed from the navigation.
+7. Easily register for an account.
+- The link for unregistered users to sign up to the site is available in a drop down when the user clicks the 'My account' icon. it could be argued that this button should be in a more prominent position and consideration was put into adding a seperate 'Sign Up' button on the landing page but in the interest of keeping a clean, uncluttered landing page it was decided to leave it in the dropdown.
+8. Search across distilleries and gins from the navbar.
+- Links to the distilleries and gins appear on the navigation in all devices. The distilleries have an option to sort by name. county or province and the gins have an option to sort by name, distillery or price.
+9. See what was searched for and the number of results.
+10. Sort distilleries and reviews county, province or and reviews those with tours.
+11. Sort gins and reviews price, name or rating.
+12. Sort reviews and reviews distillery, author or date posted.
+ 
+
+
+
+
+
 1. Only enter the site if they are over the legal age to buy alcohol in their country.
 2. Understand what the website is about and navigate it intuitively.
 3. View all the distilleries on the site.

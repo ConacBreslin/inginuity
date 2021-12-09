@@ -22,10 +22,12 @@ def wholesite_search(request):
                                     Q(username__username__icontains=q) |
                                     Q(title__icontains=q))
 
+    
     context = {
             'distilleries': distilleries,
             'gins': gins,
             'reviews': reviews,
+            'q': q
         }
 
     return render(request, 'wholesitesearch/wholesitesearch.html', context)
