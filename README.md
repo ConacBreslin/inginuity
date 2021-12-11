@@ -179,8 +179,8 @@ Bugs identified during development and testing and their solutions are recorded 
 ### Validation
 - Because of the issues with trying to vailate code that uses jinja templating the HTML source code for each all XX pages page was validited by direct input into [validator.w3.org](https://validator.w3.org/). The results of this can be seen  [here]().
 - CSS code from the css files in  static and checkout were tested by direct input into [jigsaw.w3.org](https://jigsaw.w3.org/css-validator/) until it got a 'Congratulations! No error found!' message.
-- JavaScript was checked using [jshint](https://jshint.com/). There were no errors and the warnings were checked, corrected where appropriate and otherwise left.
-- Python code was tested repeatedly with [pep8 online validator](http://pep8online.com/) until the validator deemed it 'All right'.
+- JavaScript in checkout/js/stripe_elements.js, profile/static/profile/js/countryfield.js and gins/templates/gins/includes/quantity_input_script were checked using [jshint](https://jshint.com/). There were no errors and the warnings were checked, corrected where possible and otherwise left. Given more time more of these warnings might be rectified.
+- Throughout development Python code was tested with flake 8 and problems identified were corrected where appropriate. SOme lines that did not comply with pep8 due to being too long were left - when they could not be esilt corrected. Thses were mainly in settings.py and migrations
 - Lighthouse Audits. The site’s Performance, Accessibility, Best Practices and SEO were assessed by [Chrome Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk) and the results of this are [here]().
 - Manual Testing. At every step of development the errors highlighted in the code were addressed before proceeeding.
 The app was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers.
