@@ -53,7 +53,7 @@
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <button class="decrement-qty  btn btn-black rounded-0 decrement-qty_{{ gin.id }}" 
-                                                data-item_id="{{ gin.id }}" id="">
+                                                data-item_id="{{ gin.id }}">
                                                 <span class="icon">
                                                     <i class="fas fa-minus"></i>
                                                 </span>
@@ -105,7 +105,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-black rounded-0" data-dismiss="modal">Back to the gin</button>
-              <a type="button" href="#" class="btn btn-danger rounded-0 text-white" id="delete-confirm">Delete this gin</a>
+              <a href="#" class="btn btn-danger rounded-0 text-white" id="delete-confirm">Delete this gin</a>
             </div>
           </div>
         </div>
@@ -121,7 +121,7 @@
 
 
 {% include 'gins/includes/quantity_input_script.html' %}
-<script type="text/javascript">
+<script>
     var delete_id = -1;
 
 $(".delete").on("click", function(e)
