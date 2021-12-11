@@ -32,12 +32,20 @@ footer {
     height: 300px;
 }
 
-#landing-heading {
+#landing-heading-large {
     color: #FFF;    
     font-size: 108px;
     font-weight:900;
     letter-spacing: 4px;
     text-shadow: -7px 7px #0f305c;  
+}
+
+#landing-heading-small {
+    color: #FFF;    
+    font-size: 60px;
+    font-weight:900;
+    letter-spacing: 2px;
+    text-shadow: -5px 5px #0f305c;  
 }
 
 #landing-subheading {
@@ -60,6 +68,7 @@ footer {
     justify-content: center;
     height: 1.5rem;
     width: 1.5rem;
+    
     
 }
 
