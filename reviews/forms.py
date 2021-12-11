@@ -1,5 +1,4 @@
 from django import forms
-from gins.models import Gin, Distillery
 from . models import Review
 
 
@@ -9,7 +8,6 @@ class ReviewForm(forms.ModelForm):
         model = Review
         fields = ['distillery', 'title', 'body', ]
 
-    
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field_name, field in self.fields.items():

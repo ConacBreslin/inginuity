@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from django.db.models import Q
-from django.db.models.functions import Lower
-from django.contrib.auth.models import User
 from gins.models import Gin, Distillery
 from reviews.models import Review
 
@@ -22,7 +20,6 @@ def wholesite_search(request):
                                     Q(username__username__icontains=q) |
                                     Q(title__icontains=q))
 
-    
     context = {
             'distilleries': distilleries,
             'gins': gins,

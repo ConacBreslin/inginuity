@@ -24,10 +24,13 @@ footer {
     background-color: #7fa1d1;
     color: #000;
     width:100%;
- 
     
 }
 
+/*div added to signin and signup pages to push down footer*/
+.space-maker{
+    height: 300px;
+}
 
 #landing-heading {
     color: #FFF;    

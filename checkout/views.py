@@ -1,4 +1,6 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+"""Views to checkout"""
+from django.shortcuts import (render, redirect, reverse,
+                              get_object_or_404, HttpResponse)
 from django.contrib import messages
 from django.views.decorators.http import require_POST
 from django.conf import settings
@@ -8,9 +10,9 @@ from gins.models import Gin
 from shoppingbag.contexts import shoppingbag_contents
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
-
 import stripe
 import json
+
 
 @require_POST
 def cache_checkout_data(request):
@@ -33,7 +35,6 @@ def checkout(request):
     """The view to get the shopping bag and order form and render template"""
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
-
 
     if request.method == 'POST':
         shoppingbag = request.session.get('shoppingbag', {})
@@ -60,25 +61,26 @@ def checkout(request):
                 try:
                     gin = Gin.objects.get(id=item_id)
                     order_line_item = OrderLineItem(
-                    order=order,
-                    gin=gin,
-                    quantity=item_data,
+                        order=order,
+                        gin=gin,
+                        quantity=item_data,
                     )
                     order_line_item.save()
                 except Gin.DoesNotExist:
                     messages.error(request, (
-                        "One of the gins in your bag wasn't found in our database. "
+                        "One of the gins in your bag wasn't " +
+                        "found in our database. "
                         "Please call us for assistance!")
                     )
                     order.delete()
                     return redirect(reverse('view_shoppingbag'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse('checkout_success',
+                                    args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
-
 
     else:
         shoppingbag = request.session.get('shoppingbag', {})
