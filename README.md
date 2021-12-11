@@ -1,8 +1,6 @@
 # **Inginuity - a website where you can find out about Ireland's Craft Gin distilleries, the  gins they produce and buuy these gins.**
 Ireland has a surprising number of small craft gin producers and the number is increasing all the time. This website aims to give the visitor up-to-date information about these distilleries and their gins.
 
-For assessment purposes you can log in as an admin user with the username "InginuitySuperUser" and the password "Inginuity1234".
-
 ## Visit the deployed website
 [![Inginuity](/media/banner.png "Visit the deployed site here")](https://inginuity.herokuapp.com/)
 
@@ -19,7 +17,7 @@ To enjoy visiting the site, to find out up to date information about Irish Craft
 #### User Stories
 
 ##### All visitors to the site should be able to; 
-###### Visiting, Navigation and viewing
+##### Visiting, Navigation and viewing
 
 1. Understand what the website is about and navigate it intuitively.
 2. View all the distilleries on the site.
@@ -29,12 +27,12 @@ To enjoy visiting the site, to find out up to date information about Irish Craft
 6. View all the reviews about the distileries.
 7. Easily register for an account.
 
-###### Sorting and Searching
+##### Sorting and Searching
 8. Search across gins and distilleries from the navbar.
 9. See what was searched for ad the number of results.
 10. Sort distilleries, gins and reviews by appropriate paranmeters.
  
-###### Purchasing and checkout
+##### Purchasing and checkout
 11. Be able to select gins to purchase and add them to their bag
 12. View items in a their bag.
 13. Change quantity of items in their shopping bag.
@@ -65,37 +63,44 @@ The site should provide a platform for people interested in irish Craft gins and
 - Non-functional requirements; 	The site should be attractive and intuitive.
 
 ## Structure
-The site starts with a modal/overlay to confirm the vsisitor is old enough to visit the site. If so, they come to the landing page and from there they can follow the main navigation to Distilleries or gins. This page also has a link to the users account which also provides the ability to register if they have not already done so.There is also alink to the visitors shopping bag.
-1. The distilleries gin, reviews, shopping bag and checkout pages are available to all users. The logout page is available to logged in users.
-2. The pages to ad or edit reviews is only avilable to logged in users.
-3. The pages to add, edit or delete distilleries, gins or reviews can only be accessed and reviews superusers.
-4. All registered, logged in users can access their profile page. This lists their personal deatils and infomration on past orders made.
-5. Superusers also ahve access to the django admin page where allthe data can be accessed and modified.
+The site starts with a  landing page and from there the user can follow the main navigation to distilleries or gins. This page also has a link to the users account which also provides the ability to register if they have not already done so. There is also a link to the visitors shopping bag.
+1. The distilleries, gins, reviews, shopping bag and checkout pages are available to all users. The logout page is available to logged in users.
+2. The pages to add or edit reviews is only avilable to logged in users.
+3. The pages to add distilleries and gins or to manage reviews can only be accessed by superusers.
+4. All registered, logged in users can access their profile page. This lists their personal details and information on past orders made.
+5. Superusers also have access to the django admin page where all the data can be accessed and modified.
 
 ## Skeleton
 
 The wireframes for the site can be seen [here](/media/wireframes1.png) and [here](/media/wireframes2.png)
 
 There are 8 apps in the project.
-**home** This introduces the site. It has a navbar at  the top that includes the search box, links to the users account and their shopping basket. It has two buttons to provide filtering and sorting of distilleries and gins and there are two main navigation links to distilleries and gins in the body of the page.
-**distilleries** This is where all the distilleries are displayed. The page can be sorted and reviews county, province or if the distillery has a visitor centre. Each distillery listed there links to a page that shows the indiviual distillery and the reveiws relating to it. If a superuser is logged in there are links to pages to edit or delete the distillery.
-**gins** This is where each gin and its information is displayed. The page can be sorted and reviews price, name or rating. Each gin has a page that shows more detail about the gin and the ablity to add it to the user's shopping bag. If a superuser is logged in there are links to pages to edit or delete the gin.
-**shopping bag** This can be accessed and reviews the icon on the nav bar or from the toast that appears when a user adds an item. It has a form for the user to add their details (which is already prepopulated with the user's informations they have selected the option to save the infomation to their profile). It also shows all the items in the user's shopping bag, the subtotal, delivery charge and grand total. From here the user has the option to keep shopping or to checkout.
-**checkout** This page  has a form for the user to add their details and their credit card number, a summary of the order, and the option to complete the order or return to their shopping bag.
-**profile** This  displays the user's details, gives them the option to update them and displays a summary of any previous orders the user has made.
-**reviews** This displays all the reviews that have been added to the site. It can be sorted and reviews distillery name, rating, or date of the review. Here they can read all the reviews that have been made about all the distilleries and (if registered and logged in) they can add their own review.
-**wholesitesearch** This app was added to provide  facility to display search results that are made across both gins and distilleries.
+**The home app.** This introduces the site. It has a navbar at  the top that includes the search box, links to the users account and their shopping basket. It has the buttons to let users view and sort distilleries, gins and reviews. 
+
+**The distilleries app.** This is where all the distilleries are displayed. The page can be sorted and by name,  county or province. Each distillery listed there links to a page that shows the individual distillery in more detail and the reviews about it. If a superuser is logged in there are links to pages to edit or delete the distillery.
+
+**The gins app.** This is where all the ginsa are displayed. The page can be sorted by name, distillery or price. Each gin is linked to a page that shows more detail about the gin and the ablity to add it to the user's shopping bag. If a superuser is logged in there are links to pages to edit or delete the gin.
+
+**The reviews app.** This displays all the reviews that have been added to the site. It can be sorted by author distillery name,  or date posted. Here they can read all the reviews that have been made about all the distilleries and (if registered and logged in) they can add their own review.
+
+**The shopping bag app** This can be accessed from the icon on the nav bar or from the toast that appears when a user adds an item. It has a form for the user to add their details (which is already prepopulated with the user's information if  they have selected the option to save that infomation to their profile). It also shows all the items in the user's shopping bag, the subtotal, delivery charge and grand total. From here the user has the option to keep shopping or to checkout.
+
+**The checkout app.** This page has a form for the user to add their details and their credit card number, a summary of the order, and the option to complete the order or return to their shopping bag.
+
+**The profile app.** This displays the user's details, gives them the option to update them and displays a summary of any previous orders the user has made.
+
+**The wholesitesearch app.** This app was added to provide  facility to display search results that are made across reviews, gins and distilleries.
 
 ## Surface/Design (Design Choices fonts, icons, colours, styling, backgroundss)
 
 ### Imagery
 The overall the site was to create a sense of Irish identity while maintaining simplicity and clarity. 
 ### Colour scheme
-According to Shane Barker in ["The Psychology of Color in Web Design"](https://www.vandelaydesign.com/the-psychology-of-color-in-web-design/), blue "signifies trustworthiness and provides an air of coolness". The backgound picture was picked from ["unsplash.com](https://unsplash.com/) beacuse it was felt that it was an un mistakelably Irish lanndmark and the blue used in the overlay and logo were picked up from it using [imagecolorpicker.com](https://imagecolorpicker.com/) and used throughout the site.
+According to Shane Barker in ["The Psychology of Color in Web Design"](https://www.vandelaydesign.com/the-psychology-of-color-in-web-design/), blue "signifies trustworthiness and provides an air of coolness". The backgound picture was picked from ["unsplash.com](https://unsplash.com/) because it was felt that it was an unmistakeable Irish lannmark and the blue used in the overlay and logo were picked up from it using [imagecolorpicker.com](https://imagecolorpicker.com/) and used throughout the site.
  A [minimum contrast ratio](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast) of 4.5:1 for small text and 3:1 for large text is recommended. There were a range of combinations of backgrounds and text across the site and their contrast ratios ranged from the best 21(white/black background and black/white text) to 7.92 (blue background and black text to 3.11 (blue backgound and white text) as assessed and reviews [contrast-ratio.com]("https://contrast-ratio.com/"). While the contrast ratio of the blue/white was not great it was felt that the very large size of the text would compensate for this and shadowing was added to improve its definition.
 
 ### Typography
-The fonts were found on google font. The Open+Sans wasc chosen as it was clear and easily readable.
+The fonts were found on google font. The Open+Sans was chosen as it was clear and easily readable.
 ## Current Features
 - Responsiveness on all device sizes.
 - A nav bar that displays links dependent on the user type.
@@ -110,21 +115,18 @@ The fonts were found on google font. The Open+Sans wasc chosen as it was clear a
 - A check that user wants to perform irreversible actions before they do so.
 
 ## Future features
-The ability to display details about distilleries' visitor centres and their tours and provide the facility to book a tour.
-An interactive map whereby visitors to the site could see the distilleries pinned on a map and access each distillery from there
-A facility for users to leave reviews about individual gins.
-A facility for users to rate gins and distilleries (the static ratings were removed for the site as it was felt they did not add benefit to the site but were left in the model for future use).
-The ability to sign in using social media.
-The ability to filter, not just sort boththe distilleries and gins.
-Currently the only alert to needing to be over the legal age to buy alcohol is a small tooltip when the user hovers over the checkout button. I would like an onload modal before the user enters the site confimrming that they are over the legal age to buy alcohol in their country. I added an onload modal that appeared every time the user landed on the landing page but it was felt this was poor user experience when the user returned there andthis would need to be improved before inclusion.
+- The ability to display details about distilleries' visitor centres and their tours and provide the facility to book a tour.
+- An interactive map whereby visitors to the site could see the distilleries pinned on a map and access each distillery from there
+- A facility for users to leave reviews about individual gins.
+- A facility for users to rate gins and distilleries (the static ratings were removed for the site as it was felt they did not add benefit to the site but were left in the model for future use).
+- The ability to sign in using social media.
+- The ability to filter, not just sort  the distilleries, gins and reviews.
+- Currently the only alert to needing to be over the legal age to buy alcohol is a small tooltip when the user hovers over the checkout button. I would like an onload modal before the user enters the site confimrming that they are over the legal age to buy alcohol in their country. I added an onload modal that appeared every time the user landed on the landing page but it was felt this was poor user experience and this would need to be improved before inclusion.
 
 ## Database architecture
 The default Django sqlite database  was used during developemnt.
 In deployment the PostgreSQL was used and it was connected to the project through Heroku's settings.
-An Entity Relationship Diagram for the prokject can be seen [here](/inginuityerd.jpeg)
-### Database used
-
-### Database models
+An Entity Relationship Diagram for the project can be seen [here.](/media/inginuityerd.jpeg)
 
 # Languages used
 [HTML5](https://en.wikipedia.org/wiki/HTML5)
@@ -143,44 +145,42 @@ An Entity Relationship Diagram for the prokject can be seen [here](/inginuityerd
 - [Balsamiq](https://balsamiq.com/wireframes/) was used to create the wireframes.
 - Gits's [gitpod](https://www.gitpod.io/) was used for writing and editing code, and for submitting and pushing to GitHub.
 - [Heroku](https://id.heroku.com/login) was used to deploy the app.
-- [sqlite](https://sqlite.org/index.html) is used to store data in development and [postgresql](https://www.postgresql.org/) in the deployed project.
+- [sqlite](https://sqlite.org/index.html) was used to store data in development and [postgresql](https://www.postgresql.org/) in the deployed project.
 - [GitHub](https://github.com/) was used for storing the code after being pushed from Git.
 - [Amazon Simple Storage Service (s3)](https://aws.amazon.com/products/storage/?nc2=h_ql_prod_st) was used to store the static files for the deployed project.
-STRIPE was used a ap paymetn platform for secure checkout and payment
-- [RandomKeygen](https://randomkeygen.com/) was used to generate a secret keys.
-FONT AWESOMW
-- [Bootstrap](https://getbootstrap.com/) was used for styling
+STRIPE was used as a payment platform for secure checkout and payment.
+- [miniwebtool.com](https://miniwebtool.com/django-secret-key-generator/) was used to generate a secret keys.
+- The icons were found in [Font Awesome](https://fontawesome.com/).
+- [Bootstrap](https://getbootstrap.com/) was used for styling.
 - [Google Fonts](https://fonts.google.com/) was used to choose and import the font.
 - Foreground/Backgound contrast was checked using [contrast-ratio.com](https://contrast-ratio.com/).
 - The logo was generated on [wix.com](https://www.wix.com/)
-- The space invader image for the favicon was found in [iconfinder.com](https://www.iconfinder.com/).
-- The favicon image was converted to an .ico file using [favicon.io](https://favicon.io/).
+- The favicon image was converted to an .ico file using [www.nchsoftware.com](https://www.nchsoftware.com/).
 - The following websites were used for problem solving [stackoverflow.com](https://stackoverflow.com/), [w3schools.com](https://www.w3schools.com/), [geeksforgeeks.org](https://www.geeksforgeeks.org/),  and [css-tricks.com](https://css-tricks.com/).
 - The html code was formatted using [webformatter.com](https://webformatter.com/html).
-- Information about automatically formatting  python with [black](https://pypi.org/project/black/) was found on [freecodecamp.org](https://www.freecodecamp.org/news/auto-format-your-python-code-with-black/)
-- The code for the onload modal was taken from [etutorialspoint.com](https://www.etutorialspoint.com/)
 - The code for standardising the icon sizes was taken from [bulma.io](https://bulma.io/)
-Django allauth, cirpsy forms, 
-Gunicorn WSGI HTTP Server for UNIX to aid in the deployment of the Django project to Heroku.
-Pillow a python imaging library to aid in processing image files to store in the database.
-Pyscopg2 as PostgreSQL database adapter for Python.
+- [Gunicorn](https://gunicorn.org/) was used to aid the deployment to Heroku.
+- The Django [allauth](https://django-allauth.readthedocs.io/en/latest/) and [cripsy forms](https://django-crispy-forms.readthedocs.io/en/latest/) modules were used
+- [Pillow](https://python-pillow.org/), a python imaging library was used to help processing image files to store in the database.
+- [Pyscopg2](https://pypi.org/project/psycopg2/) was used as a PostgreSQL database adapter.
 
 
 ## Images
 - The images were stored in [Imgur](https://i.imgur.com/).
-- The images were formatted using [online-im age-editor.com/](https://www.online-image-editor.com/) and [tinypng.com/](https://tinypng.com/).
+- The images were formatted using [online-image-editor.com/](https://www.online-image-editor.com/) and [tinypng.com/](https://tinypng.com/).
 - The background image  is by [Michael](https://unsplash.com/@michael75?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) in [unsplash.com](https://unsplash.com/).
 - The empty bottle image is by [Bobby Donald](https://unsplash.com/@__b_d__) in [unsplash.com](https://unsplash.com/).
-
 - The road image is by Fabian Wiktor in [pexels.com](https://www.pexels.com/).
-- When possible the distillery and gin photos were taken from distilleries' websites, as were their gins. Otherwise they were taken from newspaaper articles.
+- The gin and distillery images and content were, when possible, taken directly from the distillery websites, if this was not available magazine articles, in particular [Irish Whiskey Magazine](https://www.irishwhiskeymagazine.com/), were used. Some gin images were taken from shop websites including [the whiskeyexchange](https://www.thewhiskyexchange.com/) and [celticwhiskey](https://celticwhiskey.com/).
+- Some reviews were copied from [tripadvisor.ie](https://www.tripadvisor.ie/)
+
 ## Testing.
 Bugs identified during development and testing and their solutions are recorded [here](/media/inginuitybugs.png).
 ### Validation
 - Because of the issues with trying to vailate code that uses jinja templating the page was site was tested  URI and in addition the source code of pages with changeable content  were validited by direct input into [validator.w3.org](https://validator.w3.org/). There were residual errors resulting from the use of code from stripe and django's crispy forms. The results of this can be seen  [here](/media/htmlvalidation.png). 
 - CSS code from the css files in  static and checkout were tested by direct input into [jigsaw.w3.org](https://jigsaw.w3.org/css-validator/) until it got a 'Congratulations! No error found!' message.
 - JavaScript in checkout/js/stripe_elements.js, profile/static/profile/js/countryfield.js and gins/templates/gins/includes/quantity_input_script were checked using [jshint](https://jshint.com/). There were no errors and the warnings were checked, corrected where possible and otherwise left. Given more time more of these warnings might be rectified.
-- Throughout development Python code was tested with flake 8 and problems identified were corrected where appropriate. SOme lines that did not comply with pep8 due to being too long were left - when they could not be esilt corrected. Thses were mainly in settings.py and migrations
+- Throughout development Python code was tested with [flake 8](https://flake8.pycqa.org/en/latest/) and problems identified were corrected where appropriate. Some lines that did not comply with pep8 due to being too long were left - when they could not be esily corrected. Thses were mainly in settings.py and migrations
 - Lighthouse Audits. The site’s Performance, Accessibility, Best Practices and SEO were assessed by [Chrome Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk) and the results of this are [here](/media/lighthousereport.png).
 - Manual Testing. At every step of development the errors highlighted in the code were addressed before proceeeding.
 The app was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers.
@@ -188,7 +188,7 @@ It was viewed on a variety of devices. Friends and family members reviewed the s
 ### Testing User Stories from User Experience (UX) Section.
 #### All users should be able to
 1. Understand what the website is about and navigate it intuitively.
-- The subheading on the landing page explains the nature of the site. Testers reorted no issues understanding what the site was about
+- The subheading on the landing page explains the nature of the site. Testers reported no issues understanding what the site was about
 2. View all the distilleries on the site.
 - The link to 'distilleries' in the navigation is always at the top of the page (either displayed or in a dropdown on mobiles) and brings the user to a page displaying all the distilleries.
 3. View individual distilleries.
@@ -198,7 +198,7 @@ It was viewed on a variety of devices. Friends and family members reviewed the s
 5. View individual gins.
 - From the page displaying all the gins the user can click on the image of the gin and this will bring them to a page with  details  about the gin.
 6. View all the reviews about the distilleries.
-- THe reviews for each distillery are included at the bottom of the individual distillery page. All the reviews of all the distilleries are listed on the reviews page which can be accessed from the navigation.
+- The reviews for each distillery are included at the bottom of the individual distillery page. All the reviews of all the distilleries are listed on the reviews page which can be accessed from the navigation.
 7. Easily register for an account.
 - The link for unregistered users to sign up to the site is available in a drop down when the user clicks the 'My account' icon. it could be argued that this button should be in a more prominent position and consideration was put into adding a seperate 'Sign Up' button on the landing page but in the interest of keeping a clean, uncluttered landing page it was decided to leave it in the dropdown.
 8. Search across distilleries and gins from the navbar.
@@ -238,7 +238,7 @@ It was viewed on a variety of devices. Friends and family members reviewed the s
 - THe button to add a review only appears for registered users or superusers.
 25. Edit or delete their own reviews.
 - For registered (who are not superusers) the the edit and delete buttons only appear only  on reviews  written by that user. 
-#### IN addition superusers sholud be able to
+#### In addition superusers should be able to
 26. Add, edit or delete gins.
 - An option shows only in the profile dropdown of superusers to add gins. Buttons appear to edit and delete gins on all gins for superusers.
 27. Add, edit or delete distilleries.
@@ -285,16 +285,12 @@ The  GitHub Repository can be forked to make a copy of the original repository o
 
 ## Credits
 ### Code
-The intial design, layout and fucntionality was taken from the Code Institute's walk through project on Boutique Ado. 
-
-### Media
-The gin and distillery images and content were, when possible, taken directly from the distillery websites, if this was not available magazine articles, in particular [Irish Whiskey Magazine](https://www.irishwhiskeymagazine.com/), were used. Some gin images were taken from shop websites including [the whiskeyexchange](https://www.thewhiskyexchange.com/) and [celticwhiskey](https://celticwhiskey.com/).
-Some reviews were copied from [tripadvisor.ie](https://www.tripadvisor.ie/)
-
+The intial design, layout and functionality was taken from the Code Institute's walk through project on Boutique Ado. 
 
 ## Acknoweldgements
 I would like to thank the following people;
 - my very zen mentor Chris Quinn whose wisdom and experience were invaluable,
 - the many tutors in Code Institute for being unfailingly helpful, patient and knowledgeable throughout the hours and hours I spent online with them. I do not generally like to single out tutors (they all do an amazing job) but this time I have to mention Igor who never failed to assist, support, direct and sort out any issue but most of all furthered my understanding if the process,    
+- the member of the Slck community who generously share their time and expertise,
 - my family and friends for all their support and feedback,
 - my unbelieveably supportive husband who, despite being very neglected recently, has not only kept me going but has also kept me (well) fed.
