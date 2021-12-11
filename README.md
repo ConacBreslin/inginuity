@@ -54,9 +54,9 @@ To enjoy visiting the site, to find out up to date information about Irish Craft
 25. Edit or delete their own reviews.
 
 ##### Superusers should be able to
-29. Add, edit or delete gins.
-30. Add, edit or delete distilleries.
-31. Edit or delete reviews.
+26. Add, edit or delete gins.
+27. Add, edit or delete distilleries.
+28. Edit or delete reviews.
 
 ## Strategy
 The site should provide a platform for people interested in irish Craft gins and distilleries to find out more about them and to share their visitor experiences.
@@ -186,6 +186,7 @@ Bugs identified during development and testing and their solutions are recorded 
 The app was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers.
 It was viewed on a variety of devices. Friends and family members reviewed the site to identify bugs and give feedback on user experience. The code was submitted for peer-review in Code Institute's peer-code-review channel in [slack.com](https://app.slack.com/). 
 ### Testing User Stories from User Experience (UX) Section.
+#### All users should be able to
 1. Understand what the website is about and navigate it intuitively.
 - The subheading on the landing page explains the nature of the site. Testers reorted no issues understanding what the site was about
 2. View all the distilleries on the site.
@@ -216,59 +217,39 @@ It was viewed on a variety of devices. Friends and family members reviewed the s
 - A tooltip shows when the user hovers over the complete order button.
 15. Easily enter payment details.
 - the form to eneter payment details is clear and does not accept invalid information.
-16. Feel personal inforamtion is secure.
+16. Feel personal information is secure.
 - It is explicitly highlighted in the checkout process that checkout is secure.
 17. View an order confirmation after checkout.
 - After checkout the order detail comes up in the success message and the user is directed to a page that summarises the order
 18. Receive a confirmation email after checkout.
 - A confirmation email is sent out for each completed order.
+#### In addition registered users should be able to
 19. Easily log in and out of their account.
+- The Sign in and Sign up button appear in a drop down in teh main navigation. Some users felt that it should be more prominent. A registration/ Sign up button could be added to the landing page but it was felt that this page should be kept clean and uncluttered and it was not added at this time.
 20. Receive a confimation email after registering.
+- A confirmation email is sent out after the user completes the sign up form.
 21. Recover their password if it is lost.
+- There is a 'Forgot password' link on the Sign in page 
 22. Have a personalised user profile.
+-Registered users have a personal profile page that can be accessed through the 'My Account link in the navigation. It shows user's details and past orders.
 23. Have an option to store their details for future ease of use.
+- There is a 'Save this information to my profile' button at the bottom of the form for registered users. 
 24. Add a review 
+- THe button to add a review only appears for registered users or superusers.
 25. Edit or delete their own reviews.
-
-
-
-
-
-
-1. Only enter the site if they are over the legal age to buy alcohol in their country.
-2. Understand what the website is about and navigate it intuitively.
-3. View all the distilleries on the site.
-4. View individual distilleries.
-5. View all the gins on the site.
-6. View individual gins.
-7. View all the reviews about the distileries.
-8. Easily register for an account.
-9. Search across gins and distilleries from the navbar.
-10. See what was searched for ad the number of results.
-11. Sort distilleries and reviews county, province or and reviews those with tours.
-12. Sort gins and reviews price, name or rating.
-13. Sort reviews and reviews distillery, author or date posted.
-14. Be able to select gins to purchase and add them to their bag
-15. View items in a their bag.
-16. Change quantity of items in their bag.
-17. Easily enter payment details.
-18. Feel personal inforamtion is secure.
-19. View an order confirmation after checkout.
-20. Receive a confirmation email after checkout.
-21. Easily log in and out of their account.
-22. Receive a confimation email after registering.
-23. Recover their password if it is lost.
-24. Have a personalised user profile.
-25. Have an option to store their details for future ease of use.
-26. Add a review 
-27. Edit or delete their own reviews.
-29. Add, edit or delete gins.
-30. Add, edit or delete distilleries.
-31. Edit or delete reviews.
+- For registered (who are not superusers) the the edit and delete buttons only appear only  on reviews  written by that user. 
+#### IN addition superusers sholud be able to
+26. Add, edit or delete gins.
+- An option shows only in the profile dropdown of superusers to add gins. Buttons appear to edit and delete gins on all gins for superusers.
+27. Add, edit or delete distilleries.
+- An option shows only in the profile dropdown of superusers to add distilleries. Buttons appear to edit and delete distilleries on all distilleries for superusers.
+28. Edit or delete reviews.
+- An option shows only in the profile dropdown of superusers to manage reviews. Buttons appear to superusers on the reviews page to edit and delete all reviews.
 
 ## Known Bugs
 1. The modals introduced for defensive programming were complicated beacuse of the difficulty getting the distillery/gin/review id into the delete button on the modal and the fix for this caused the success message box to no longer display after deleting becaus of using window.location.replace(), however at this time it was felt that defensive programming took precedence over the success message.
-2. There is some poor visual experiences when red inbuilt error messages from Django appear against the blue background of the site, these were changed to red buttons on custom html pages but time did not allow them to be changed on inbuilt Django pages. In particular this was noted on the checkout page if an incorrect credit card number is enetered and on the add a distillery page when an image is selected
+2. There is some poor visual experiences when red inbuilt error messages from Django appear against the blue background of the site, these were changed to red buttons on custom html pages but time did not allow them to be changed on inbuilt Django pages. In particular this was noted on the checkout page if an incorrect credit card number is enetered and on the add a distillery page when an image is selected.
+3. The back to top button overlies the footer on some pages on mobile and is a poor visual experience.
 
 ## Deployment
 ### The project was deployed to Heroku in the following way. 
