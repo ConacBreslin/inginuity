@@ -10,123 +10,127 @@
 {% endblock %}
 
 {% block content %}
-    <div class="overlay"></div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col text-center mb-1">
-                <h2 class="mt-4">Reviews</h2>
+<div class="overlay"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col text-center mb-1">
+            <h2 class="mt-4">Reviews</h2>
             <hr class="w-50 mt-1">
-                <div class="col-4 offset-4">
-                    {% if request.user.is_authenticated %}
-                    <a class="btn btn-outline-black rounded-0 w-50" href="{% url 'add_review' %}">Add a review</a>
-                    <hr class="w-25 mt-3">
+            <div class="col-4 offset-4">
+                {% if request.user.is_authenticated %}
+                <a class="btn btn-outline-black rounded-0 w-50" href="{% url 'add_review' %}">Add a review</a>
+                <hr class="w-25 mt-3">
+                {% endif %}
+            </div>
+        </div>
+        <div class="review-container col-10 offset-1">
+            <div class="row mt-1 mb-2">
+                <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+                    <div class="sort-select-wrapper w-50">
+                        <select id="sort-selector"
+                            class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...
+                            </option>
+                            <option value="username_asc" {% if current_sorting == 'username_asc' %}selected{% endif %}>
+                                Author (A-Z)</option>
+                            <option value="username_desc"
+                                {% if current_sorting == 'username_desc' %}selected{% endif %}>Author (Z-A)</option>
+                            <option value="distillery_asc"
+                                {% if current_sorting == 'distillery_asc' %}selected{% endif %}>Distillery (A-Z)
+                            </option>
+                            <option value="distillery_desc"
+                                {% if current_sorting == 'distillery_desc' %}selected{% endif %}>Distillery (Z-A)
+                            </option>
+                            <option value="firstcreated_asc"
+                                {% if current_sorting == 'firstcreated_asc' %}selected{% endif %}>Date Posted
+                                (oldest-newest)</option>
+                            <option value="firstcreated_desc"
+                                {% if current_sorting == 'firstcreated_desc' %}selected{% endif %}>Date Posted
+                                (newest-oldest)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 order-md-first">
+                    <p class="mt-3 text-center text-md-left small font-italic">
+                        There are {{ reviews|length }} Reviews on this page</strong>
+                    </p>
+                </div>
+            </div>
+            {% for review in reviews %}
+            <div class="row">
+                <div class="d-none d-md-block col-md-4 mr-5 mb-3">
+                    {% if review.distillery.image %}
+                    <img src="{{ review.distillery.image.url }}" alt="{{ review.distillery.name }}">
+                    {% else %}
+                    <img src="{{ MEDIA_URL }}nodistillery.jpg" alt="{{ review.distillery.name }}">
                     {% endif %}
                 </div>
-            
-        </div>
-
-      
-    
-    <div class="review-container col-10 offset-1">
-        <div class="row mt-1 mb-2">
-            <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
-                <div class="sort-select-wrapper w-50">
-                    <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
-                        <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
-                        <option value="username_asc" {% if current_sorting == 'username_asc' %}selected{% endif %}>Author (A-Z)</option>
-                        <option value="username_desc" {% if current_sorting == 'username_desc' %}selected{% endif %}>Author (Z-A)</option>
-                        <option value="distillery_asc" {% if current_sorting == 'distillery_asc' %}selected{% endif %}>Distillery (A-Z)</option>
-                        <option value="distillery_desc" {% if current_sorting == 'distillery_desc' %}selected{% endif %}>Distillery (Z-A)</option>
-                        <option value="firstcreated_asc" {% if current_sorting == 'firstcreated_asc' %}selected{% endif %}>Date Posted (oldest-newest)</option>
-                        <option value="firstcreated_desc" {% if current_sorting == 'firstcreated_desc' %}selected{% endif %}>Date Posted (newest-oldest)</option>
-                    
-                    </select>
+                <div class="col-md-5 ml-5">
+                    <p class="mb-0 lead font-weight-bold">{{ review.distillery.name }}</p>
+                    <p class=" mb-0 text-left small font-italic">{{ review.distillery.town }},
+                        {{ review.distillery.county }}</p>
+                    {% if review.title %}
+                    <p class="mb-0 font-weight-bold">{{ review.title }}</p>
+                    {% endif %}
+                    <p class="text-justify"> {{ review.body }}</p>
+                    <p class="mb-0 small font-weight-bold">Posted by : {{ review.username }}</p>
+                    <p class="mb-0 small">First posted on : {{ review.firstcreated }}</p>
+                    <p class="small">Last editted on : {{ review.lasteditted }}</p>
+                    {% if request.user.is_superuser or review.username == request.user %}
+                    <a href="{% url 'edit_review' review.id %}" class="btn-black btn-sm rounded-0">Edit review</a>
+                    <a href="#checkDeleteModal" class="delete btn-black btn-sm rounded-0"
+                        data-attr-id={{ review.id }}>Delete review</a>
+                    {% endif %}
                 </div>
             </div>
-            <div class="col-12 col-md-6 order-md-first">
-                <p class="mt-3 text-center text-md-left small font-italic">
-                    
-                    There are {{ reviews|length }} Reviews on this page</strong>
-                </p>
-            </div>
-        </div>
-        {% for review in reviews %}
-        <div class="row">
-            <div class="d-none d-md-block col-md-4 mr-5 mb-3">
-                {% if review.distillery.image %}
-                    <img src="{{ review.distillery.image.url }}" alt="{{ review.distillery.name }}">
-                {% else %}
-                    <img src="{{ MEDIA_URL }}nodistillery.jpg" alt="{{ review.distillery.name }}">
-                {% endif %}
-            </div>
-        <div class="col-md-5 ml-5">
-            <p class="mb-0 lead font-weight-bold">{{ review.distillery.name }}</p>
-            <p class=" mb-0 text-left small font-italic">{{ review.distillery.town }}, {{ review.distillery.county }}</p> 
-            {% if review.title %}
-                <p class="mb-0 font-weight-bold">{{ review.title }}</p>
-            {% endif %}
-            <p class="text-justify"> {{ review.body }}</p>
-            <p class="mb-0 small font-weight-bold">Posted by : {{ review.username }}</p>
-            <p class="mb-0 small">First posted on : {{ review.firstcreated }}</p>
-            <p class="small">Last editted on : {{ review.lasteditted }}</p>
-                {% if request.user.is_superuser or review.username == request.user %}
-                
-                    <a href="{% url 'edit_review' review.id %}" class="btn-black btn-sm rounded-0">Edit review</a>
-                    <a href="#checkDeleteModal" class="delete btn-black btn-sm rounded-0" 
-                       data-attr-id={{ review.id }} >Delete review</a>
-                
-                {% endif %}
+            <hr class="w-50">
+            {% endfor %}
         </div>
     </div>
-    <hr class="w-50">
-        {% endfor %}  
-</div>       
-</div>   
-<div class="btt-button shadow-sm rounded-0 border border-black mr-5">
-    <a class="btt-link d-flex h-100">
-        <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
-    </a>	
-</div>
-<div class="modal fade" id="checkDeleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="deleteModalLabel">Are you sure you want to delete this review?</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          Once deleted it cannot be retreived
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-black rounded-0 " data-dismiss="modal">Back to all the reviews</button>
-          <a type="button" href="#" class="btn btn-danger rounded-0 text-white" id="delete-confirm">Delete this review</a>
-        </div>
-      </div>
+    <div class="btt-button shadow-sm rounded-0 border border-black mr-5">
+        <a class="btt-link d-flex h-100">
+            <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+        </a>
     </div>
-  </div>
-  
-  
-{% endblock %}
+    <div class="modal fade" id="checkDeleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Are you sure you want to delete this review?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Once deleted it cannot be retreived
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-black rounded-0 " data-dismiss="modal">Back to all the
+                        reviews</button>
+                    <a href="#" class="btn btn-danger rounded-0 text-white" id="delete-confirm">Delete
+                        this review</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
 
-{% block postloadjs %}
+    {% block postloadjs %}
     {{ block.super }}
-    <script type="text/javascript">
-		$('.btt-link').click(function(e) {
-			window.scrollTo(0,0)
-		})
-	</script>
-    
-    <script type="text/javascript">
+    <script>
+        $('.btt-link').click(function (e) {
+            window.scrollTo(0, 0)
+        })
+
         var delete_id = -1;
 
-        $('#sort-selector').change(function() {
+        $('#sort-selector').change(function () {
             var selector = $(this);
             var currentUrl = new URL(window.location);
 
             var selectedVal = selector.val();
-            if(selectedVal != "reset"){
+            if (selectedVal != "reset") {
                 var sort = selectedVal.split("_")[0];
                 var direction = selectedVal.split("_")[1];
 
@@ -142,19 +146,16 @@
             }
         })
 
-        $(".delete").on("click", function(e)
-         { 
+        $(".delete").on("click", function (e) {
             $("#checkDeleteModal").modal('show');
             delete_id = $(this).attr("data-attr-id");
         })
 
-        $("#delete-confirm").on("click", function(e) {
+        $("#delete-confirm").on("click", function (e) {
             $("#checkDeleteModal").modal('hide');
-            fetch(`/reviews/delete/${delete_id}/`).then(resp => { 
+            fetch(`/reviews/delete/${delete_id}/`).then(resp => {
                 window.location.replace("{% url 'reviews' %}")
-                
-                
             });
         })
     </script>
-{% endblock %}
+    {% endblock %}
