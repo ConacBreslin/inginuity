@@ -2,91 +2,87 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <hr>
-                <h2 class="logo-font mb-4">Edit this Gin</h2>
-                
-                <hr>
-            </div>
-        </div>
+<div class="overlay"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <hr>
+            <h2 class="logo-font mb-4">Edit this Gin</h2>
 
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <form method="POST" action="{% url 'edit_gin' gin.id %}" class="form mb-2" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {% for field in form %}
-                        {% if field.name != 'image' %}
-                            {{ field | as_crispy_field }}
-                        {% else %}
-                            {{ field }}
-                        {% endif %}
-                    {% endfor %}
-                    <div class="text-right">
-                        <a class="btn-black btn-sm rounded-0 p-2" href="{% url 'gins' %}">Cancel</a>
-                        <button class="btn-black btn-sm rounded-0 p-1" type="submit">Update</button>
-                        <a href="#checkGinDeleteModal" class="delete btn-black btn-sm rounded-0 p-2" 
-                        data-attr-id={{ gin.id }} >Delete</a>
-
-                    </div>
-                </form>
-            </div>            
+            <hr>
         </div>
     </div>
-    <div class="modal fade" id="checkGinDeleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <form method="POST" action="{% url 'edit_gin' gin.id %}" class="form mb-2" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                {% if field.name != 'image' %}
+                {{ field | as_crispy_field }}
+                {% else %}
+                {{ field }}
+                {% endif %}
+                {% endfor %}
+                <div class="text-right">
+                    <a class="btn-black btn-sm rounded-0 p-2" href="{% url 'gins' %}">Cancel</a>
+                    <button class="btn-black btn-sm rounded-0 p-1" type="submit">Update</button>
+                    <a href="#checkGinDeleteModal" class="delete btn-black btn-sm rounded-0 p-2"
+                        data-attr-id={{ gin.id }}>Delete</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="checkGinDeleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="deleteModalLabel">Are you sure you want to delete this gin?</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+                <h5 class="modal-title" id="deleteModalLabel">Are you sure you want to delete this gin?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
-              Once deleted it cannot be retrieved
+                Once deleted it cannot be retrieved
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-black rounded-0 " data-dismiss="modal">Back to safety!</button>
-              <a  href="#" class="btn btn-danger rounded-0 text-white" id="delete-confirm">Delete this gin</a>
+                <button type="button" class="btn btn-black rounded-0 " data-dismiss="modal">Back to safety!</button>
+                <a href="#" class="btn btn-danger rounded-0 text-white" id="delete-confirm">Delete this gin</a>
             </div>
-          </div>
         </div>
-      </div>
-
+    </div>
+</div>
 {% endblock %}
 
 {% block postloadjs %}
-    {{ block.super }}
-    <script type="text/javascript">
-        $('#new-image').change(function() {
-            var file = $('#new-image')[0].files[0];
-            $('#filename').text(`Image will be set to: ${file.name}`);
+{{ block.super }}
+<script>
+    $('#new-image').change(function () {
+        var file = $('#new-image')[0].files[0];
+        $('#filename').text(`Image will be set to: ${file.name}`);
+    });
+
+    var delete_id = -1;
+
+    $(".delete").on("click", function (e) {
+        $("#checkGinDeleteModal").modal('show');
+        delete_id = $(this).attr("data-attr-id");
+    })
+
+    $("#delete-confirm").on("click", function (e) {
+        $("#checkGinDeleteModal").modal('hide');
+        fetch(`/gins/delete/${delete_id}/`).then(resp => {
+            window.location.replace("{% url 'gins' %}")
         });
-
-        var delete_id = -1;
-
-$(".delete").on("click", function(e)
-         { 
-            $("#checkGinDeleteModal").modal('show');
-            delete_id = $(this).attr("data-attr-id");
-        })
-
-        $("#delete-confirm").on("click", function(e) {
-            $("#checkGinDeleteModal").modal('hide');
-            fetch(`/gins/delete/${delete_id}/`).then(resp => { 
-                window.location.replace("{% url 'gins' %}")
-            });
-        })
-
-    </script>
+    })
+</script>
 {% endblock %}
