@@ -52,7 +52,7 @@
                 </div>
                 <div class="col-12 col-md-6 order-md-first">
                     <p class="mt-3 text-center text-md-left small font-italic">
-                        There are {{ reviews|length }} Reviews on this page</strong>
+                        There are {{ reviews|length }} Reviews on this page
                     </p>
                 </div>
             </div>
@@ -114,48 +114,49 @@
             </div>
         </div>
     </div>
-    {% endblock %}
+</div>
+{% endblock %}
 
-    {% block postloadjs %}
-    {{ block.super }}
-    <script>
-        $('.btt-link').click(function (e) {
-            window.scrollTo(0, 0)
-        })
+{% block postloadjs %}
+{{ block.super }}
+<script>
+    $('.btt-link').click(function (e) {
+        window.scrollTo(0, 0)
+    })
 
-        var delete_id = -1;
+    var delete_id = -1;
 
-        $('#sort-selector').change(function () {
-            var selector = $(this);
-            var currentUrl = new URL(window.location);
+    $('#sort-selector').change(function () {
+        var selector = $(this);
+        var currentUrl = new URL(window.location);
 
-            var selectedVal = selector.val();
-            if (selectedVal != "reset") {
-                var sort = selectedVal.split("_")[0];
-                var direction = selectedVal.split("_")[1];
+        var selectedVal = selector.val();
+        if (selectedVal != "reset") {
+            var sort = selectedVal.split("_")[0];
+            var direction = selectedVal.split("_")[1];
 
-                currentUrl.searchParams.set("sort", sort);
-                currentUrl.searchParams.set("direction", direction);
+            currentUrl.searchParams.set("sort", sort);
+            currentUrl.searchParams.set("direction", direction);
 
-                window.location.replace(currentUrl);
-            } else {
-                currentUrl.searchParams.delete("sort");
-                currentUrl.searchParams.delete("direction");
+            window.location.replace(currentUrl);
+        } else {
+            currentUrl.searchParams.delete("sort");
+            currentUrl.searchParams.delete("direction");
 
-                window.location.replace(currentUrl);
-            }
-        })
+            window.location.replace(currentUrl);
+        }
+    })
 
-        $(".delete").on("click", function (e) {
-            $("#checkDeleteModal").modal('show');
-            delete_id = $(this).attr("data-attr-id");
-        })
+    $(".delete").on("click", function (e) {
+        $("#checkDeleteModal").modal('show');
+        delete_id = $(this).attr("data-attr-id");
+    })
 
-        $("#delete-confirm").on("click", function (e) {
-            $("#checkDeleteModal").modal('hide');
-            fetch(`/reviews/delete/${delete_id}/`).then(resp => {
-                window.location.replace("{% url 'reviews' %}")
-            });
-        })
-    </script>
-    {% endblock %}
+    $("#delete-confirm").on("click", function (e) {
+        $("#checkDeleteModal").modal('hide');
+        fetch(`/reviews/delete/${delete_id}/`).then(resp => {
+            window.location.replace("{% url 'reviews' %}")
+        });
+    })
+</script>
+{% endblock %}
