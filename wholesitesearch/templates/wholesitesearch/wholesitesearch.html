@@ -116,7 +116,7 @@
                                         <p class="lead mb-0 text-left font-weight-bold">{{ distillery.town }}</p>
                                         <p class="lead mb-0 text-left font-weight-bold">{{ distillery.county }}</p>
                                         {% if request.user.is_superuser %}
-                                            <small class="ml-3">
+                                            <small>
                                                 <a href="{% url 'edit_distillery' distillery.id %}" class="btn-black btn-sm rounded-0">Edit</a> | 
                                                 <a class="delete btn-black btn-sm rounded-0" href="{% url 'delete_distillery' distillery.id %}">Delete</a>
                                             </small>
