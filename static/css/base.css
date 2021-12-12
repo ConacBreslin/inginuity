@@ -24,7 +24,6 @@ footer {
     background-color: #7fa1d1;
     color: #000;
     width:100%;
-    
 }
 
 /*div added to signin and signup pages to push down footer*/
@@ -33,7 +32,7 @@ footer {
 }
 
 #landing-heading-large {
-    color: #FFF;    
+    color: #FFF !important;    
     font-size: 108px;
     font-weight:900;
     letter-spacing: 4px;
@@ -41,7 +40,7 @@ footer {
 }
 
 #landing-heading-small {
-    color: #FFF;    
+    color: #FFF !important;    
     font-size: 60px;
     font-weight:900;
     letter-spacing: 2px;
@@ -49,7 +48,7 @@ footer {
 }
 
 #landing-subheading {
-    color: #FFF;    
+    color: #FFF ;    
     font-size: 40px;
     font-weight:700;
     letter-spacing: 2px;
@@ -70,6 +69,10 @@ footer {
     width: 1.5rem;
     
     
+}
+
+.card-bkgr-geninfo {
+    background-color: #7fa1d1;
 }
 
 /* site wide button styling */

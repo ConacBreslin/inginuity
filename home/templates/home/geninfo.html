@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+  <div class="row">
+    <div class="col"></div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-8 offset-2 text-center mb-1">
+      <h2 class="mt-4">Hello!</h2>
+      <div class="card mb-0 card-bkgr-geninfo">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="{{ MEDIA_URL }}distillery.jpg" class="card-img" alt="distillery-image">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Welcome to Inginuity</h5>
+              <p class="card-text text-justify">The site that keeps you up-to-date with all the latest information about the Irish
+                Craft Gin world.
+                Here you can find out all about the many Irish craft gin distilleries and the gins they produce.</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Gin card for mobile -->
+      <div class="card mb-0 card-bkgr-geninfo d-md-none">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="{{ MEDIA_URL }}ginglass.jpg" class="card-img" alt="gin-glass">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Gin</h5>
+              <p class="card-text text-justify">Gin takes its name from the Dutch word for “juniper”, genever. When British and Irish
+                soldiers went to Holland in the 17th centuryto fight the “30 Years' War”, they were impressed by how
+                Dutch
+                soldiers were able to boost their pre-battle morale with a few glasses of certain a juniper-based tipple
+                -
+                hence the phrase “Dutch Courage.” After that, gin became hugely popular in urban centres in Britain,
+                with
+                most households distilling their own supplies. Ireland already had a proud distilling tradition not only
+                with whiskey,
+                but also a potato-based spirit called poitín.</p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Gin card for desktop -->
+      <div class="card mb-0 card-bkgr-geninfo d-none d-md-block">
+        <div class="row no-gutters">
+
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Gin</h5>
+              <p class="card-text text-justify">Gin takes its name from the Dutch word for “juniper”, genever. When British and Irish
+                soldiers went to Holland in the 17th century to fight the “30 Years' War”, they were impressed by how
+                Dutch
+                soldiers were able to boost their pre-battle morale with a few glasses of certain a juniper-based tipple
+                -
+                hence the phrase “Dutch Courage.” After that, gin became hugely popular in urban centres in Britain,
+                with
+                most households distilling their own supplies. Ireland already had a proud distilling tradition not only
+                with whiskey,
+                but also a potato-based spirit called poitín.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <img src="{{ MEDIA_URL }}ginglass.jpg" class="card-img" alt="gin-glass">
+          </div>
+        </div>
+      </div>
+
+
+      <div class="card mb-0 card-bkgr-geninfo">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="{{ MEDIA_URL }}juniper.jpg" class="card-img" alt="juniper">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Irish Gin</h5>
+              <p class="card-text text-justify">Distillation of gin in Ireland took off in a big way in the noughties when it
+                transformed itself from parental
+                pick-me-up to the hipster tipple of choice. There are dozens of artisan distilleries on the island of
+                Ireland making top-notch,
+                and distinctive, gins for the Irish and overseas markets. The profusion of different botanicals gives
+                many of these gins a
+                distinctive bouquet and taste which differentiates them from mass-produced brands. Distillers are never
+                far from wild habitats
+                where they can forage for herbs, lavender, floral varieties and berries which will give character and
+                place-recognition to their brands. There are also good supplies of natural and pure water sources. For
+                these reasons gin
+                distilleries have sprung up all over Ireland with major artisan brands based not only in Dublin and
+                Cork, but also further
+                afield in West Cork, Kerry, Clare, Mayo and Donegal, as well as County Down and Louth, and midland
+                counties such as Longford
+                and Monaghan. Starting a gin distillery takes serious money. However, the lush profusion of natural
+                products can enhance the
+                taste offering, thereby enabling the distiller to produce a differentiated and luxury product that sets
+                it apart from established
+                brands.</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3 card-bkgr-geninfo">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="{{ MEDIA_URL }}cocktail.jpg" class="card-img" alt="cocktails">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Cocktail of the week</h5>
+              <p class="card-text">Negroni.</p>
+              <p class="card-text">
+                <ul class="text-left">
+                  <li>25ml gin</li>
+                  <li>25ml sweet vermouth</li>
+                  <li>25ml Campari</li>
+                  <li>1 strip of peeled orange zest</li>
+                </ul>
+                Pour the gin, vermouth and Campari into a rocks glass filled with ice. Stir until it is diluted to your
+                taste, then twist the orange peel over the glass to release the oils and drop it into the drink before
+                serving.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div>
+
+      </div>
+
+    </div>
+    <div class="col-2 my-auto d-none d-md-block text-center bg-black text-white">
+      <h2>Coming soon!</h2>
+      <h3>Competition time</h3>
+      <p>Win a trip to the distillery of your choice from Inginuity</p>
+
+    </div>
+  </div>
+
+</div>
+{% endblock %}
