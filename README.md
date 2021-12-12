@@ -168,9 +168,9 @@ STRIPE was used as a payment platform for secure checkout and payment.
 ## Images
 - The images were stored in [Imgur](https://i.imgur.com/).
 - The images were formatted using [online-image-editor.com/](https://www.online-image-editor.com/) and [tinypng.com/](https://tinypng.com/).
-- The background image  is by [Michael](https://unsplash.com/@michael75?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) in [unsplash.com](https://unsplash.com/).
-- The empty bottle image is by [Bobby Donald](https://unsplash.com/@__b_d__) in [unsplash.com](https://unsplash.com/).
-- The road image is by Fabian Wiktor in [pexels.com](https://www.pexels.com/).
+- The background image is by [Michael](https://unsplash.com/@michael75?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText), the empty bottle image by [Bobby Donald](https://unsplash.com/@__b_d__), the cocktails image by [Kobby Mendez](https://unsplash.com/@kobbyfotos), the glass of gin by [Jez Timms](https://unsplash.com/@jeztimms) and the distillery by [Paul Byrne](https://unsplash.com/@paulberingar) all in [unsplash.com](https://unsplash.com/).
+- The road image is by Fabian Wiktor and the Juniper berry by  in [pexels.com](https://www.pexels.com/).
+- 
 - The gin and distillery images and content were, when possible, taken directly from the distillery websites, if this was not available magazine articles, in particular [Irish Whiskey Magazine](https://www.irishwhiskeymagazine.com/), were used. Some gin images were taken from shop websites including [the whiskeyexchange](https://www.thewhiskyexchange.com/) and [celticwhiskey](https://celticwhiskey.com/).
 - Some reviews were copied from [tripadvisor.ie](https://www.tripadvisor.ie/)
 
