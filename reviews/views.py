@@ -21,7 +21,7 @@ def all_reviews(request):
             sortkey = request.GET['sort']
             sort = sortkey
             if sortkey == 'username':
-                reviews = reviews.annotate(lower_username=Lower('User.username'))
+                reviews = reviews.annotate(lower_username=Lower('username'))
             if sortkey == 'distillery':
                 sortkey = 'distillery__name'
             if 'direction' in request.GET:

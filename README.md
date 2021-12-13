@@ -147,6 +147,7 @@ An Entity Relationship Diagram for the project can be seen [here.](/media/inginu
 - [Heroku](https://id.heroku.com/login) was used to deploy the app.
 - [sqlite](https://sqlite.org/index.html) was used to store data in development and [postgresql](https://www.postgresql.org/) in the deployed project.
 - [GitHub](https://github.com/) was used for storing the code after being pushed from Git.
+- THe ERD was made using [](https://lucid.app/)
 - [Amazon Simple Storage Service (s3)](https://aws.amazon.com/products/storage/?nc2=h_ql_prod_st) was used to store the static files for the deployed project.
 STRIPE was used as a payment platform for secure checkout and payment.
 - [miniwebtool.com](https://miniwebtool.com/django-secret-key-generator/) was used to generate a secret keys.
