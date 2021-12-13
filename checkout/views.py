@@ -4,7 +4,7 @@ from django.shortcuts import (render, redirect, reverse,
 from django.contrib import messages
 from django.views.decorators.http import require_POST
 from django.conf import settings
-from .forms import OrderForm, Order
+from .forms import OrderForm
 from .models import OrderLineItem, Order
 from gins.models import Gin
 from shoppingbag.contexts import shoppingbag_contents
